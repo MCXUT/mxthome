@@ -5,6 +5,7 @@ const mongo = require("mongodb");
 const mongoose = require("mongoose");
 const path = require("path");
 const session = require("express-session");
+const ejs = require("ejs");
 
 const passport = require("./config/passport_config");
 const keys = require("./config/keys");
@@ -19,6 +20,7 @@ const db = mongoose.connection;
 // set view engine
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
+app.engine("html", ejs.renderFile);
 
 // Set bodyparser
 app.use(bodyParser.json());
@@ -41,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Home route
 app.get("/", (req, res) => {
-    res.render("home");
+    res.render("mxtwebsite.html");
 });
 
 app.use("/auth", userRoutes);
