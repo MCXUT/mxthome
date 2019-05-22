@@ -28,8 +28,9 @@ module.exports = function(app) {
       else {
         console.log("Message sent : ", info);
         // window.alert("Thank you! Your message has been sent successfully!");
-        res.redirect("/");
+        //res.redirect("/");
       }
+      res.render("page_feedback.html", {err: err});
     });
 
   });
