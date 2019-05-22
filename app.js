@@ -39,7 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Set static directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Home route
 app.get("/", (req, res) => {
