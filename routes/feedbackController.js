@@ -27,7 +27,7 @@ module.exports = function(app) {
       }
       else {
         console.log("Message sent : ", info);
-        window.alert("Thank you! Your message has been sent successfully!");
+        // window.alert("Thank you! Your message has been sent successfully!");
         res.redirect("/");
       }
     });
