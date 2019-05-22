@@ -6,8 +6,15 @@ html,body{
   font-family:'Poppins', sans-serif;
   color:#222;
 }
+#logo{
+  width:53px;
+}
 navbar{
   padding:.8rem; /*16px*/
+}
+.navbar-brand{
+  height:47px;
+  padding:0;
 }
 .navbar-nav li{
   padding-right: 20px;
@@ -23,6 +30,7 @@ navbar{
 .carousel-inner img{
   width:100%;
   height:100%;
+  display: block;
 }
 .carousel-indicators{
   bottom:5%;
@@ -270,52 +278,6 @@ hr.light-100{
     padding:.7rem;
   }
 }
-/*yona's css code*/
-
-/* .navbar-brand {
-  padding: 0 15px;
-  height: 80px;
-  line-height: 80px;
-}
-
-
-
-.center {
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  width:100%;
-}
-
-.navbar-brand{
-  height:47px;
-  padding:0;
-}
-
-.row.Jumbotron{
-  background-color:#e9ecefab;
-}
-#logo{
-  width:53px;
-}
-
-.center {
-  display:block;
-  margin-left: auto;
-  margin-right: auto;
-  width:100%;
-}*/
-#logo{
-  width:53px;
-}
-
-.navbar-brand{
-  height:47px;
-  padding:0;
-}
-
-
-
 
 
 /*---Firefox Bug Fix --*/
@@ -342,7 +304,7 @@ figure {
   height: 100%;
 }
 #fixed {
-  background-image: url('img/mac.png');
+  background-image: url('/static/images/mac.png');
   position: fixed;
   display: block;
   top: 0;
