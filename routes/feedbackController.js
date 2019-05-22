@@ -23,12 +23,12 @@ module.exports = function(app) {
 
     transporter.sendMail(mailOption, function(err, info){
       if(err) {
-        console.error("Send Mail Error : ", err);
+        res.render("page_feedback.html", {err: err});
       }
       else {
-        console.log("Message sent : ", info);
+        res.render("page_feedback.html", {err: false});
       }
-      res.render("page_feedback.html", {err: err});
+
     });
 
   });
