@@ -6,6 +6,10 @@ module.exports = function(app) {
     res.render("page_feedback.html");
   });
 
+  app.get("/feedback_thanks", function(req, res) {
+    res.render("feedback_thanks.html");
+  });
+
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -27,8 +31,8 @@ module.exports = function(app) {
       }
       else {
         console.log("Message sent : ", info);
+        res.redirect("/feedback_thanks");
       }
-      res.render("page_feedback.html", {err: err});
     });
 
   });
