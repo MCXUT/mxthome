@@ -3,7 +3,7 @@ module.exports = function(app) {
   const emailKeys = require("../config/keys");
 
   app.get("/feedback", function(req, res){
-    res.render("page_feedback.html");
+    res.render("page_feedback");
   });
 
   var transporter = nodemailer.createTransport({

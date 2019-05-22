@@ -8,6 +8,10 @@ body{
   background-position: center;
   font-family: sans-serif;
 }
+#contact-form {
+    /* margin-left: 430px; */
+}
+
 .contact-title{
   margin-top: 100px;
   color: #fff;
