@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", userRoutes);
-
+var feedbackController = require("./routes/feedbackController")(app);
 // Set port and listen to it
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), () => {
