@@ -27,8 +27,8 @@ module.exports = function(app) {
       }
       else {
         console.log("Message sent : ", info);
-        res.redirect("/");
       }
+      res.render("page_feedback.html", {err: err});
     });
 
   });

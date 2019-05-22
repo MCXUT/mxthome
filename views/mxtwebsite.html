@@ -19,7 +19,15 @@
   <p>Click the button and it will disappear.</p>
   <button class="btn btn-success" onclick="$(this).hide();"> Click me! </button>
 </div> -->
-
+<script>
+$("nav").find("a").click(function(e) {
+  e.preventDefault();
+  var section = $(this).attr("href");
+  $("html, body").animate({
+      scrollTop: $(section).offset().top
+  });
+});
+</script>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 <div class="container-fluid"> <!--so it takes up 100% of screen-->
@@ -32,21 +40,21 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#" onclick="$(this).;">Home</a>
+        <a class="nav-link" href="\">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About MxT</a>
+        <a class="nav-link" href="#about">About MxT</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Team</a>
+        <a class="nav-link" href="#team">Team</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Our Projects</a>
+        <a class="nav-link" href="#projects">Our Projects</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/feedback">Services</a>
       </li><li class="nav-item">
-        <a class="nav-link" href="#">Connect</a>
+        <a class="nav-link" href="#connect">Connect</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Log In/Sign Up</a>
@@ -59,7 +67,7 @@
 
 <!--- Image Slider -->
 
-      <div class=container-fluid">
+      <div class="container-fluid">
       <div id="slides" class="carousel slide" data-ride="carousel">
       <ul class="carousel-indicators">
         <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -118,7 +126,7 @@
 
 <!--- Two Column Section -->
 <div class="container-fluid padding">
-<div class="row Philosophy padding">
+<div id="about" class="row Philosophy padding">
   <div class="col-lg-6"> <!--may or may not include col-md-12-->
     <h1>Our Philosophy</h1>
     <hr class="my-4">
@@ -172,7 +180,7 @@ click for fun</button>
 
 <!--- Meet the team -->
 <div class="container-fluid welcome padding">
-  <div class="row text-center">
+  <div id ="team" class="row text-center">
     <div class="col-12">
       <h1 class="display-4">Meet the Team</h1>
       <hr class="my-4">
@@ -256,7 +264,7 @@ click for fun</button>
 
 <!--- Connect -->
 <div class="container-fluid padding">
-<div class="row text-center padding">
+<div id="connect" class="row text-center padding">
   <div class="col-12">
     <h1>Connect</h1>
   </div>
