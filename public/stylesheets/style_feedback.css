@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> bad78c13f7ce549ea50cee82101c6a1809cb3bab
 body{
   margin: 0;
   padding: 0;
   text-align: center;
+<<<<<<< HEAD
   background: linear-gradient(rgba(0, 0, 50, 0.5), rgba(0, 0, 50, 0.5)),
   url(/static/images/feedback.jpg);
+=======
+  background: linear-gradient(rgba(0, 0, 50, 0.5), rgba(0, 0, 50, 0.5)), url(/static/images/feedback.jpg);
+>>>>>>> bad78c13f7ce549ea50cee82101c6a1809cb3bab
   background-size: cover;
   background-position: center;
   font-family: sans-serif;
