@@ -13,16 +13,6 @@
 
 <body>
 
-  <script>
-  $("nav").find("a").click(function(e) {
-    e.preventDefault();
-    var section = $(this).attr("href");
-    $("html, body").animate({
-        scrollTop: $(section).offset().top
-    });
-  });
-  </script>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top"
   <div class="container-fluid"> <!--so it takes up 100% of screen-->
@@ -54,9 +44,10 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Log In/Sign Up</a>
         </li>
+      </ul>
     </div>
-   </div>
-  </nav>
+  </div>
+</nav>
 
   <!--feedback section-->
 
@@ -112,10 +103,4 @@
     </div>
   </div>
 </footer>
-
-  <script>
-    var err = "<%= err %>";
-    if(err) alert ("error");
-    else alert("success");
-  </script>
 </html>
