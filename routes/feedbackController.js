@@ -6,6 +6,7 @@ module.exports = function(app) {
     res.render("page_feedback.html");
   });
 
+  // Redirected route once feedback email has been successfully sent
   app.get("/feedback_thanks", function(req, res) {
     res.render("feedback_thanks.html");
   });
@@ -21,8 +22,8 @@ module.exports = function(app) {
     var mailOption = {
       from : req.body.email,
       to : emailKeys.emailInfo.user,
-      subject : req.body.name,
-      text : req.body.message
+      subject : "MXT.com feedback",
+      text : "Feedback from "+ req.body.name + " : " + req.body.email + "\n\n" + req.body.message
     };
 
     transporter.sendMail(mailOption, function(err, info){
