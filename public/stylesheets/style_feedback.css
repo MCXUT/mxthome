@@ -8,6 +8,9 @@ body{
   background-position: center;
   font-family: sans-serif;
 }
+#contact-form {
+    display: inline-block;
+}
 #logo{
   width:53px;
 }
