@@ -8,35 +8,10 @@
 </head>
 
 <body>
-  <script>
-  // Add active class to the current button (highlight it)
-  var header = document.getElementById("myDIV");
-  var btns = header.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    if (current.length > 0) {
-      current[0].className = current[0].className.replace(" active", "");
-    }
-    this.className += " active";
-    });
-  }
-  </script>
-  <script>
-  $("nav").find("a").click(function(e) {
-    e.preventDefault();
-    var section = $(this).attr("href");
-    $("html, body").animate({
-        scrollTop: $(section).offset().top
-    });
-  });
-  </script>
-
   <!-- Navigation -->
   <% include ./partials/navbar %>
 
   <!--feedback section-->
-
     <div class="contact-title">
       <h1>Say Hello!</h1>
       <h2>We are always ready to serve you better!</h2>

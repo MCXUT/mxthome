@@ -3,28 +3,16 @@
 <head>
   <title>MxT Website</title>
   <meta charset="utf-8">
+
   <% include ./partials/header %>
 </head>
 
 <body>
-
-
-<script>
-$("nav").find("a").click(function(e) {
-  e.preventDefault();
-  var section = $(this).attr("href");
-  $("html, body").animate({
-      scrollTop: $(section).offset().top
-  });
-});
-</script>
-
 <!-- Navigation -->
 <% include ./partials/navbar %>
 
-
 <!--- Image Slider -->
-
+<div id="home">
       <div class="container-fluid" id="mainDiv">
       <div id="slides" class="carousel slide" data-ride="carousel">
       <ul class="carousel-indicators">
@@ -51,7 +39,7 @@ $("nav").find("a").click(function(e) {
       </div>
       </div>
       </div>
-
+</div>
 
 <!--- Jumbotron -->
 <div class="container-fluid">
@@ -65,7 +53,7 @@ $("nav").find("a").click(function(e) {
 </div>
 </div>
 
-<!--- Welcome Section -->
+<!--- Empty Section -->
 <div class="container-fluid padding">
 <div class="row empty">
   <div class="col-12"></div>
@@ -139,7 +127,7 @@ click for fun</button>
 
 
 <!--- Meet the team -->
-<div id="team">
+<div id="team"><br><br>
 <div class="container-fluid welcome padding">
   <div class="row text-center">
     <div class="col-12">
@@ -202,7 +190,7 @@ click for fun</button>
         <img class="card-img-top" src="/static/images/team1.png" height="370" width="200">
         <div class="card-body">
           <h4 class="card-title">Jungoh Chang</h4>
-          <p class="card-text">(edit)Yona Kim is a front-end developper with 2 weeks of experience.</p>
+          <p class="card-text">(edit)Jungoh Chang is a front-end developper with a month of experience.</p>
           <a href="#" class="btn btn-outline-secondary">See Profile</a>
         </div>
       </div>
@@ -221,6 +209,48 @@ click for fun</button>
   </div>
 </figure>
 
+<!--- Empty Section -->
+<div class="container-fluid padding">
+<div class="row empty">
+  <div class="col-12"></div>
+</div>
+</div>
+<!-- Counting
+  ================================================== -->
+  <section id="nino-counting">
+    <div class="container">
+      <div layout="row" class="verticalStretch">
+
+        <div class="item">
+          <div class="number">1</div>
+          <div class="text">Web Design Projects</div>
+        </div>
+
+
+        <div class="item">
+          <div class="number">6</div>
+          <div class="text">happy clients</div>
+        </div>
+
+
+        <div class="item">
+          <div class="number">5</div>
+          <div class="text">award winner</div>
+        </div>
+
+        <div class="item">
+          <div class="number">999</div>
+          <div class="text">cups of coffee</div>
+        </div>
+
+        <div class="item">
+          <div class="number">0</div>
+          <div class="text">members</div>
+        </div>
+      </div>
+    </div>
+
+  </section><!--/#nino-counting-->
 
 
 <!--- Connect -->
@@ -240,6 +270,8 @@ click for fun</button>
 </div>
 </div>
 </div>
+
+
 
 <% include ./partials/footer %>
 
