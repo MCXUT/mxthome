@@ -28,7 +28,7 @@ module.exports = function(app) {
 
     transporter.sendMail(mailOption, function(err, info){
       if(err) {
-        res.render("page_feedback.html", {err: err});
+        console.error("Send Mail Error : ", err);
       }
       else {
         console.log("Message sent : ", info);
