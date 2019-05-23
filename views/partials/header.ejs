@@ -16,45 +16,45 @@
 </head>
 <body>
     <script>
-    $("nav").find("a").click(function(e) {
-      e.preventDefault();
-      var section = $(this).attr("href");
-      $("html, body").animate({
-          scrollTop: $(section).offset().top
-      });
-    });
+        $("nav").find("a").click(function(e) {
+          e.preventDefault();
+          var section = $(this).attr("href");
+          $("html, body").animate({
+              scrollTop: $(section).offset().top
+          });
+        });
     </script>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top"
-    <div class="container-fluid"> <!--so it takes up 100% of screen-->
-      <a class="navbar-brand" href="/"><img src="/static/images/this.png" id="logo"></a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About MxT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#team">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">Our Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/feedback">Services</a>
-          </li><li class="nav-item">
-            <a class="nav-link" href="#connect">Connect</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Log In/Sign Up</a>
-          </li>
-      </div>
-     </div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="/static/images/this.png" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About MxT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Our Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/feedback">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#connect">Connect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log In/Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
