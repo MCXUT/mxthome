@@ -6,34 +6,12 @@
   <% include ./partials/header %>
 </head>
 
-<body>
-<script>
-// Add active class to the current button (highlight it)
-var header = document.getElementById("myDIV");
-var link = header.getElementsByClassName("nav-item");
-for (var i = 0; i < link.length; i++) {
-  link[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  if (current.length > 0) {
-    current[0].className = current[0].className.replace(" active", "");
-  }
-  this.className += " active";
-  });
-}
-</script>
+<% include ./partials/navbar %>
 
-<script>
-$("nav").find("a").click(function(e) {
-  e.preventDefault();
-  var section = $(this).attr("href");
-  $("html, body").animate({
-      scrollTop: $(section).offset().top
-  });
-});
-</script>
+<body>
 
 <!-- Navigation -->
-<% include ./partials/navbar %>
+
 
 
 <!--- Image Slider -->
