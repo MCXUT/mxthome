@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title> Contact Form </title>
+    <meta charset="utf-8">
     <% include ./partials/header %>
-    <link rel="stylesheet" type="text/css" href="/static/stylesheets/style_feedback.css">
-
+    <link rel="stylesheet" href="/static/stylesheets/style_feedback.css">
 </head>
 
 <body>
-    <!-- navbar section -->
-    <% include ./partials/navbar %>
+  <script>
+  // Add active class to the current button (highlight it)
+  var header = document.getElementById("myDIV");
+  var btns = header.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+    this.className += " active";
+    });
+  }
+  </script>
+  <script>
+  $("nav").find("a").click(function(e) {
+    e.preventDefault();
+    var section = $(this).attr("href");
+    $("html, body").animate({
+        scrollTop: $(section).offset().top
+    });
+  });
+  </script>
+
+  <!-- Navigation -->
+  <% include ./partials/navbar %>
+
   <!--feedback section-->
 
     <div class="contact-title">
@@ -24,9 +48,12 @@
       <textarea name="message" class="form-control" placeholder="Your Message" textarea rows="4" required></textarea><br>
       <input type="submit" class="form-control submit" value="Send Message">
     </form>
+
   </div>
 </body>
 
+<!--- Footer -->
 <% include ./partials/footer %>
+
 
 </html>

@@ -9,6 +9,9 @@ html,body{
 #logo{
   width:53px;
 }
+.active, .navbar-toggler:hover {
+ color:#666;
+}
 navbar{
   padding:.8rem; /*16px*/
 }

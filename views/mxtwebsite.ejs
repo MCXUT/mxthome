@@ -3,22 +3,38 @@
 <head>
   <title>MxT Website</title>
   <meta charset="utf-8">
-
   <% include ./partials/header %>
 </head>
+
 <body>
+<script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var link = header.getElementsByClassName("nav-item");
+for (var i = 0; i < link.length; i++) {
+  link[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  if (current.length > 0) {
+    current[0].className = current[0].className.replace(" active", "");
+  }
+  this.className += " active";
+  });
+}
+</script>
 
 <script>
-    $("nav").find("a").click(function(e) {
-      e.preventDefault();
-      var section = $(this).attr("href");
-      $("html, body").animate({
-          scrollTop: $(section).offset().top
-      });
-    });
+$("nav").find("a").click(function(e) {
+  e.preventDefault();
+  var section = $(this).attr("href");
+  $("html, body").animate({
+      scrollTop: $(section).offset().top
+  });
+});
 </script>
-<!-- navbar section -->
+
+<!-- Navigation -->
 <% include ./partials/navbar %>
+
 
 <!--- Image Slider -->
 
@@ -80,8 +96,9 @@
 
 
 <!--- Two Column Section -->
+<div id="about">
 <div class="container-fluid padding">
-<div id="about" class="row Philosophy padding">
+<div class="row Philosophy padding">
   <div class="col-lg-6"> <!--may or may not include col-md-12-->
     <h1>Our Philosophy</h1>
     <hr class="my-4">
@@ -101,7 +118,7 @@
 </div>
 <hr class="my-4">
 </div>
-
+</div>
 <!--- Fixed background -->
 <figure>
   <div class="fixed-wrap">
@@ -133,8 +150,10 @@ click for fun</button>
   </div>
 </div>
 
+
 <!--- Meet the team -->
-<div id ="team" class="container-fluid welcome padding">
+<div id="team">
+<div class="container-fluid welcome padding">
   <div class="row text-center">
     <div class="col-12">
       <h1 class="display-4">Meet the Team</h1>
@@ -195,7 +214,7 @@ click for fun</button>
       <div class="card">
         <img class="card-img-top" src="/static/images/team1.png" height="370" width="200">
         <div class="card-body">
-          <h4 class="card-title">Yona Kim</h4>
+          <h4 class="card-title">Jungoh Chang</h4>
           <p class="card-text">(edit)Yona Kim is a front-end developper with 2 weeks of experience.</p>
           <a href="#" class="btn btn-outline-secondary">See Profile</a>
         </div>
@@ -205,7 +224,7 @@ click for fun</button>
 
   </div>
 </div>
-
+</div>
 <!--- Fixed background -->
 <figure>
   <div class="fixed-wrap">
@@ -218,8 +237,9 @@ click for fun</button>
 
 
 <!--- Connect -->
+<div id="connect">
 <div class="container-fluid padding">
-<div id="connect" class="row text-center padding">
+<div class="row text-center padding">
   <div class="col-12">
     <h1>Connect</h1>
   </div>
@@ -230,6 +250,7 @@ click for fun</button>
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-youtube"></i></a>
   </div>
+</div>
 </div>
 </div>
 
