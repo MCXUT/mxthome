@@ -6,7 +6,6 @@ html,body{
   font-family:'Poppins', sans-serif;
   color:#222;
 }
-
 #logo{
   width:53px;
 }
@@ -28,6 +27,9 @@ navbar{
   top:0;
   width:100%;
 }
+#mainDiv {
+    padding: 0px;
+}
 .carousel-item img{
   top: 0;
   left: 0;
@@ -40,9 +42,6 @@ navbar{
 }
 .carousel-item {
   align-items: center;
-}
-div.container-fluid{
-  padding: 0;
 }
 
 .btn-primary{
