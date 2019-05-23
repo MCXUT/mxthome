@@ -62,9 +62,11 @@ router.get("/login", (req, res) => {
 
 router.post('/login', passport.authenticate('local-login', {
     successRedirect: "/",
-    failureRedirect: "/auth/login"
+    failureRedirect: "/",
+    failureFlash: "Invalid username or password"
 }), (req, res) => {
-    res.redirect("/");
+
 });
+
 
 module.exports = router;

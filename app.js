@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const session = require("express-session");
 const ejs = require("ejs");
+const flash = require("connect-flash");
 
 const passport = require("./config/passport_config");
 const keys = require("./config/keys");
@@ -40,6 +41,13 @@ app.use(passport.session());
 
 // Set static directory
 app.use("/static", express.static(path.join(__dirname, 'public')));
+
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.error_msg = req.flash("error_msg");
+    res.locals.error = req.flash("error");
+    next();
+});
 
 // Home route
 app.get("/", (req, res) => {
