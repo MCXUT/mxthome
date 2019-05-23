@@ -43,7 +43,7 @@ app.use("/static", express.static(path.join(__dirname, 'public')));
 
 // Home route
 app.get("/", (req, res) => {
-    res.render("mxtwebsite.html");
+    res.render("mxtwebsite");
 });
 
 app.use("/auth", userRoutes);

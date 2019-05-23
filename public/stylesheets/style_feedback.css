@@ -1,4 +1,3 @@
-
 body{
   margin: 0;
   padding: 0;
@@ -8,6 +7,7 @@ body{
   background-position: center;
   font-family: sans-serif;
 }
+<<<<<<< HEAD
 #logo{
   width:53px;
 }
@@ -29,6 +29,13 @@ navbar{
   top:0;
   width:100%;
 }
+=======
+#contact-form {
+    /* margin-left: 430px; */
+    display: inline-block;
+}
+
+>>>>>>> 61663cd0ea6a9ee1abdf8e76d9e59f1bf17211d4
 .contact-title{
   margin-top: 100px;
   color: #fff;

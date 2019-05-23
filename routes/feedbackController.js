@@ -3,7 +3,12 @@ module.exports = function(app) {
   const emailKeys = require("../config/keys");
 
   app.get("/feedback", function(req, res){
-    res.render("page_feedback.html");
+    res.render("page_feedback");
+  });
+
+  // Redirected route once feedback email has been successfully sent
+  app.get("/feedback_thanks", function(req, res) {
+    res.render("feedback_thanks");
   });
 
   var transporter = nodemailer.createTransport({
@@ -17,18 +22,18 @@ module.exports = function(app) {
     var mailOption = {
       from : req.body.email,
       to : emailKeys.emailInfo.user,
-      subject : req.body.name,
-      text : req.body.message
+      subject : "MXT.com feedback",
+      text : "Feedback from "+ req.body.name + " : " + req.body.email + "\n\n" + req.body.message
     };
 
     transporter.sendMail(mailOption, function(err, info){
       if(err) {
-        console.error("Send Mail Error : ", err);
+        res.render("page_feedback.html", {err: err});
       }
       else {
         console.log("Message sent : ", info);
+        res.redirect("/feedback_thanks");
       }
-      res.render("page_feedback.html", {err: err});
     });
 
   });
