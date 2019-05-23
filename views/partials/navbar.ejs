@@ -54,11 +54,11 @@
     </nav>
 
     <% if(error && error.length > 0) { %>
-    <div class="bg-modal sticky-top" style="display: flex;">
+    <div class="bg-modal sticky-top" style="display: flex;" id="outside">
         <div class="modal-content">
             <%= error %>
     <% } else { %>
-    <div class="bg-modal sticky-top">
+    <div class="bg-modal sticky-top" id="outside">
         <div class="modal-content">
     <% } %>
             <div class="close">+</div>
