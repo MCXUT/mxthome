@@ -9,6 +9,7 @@ body{
 }
 #contact-form {
     /* margin-left: 430px; */
+    display: inline-block;
 }
 
 .contact-title{
