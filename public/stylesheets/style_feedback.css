@@ -8,6 +8,27 @@ body{
   background-position: center;
   font-family: sans-serif;
 }
+#logo{
+  width:53px;
+}
+navbar{
+  padding:.8rem; /*16px*/
+}
+.navbar-brand{
+  height:47px;
+  padding:0;
+}
+.navbar-nav li{
+  padding-right: 20px;
+}
+.nav-link{
+  font-size:1.1em !important;
+}
+.sticky-top{
+  position: fixed;
+  top:0;
+  width:100%;
+}
 .contact-title{
   margin-top: 100px;
   color: #fff;
@@ -51,4 +72,14 @@ form .submit{
 form .submit:hover{
   background-color: #f44336;
   cursor: pointer;
+}
+
+footer{
+  background-color: #f8f9fa;
+  color: #6c757d; /*text color*/
+  padding-top: 2rem;
+}
+
+footer a{
+  color: #d5d5d5;
 }

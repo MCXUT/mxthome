@@ -13,12 +13,23 @@
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link rel="stylesheet" href="/static/stylesheets/mxtwebsite.css">
 </head>
+
 <body>
-<!-- <div class="container-fluid">
-  <h1>Yona's First Bootstrap Page</h1>
-  <p>Click the button and it will disappear.</p>
-  <button class="btn btn-success" onclick="$(this).hide();"> Click me! </button>
-</div> -->
+<script>
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var link = header.getElementsByClassName("nav-item");
+for (var i = 0; i < link.length; i++) {
+  link[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  if (current.length > 0) {
+    current[0].className = current[0].className.replace(" active", "");
+  }
+  this.className += " active";
+  });
+}
+</script>
+
 <script>
 $("nav").find("a").click(function(e) {
   e.preventDefault();
@@ -30,6 +41,7 @@ $("nav").find("a").click(function(e) {
 </script>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top"
+<div id="myDIV">
 <div class="container-fluid"> <!--so it takes up 100% of screen-->
   <a class="navbar-brand" href="\"><img src="/static/images/this.png" id="logo"></a>
 
@@ -39,7 +51,7 @@ $("nav").find("a").click(function(e) {
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link" href="\">Home</a>
       </li>
       <li class="nav-item">
@@ -61,6 +73,7 @@ $("nav").find("a").click(function(e) {
       </li>
   </div>
  </div>
+</div>
 </nav>
 
 
@@ -125,8 +138,9 @@ $("nav").find("a").click(function(e) {
 
 
 <!--- Two Column Section -->
+<div id="about">
 <div class="container-fluid padding">
-<div id="about" class="row Philosophy padding">
+<div class="row Philosophy padding">
   <div class="col-lg-6"> <!--may or may not include col-md-12-->
     <h1>Our Philosophy</h1>
     <hr class="my-4">
@@ -146,7 +160,7 @@ $("nav").find("a").click(function(e) {
 </div>
 <hr class="my-4">
 </div>
-
+</div>
 <!--- Fixed background -->
 <figure>
   <div class="fixed-wrap">
@@ -178,8 +192,10 @@ click for fun</button>
   </div>
 </div>
 
+
 <!--- Meet the team -->
-<div id ="team" class="container-fluid welcome padding">
+<div id="team">
+<div class="container-fluid welcome padding">
   <div class="row text-center">
     <div class="col-12">
       <h1 class="display-4">Meet the Team</h1>
@@ -240,7 +256,7 @@ click for fun</button>
       <div class="card">
         <img class="card-img-top" src="/static/images/team1.png" height="370" width="200">
         <div class="card-body">
-          <h4 class="card-title">Yona Kim</h4>
+          <h4 class="card-title">Jungoh Chang</h4>
           <p class="card-text">(edit)Yona Kim is a front-end developper with 2 weeks of experience.</p>
           <a href="#" class="btn btn-outline-secondary">See Profile</a>
         </div>
@@ -250,7 +266,7 @@ click for fun</button>
 
   </div>
 </div>
-
+</div>
 <!--- Fixed background -->
 <figure>
   <div class="fixed-wrap">
@@ -263,8 +279,9 @@ click for fun</button>
 
 
 <!--- Connect -->
+<div id="connect">
 <div class="container-fluid padding">
-<div id="connect" class="row text-center padding">
+<div class="row text-center padding">
   <div class="col-12">
     <h1>Connect</h1>
   </div>
@@ -275,6 +292,7 @@ click for fun</button>
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-youtube"></i></a>
   </div>
+</div>
 </div>
 </div>
 
