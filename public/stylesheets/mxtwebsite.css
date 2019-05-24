@@ -296,6 +296,9 @@ navbar{
 	display: block;
 	font-size: 30px;
 }
+#project h1{
+  font-size: 2.2em;
+}
 /* =============== End of Projects =============== */
 .welcome hr{
   border-top: 2px solid #b4b4b4;
@@ -407,7 +410,69 @@ hr.light-100{
   margin-bottom: 0;
 }
 
-
+/* =============== HOVER EFFECT =============== */
+.hoverEffect {
+	text-align: center;
+}
+.hoverEffect .item {
+	background: #95e1d3;
+	display: inline-block;
+}
+.hoverEffect .item .overlay {
+	display: block;
+	position: relative;
+	left: 0;
+	top: 0;
+	-webkit-transition: all .3s ease-in-out;
+	   -moz-transition: all .3s ease-in-out;
+		 -o-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
+}
+.hoverEffect .item .overlay:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	-webkit-transition: all .3s ease-in-out;
+	   -moz-transition: all .3s ease-in-out;
+		 -o-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
+	background: rgba(243,129,129,0.9); /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
+	background: -o-linear-gradient(top, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9));
+	background: linear-gradient(to bottom, rgba(243,129,129,0.9), rgba(252, 227, 138, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.hoverEffect .item:hover .overlay {
+	left: -10px;
+	top: -10px;
+}
+.hoverEffect .item:hover .overlay:before {
+	opacity: 1;
+}
+.hoverEffect .content {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100%;
+	z-index: 1;
+	opacity: 0;
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	-webkit-transform: translateY(-50%);
+	   -moz-transform: translateY(-50%);
+		 -o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+}
+.hoverEffect .item:hover .content {
+	opacity: 1;
+}
 /*---Media Queries --*/
 @media (max-width:1920px){
   .carousel-caption{
