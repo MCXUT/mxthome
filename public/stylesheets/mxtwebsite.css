@@ -150,7 +150,7 @@ img.img-full-width {
 	background-color: #fff !important;
 }
 /* =============== SECTION COUNTING =============== */
-#nino-counting {
+#counting {
 	padding: 0;
 	background: #95e1d3;
 	font-family: 'Montserrat', sans-serif;
@@ -159,15 +159,15 @@ img.img-full-width {
 	text-transform: uppercase;
 	font-size: 14px;
 }
-#nino-counting .item {
+#counting .item {
 	width: 20%;
 	padding: 60px 5px;
 	border-right: 1px solid rgba(255, 255, 255, 0.35);
 }
-#nino-counting .item:first-child {
+#counting .item:first-child {
 	border-left: 1px solid rgba(255, 255, 255, 0.35);
 }
-#nino-counting .number {
+#counting .number {
 	font-size: 65px;
 	font-weight: 700;
 	line-height: 100%;
@@ -287,6 +287,16 @@ navbar{
   margin-top: .3rem;
   margin-bottom: 1rem;
 }
+/* =============== Projects =============== */
+#project .content {
+	font-weight: 700;
+	font-size: 14px;
+}
+#project .content .icon {
+	display: block;
+	font-size: 30px;
+}
+/* =============== End of Projects =============== */
 .welcome hr{
   border-top: 2px solid #b4b4b4;
   width: 75%;
@@ -318,7 +328,7 @@ clip: rect(0px,50px,100px,50px);
 }
 
 /* =============== SECTION COUNTING =============== */
-#nino-counting {
+#counting {
 	padding: 0;
 	background: #95e1d3;
 	font-family: 'Montserrat', sans-serif;
@@ -327,15 +337,15 @@ clip: rect(0px,50px,100px,50px);
 	text-transform: uppercase;
 	font-size: 14px;
 }
-#nino-counting .item {
+#counting .item {
 	width: 20%;
 	padding: 60px 5px;
 	border-right: 1px solid rgba(255, 255, 255, 0.35);
 }
-#nino-counting .item:first-child {
+#counting .item:first-child {
 	border-left: 1px solid rgba(255, 255, 255, 0.35);
 }
-#nino-counting .number {
+#counting .number {
 	font-size: 65px;
 	font-weight: 700;
 	line-height: 100%;
