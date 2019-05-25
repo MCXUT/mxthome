@@ -65,6 +65,7 @@ h4 {
 h5, h6 {
 	font-size: 1em;
 }
+.overlay{background-color:hsla(0,0%,100%,.2);position:absolute;top:0;bottom:0;left:0;right:0}
 /* =============== DEFAULT HTML - LIST STYLES =============== */
 ul, ul li,
 ol, ol li,
@@ -255,12 +256,12 @@ navbar{
 }
 
 .btn-primary{
-  background-color: #6648b1;
-  border: 1px solid #6648b1;
+  background-color:#95e1d3;
+  border: 1px solid #95e1d3;
 }
 .btn-primary:hover{
-  background-color: #563d7c;
-  border: 1px solid #563d7c;
+  background-color: gray;
+  border: 1px solid gray;
 }
 .Jumbotron{
   padding: 0.5rem;
@@ -354,6 +355,39 @@ clip: rect(0px,50px,100px,50px);
 	line-height: 100%;
 	margin-bottom: 10px;
 }
+/*end of section counting*/
+
+/* =============== meet the team section =============== */
+#team {
+	background: url(../images/white.jpg) no-repeat center center / cover;
+}
+#team .item {
+	margin-bottom: 30px;
+}
+#team .avatar {
+	width: 80px;
+	margin-right: 30px;
+}
+#team .name {
+	font-size: 14px;
+}
+#team .regency {
+	position: relative;
+	padding-bottom: 12px;
+	display: inline-block;
+	font-style: italic;
+	margin-bottom: 12px;
+}
+#team .regency:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 50px;
+	height: 2px;
+	background: #95e1d3;
+}
+/*end of meet the team*/
 
 .social a{
   font-size: 2.7em;
