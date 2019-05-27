@@ -19,22 +19,29 @@ module.exports = function(app) {
     }
   });
   app.post("/feedback", function(req, res) {
-    var mailOption = {
-      from : req.body.email,
-      to : emailKeys.emailInfo.user,
-      subject : "MXT.com feedback",
-      text : "Feedback from "+ req.body.name + " : " + req.body.email + "\n\n" + req.body.message
-    };
+    if(req.user)
+    {
+      var mailOption = {
+        from : req.user.email,
+        to : emailKeys.emailInfo.user,
+        subject : "MXT.com feedback",
+        text : "Feedback from "+ req.user.name + " : " + req.user.email + "\n\n" + req.body.message
+      };
 
-    transporter.sendMail(mailOption, function(err, info){
-      if(err) {
-        console.error("Send Mail Error : ", err);
-      }
-      else {
-        console.log("Message sent : ", info);
-        res.redirect("/feedback_thanks");
-      }
-    });
+      transporter.sendMail(mailOption, function(err, info){
+        if(err) {
+          console.error("Send Mail Error : ", err);
+        }
+        else {
+          console.log("Message sent : ", info);
+          res.redirect("/feedback_thanks");
+        }
+      });
+    }
+    else
+    {
+      res.redirect("/");
+    }
 
   });
 
