@@ -19,7 +19,7 @@
 </style>
 
 <!-- Navigation -->
-<div id="myDIV">
+
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid"> <!--so it takes up 100% of screen-->
             <a class="navbar-brand" href="/"><img src="/static/images/this.png" id="logo"></a>
@@ -35,10 +35,10 @@
                         <a class="nav-link" href="/#about">About MxT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#project">Our Projects</a>
+                        <a class="nav-link" href="/#team">Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#teams">Team</a>
+                        <a class="nav-link" href="/#project">Our Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/feedback">Services</a>
@@ -46,30 +46,147 @@
                         <a class="nav-link" href="/#connect">Connect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#login" id="auth">Log In/Sign Up</a>
+                        <a class="nav-link" href="#login" id="auth">Log In</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <% if(error && error.length > 0) { %>
-    <div class="bg-modal sticky-top" style="display: flex;" id="outside">
-        <div class="modal-content">
-            <%= error %>
-    <% } else { %>
-    <div class="bg-modal sticky-top" id="outside">
-        <div class="modal-content">
-    <% } %>
-            <div class="close">+</div>
-            <form action="/auth/login" method="POST">
-                <input type="text" name="email" placeholder="username">
-                <input type="password" name="password" placeholder="password">
-                <input type="submit" name="submit" value="Submit">
-            </form>
-        </div>
-    </div>
+
+
+
+<!-- practice -->
+<div id="cocoaModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable" data-backdrop="true"
+data-keyboard="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+      <div class="modal-header">
+	<h2>LogIn</h2>
+      </div>
+<article class="modal_article login p_lr_space pb24">
+	<button class="close" data-dismiss="modal" aria-label="Close">+</button>
+
+
+
+	<form action="/backpg/login.cm" method="post" target="hidden_frame">
+		<input type="hidden" name="back_url" value="Lw%3D%3D">
+		<input type="hidden" name="used_login_btn" value="Y">
+
+		<div class="input_block">
+			<div class="input_form">
+				<input type="text" name="uid" value="" placeholder="Email"><i
+          class="zmdi zmdi-check"></i>
+			</div>
+			<div class="input_form brt"><input name="passwd" type="password" value=""
+        placeholder="Password"><i class="zmdi zmdi-check"></i></div>
+		</div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
+
+		<div class="cheak_article">
+			<div class="checkbox checkbox-styled">
+				<label class="form-label">
+					<input type="checkbox" class="ie" name="auto_login" data-type="use"
+          value="ok" checked="checked">
+					<span class="agree_tit">Stay Logined</span>
+				</label>
+			</div>
+		</div>
+
+		<p>
+			<button class="btn btn-primary btn-block" style="font-size: 14px;">LogIn</button>
+		</p>
+	</form>
+
+
+		<a href="#"
+            class="float_l" id="signup">SignUp</a>
+        <a href="#"
+            onclick="SITE_MEMBER.openFindPassword('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');"
+            class="float_r">Find My Account</a>
+
+
+
+
+
+		<div class="divider txt_c">
+			<div class="border"></div>
+			Or			<div class="border right"></div>
+		</div>
+		<p class="txt_c mb20">
+						<a class="btn blocked non_btn" href="javascript:;"
+            onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
+            Gimochi</a>		</p>
+		</article></div>
+	</div>
 </div>
+
+
+<!-- second button -->
+<div id="jungohModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable" data-backdrop="true"
+data-keyboard="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+      <div class="modal-header">
+	<h2>SignUp</h2>
+      </div>
+<article class="modal_article login p_lr_space pb24">
+	<button class="close" id="close1" data-dismiss="modal" aria-label="Close">+</button>
+
+
+
+	<form action="/backpg/login.cm" method="post" target="hidden_frame">
+		<input type="hidden" name="back_url" value="Lw%3D%3D">
+		<input type="hidden" name="used_login_btn" value="Y">
+
+		<div class="input_block">
+			<div class="input_form">
+				<input type="text" name="uid" value="" placeholder="Email"><i
+          class="zmdi zmdi-check"></i>
+			</div>
+			<div class="input_form brt"><input name="passwd" type="password" value=""
+        placeholder="Password"><i class="zmdi zmdi-check"></i></div>
+		</div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
+
+		<div class="cheak_article">
+			<div class="checkbox checkbox-styled">
+				<label class="form-label">
+					<input type="checkbox" class="ie" name="auto_login" data-type="use"
+          value="ok" checked="checked">
+					<span class="agree_tit">Stay Logined</span>
+				</label>
+			</div>
+		</div>
+
+		<p>
+			<button class="btn btn-primary btn-block" style="font-size: 14px;">LogIn</button>
+		</p>
+	</form>
+
+
+		<a href="#"
+     class="float_l">SignUp</a>		<a href="#"
+     onclick="SITE_MEMBER.openFindPassword('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');"
+     class="float_r">Find My Account</a>
+
+
+
+
+
+		<div class="divider txt_c">
+			<div class="border"></div>
+			Or			<div class="border right"></div>
+		</div>
+		<p class="txt_c mb20">
+						<a class="btn blocked non_btn" href="javascript:;"
+            onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
+            Gimochi</a>		</p>
+		</article></div>
+	</div>
+</div>
+
+
 
 
 

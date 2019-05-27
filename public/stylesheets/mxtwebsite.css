@@ -221,14 +221,23 @@ navbar{
     display: block;
     margin: 15px auto;
 }
-.close {
+.close{
     position: absolute;
     top: 0;
     right: 14px;
-    font-size: 42px;
+    font-size: 36px;
     transform: rotate(45deg);
     cursor: pointer;
 }
+
+/* .close1 {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 36px;
+    transform: rotate(45deg);
+    cursor: pointer;
+} */
 
 .sticky-top{
   position: fixed;
