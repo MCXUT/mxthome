@@ -80,6 +80,25 @@ ul, ul li {
 	list-style: none;
 }
 
+#myBtn {
+
+  border: 1px solid #999;
+  background-color: transparent;
+  color: #999;
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #e7e7e7;
+}
+
 /* =============== DEFAULT HTML - IMAGES STYLES =============== */
 img {
 	border: none;
@@ -195,6 +214,8 @@ navbar{
   font-size:1.1em !important;
 }
 
+
+
 .bg-modal {
     /* z-index: 11; */
     width: 100%;
@@ -235,6 +256,7 @@ navbar{
   top:0;
   width:100%;
 }
+
 .active, .nav-item:hover {
 
 }
@@ -581,6 +603,7 @@ hr.light-100{
     .nav-link{
       font-size:0.8em !important;
     }
+
   }
 @media (max-width: 768px) {
   .carousel-caption{
