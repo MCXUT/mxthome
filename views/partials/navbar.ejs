@@ -212,10 +212,10 @@ data-keyboard="true">
     <% if(error_signup && error_signup.length > 0) { %>
         <%= error_signup %>
     <% } %>
-    <input type="text" name="name" value="" placeholder="Your Name">
-    <input type="email" name="email" value="" placeholder="Your Email">
-    <input type="password" name="password" value="" placeholder="Your Password">
-    <input type="password" name="password2" value="" placeholder="Confirm Password">
+    <input type="text" name="name" value="" placeholder="Your Name" required>
+    <input type="email" name="email" value="" placeholder="Your Email" required>
+    <input type="password" name="password" value="" placeholder="Your Password" required>
+    <input type="password" name="password2" value="" placeholder="Confirm Password" required>
 		<!-- </div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
 
 
