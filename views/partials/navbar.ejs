@@ -7,6 +7,11 @@
 </style> -->
 
 
+/* Style the active class, and buttons on mouse-over */
+.active, .nav-item:hover {
+  color: #666;;
+}
+</style>
 
 <!-- Navigation -->
 
@@ -25,10 +30,10 @@
                         <a class="nav-link" href="/#about">About MxT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#team">Team</a>
+                        <a class="nav-link" href="/#project">Our Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#project">Our Projects</a>
+                        <a class="nav-link" href="/#teams">Team</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/feedback">Services</a>
@@ -171,42 +176,6 @@ data-keyboard="true">
 </div>
 
 
-<!-- second button -->
-<div id="jungohModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable" data-backdrop="true"
-data-keyboard="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-      <div class="modal-header">
-	<h2>SignUp</h2>
-      </div>
-<article class="modal_article login p_lr_space pb24">
-	<button class="close" id="close1" data-dismiss="modal" aria-label="Close">+</button>
-
-
-
-	<form action="/auth/register" method="post" target="hidden_frame">
-		<input type="hidden" name="back_url" value="Lw%3D%3D">
-		<input type="hidden" name="used_login_btn" value="Y">
-
-		<div class="input_block">
-			<div class="input_form">
-				<input type="text" name="uid" value="" placeholder="Email"><i
-          class="zmdi zmdi-check"></i>
-			</div>
-			<div class="input_form brt"><input name="passwd" type="password" value=""
-        placeholder="Password"><i class="zmdi zmdi-check"></i></div>
-		</div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
-
-		<div class="cheak_article">
-			<div class="checkbox checkbox-styled">
-				<label class="form-label">
-					<input type="checkbox" class="ie" name="auto_login" data-type="use"
-          value="ok" checked="checked">
-					<span class="agree_tit">Stay Logined</span>
-				</label>
-			</div>
-		</div>
 
 <!--register with Email-->
 <div id="emailModal" role="dialog" aria-hidden="true"

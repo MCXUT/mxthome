@@ -29,14 +29,14 @@ router.post("/register", (req, res) => {
     User.getUserByUsername(newUser.email, (err, user) => {
         if(err) throw err;
         if(user) {
-            return req.flash("error", "Username already taken");
+            return res.json({error: "Username already taken"});
         } else {
             bcrypt.hash(req.body.password2, 10, (err, hash) => {
                 if(err) throw err;
                 User.comparePassword(newUser.password, hash, (err, isMatch) => {
                     if(err) throw err;
                     if(!isMatch) {
-                        return res.flash("error", "Passwords do not match");
+                        return res.json({error: "Passwords do not match"});
                     } else {
                         var user = new User({
                             name: newUser.name,
@@ -63,15 +63,12 @@ router.get("/login", (req, res) => {
 router.post('/login', passport.authenticate('local-login', {
     successRedirect: "/",
     failureRedirect: "/",
-    failureFlash: "Invalid username or password",
-    successFlash: "Successfully logged in"
+    failureFlash: "Invalid username or password"
 }), (req, res) => {
 
 });
-
-router.get("/logout", (req,res) => {
+router.get("/logout", function(req,res) {
   req.logout();
-  req.flash("success", "Successfully logged out");
   res.redirect("/");
 });
 

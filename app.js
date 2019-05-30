@@ -44,8 +44,8 @@ app.use("/static", express.static(path.join(__dirname, 'public')));
 
 app.use(flash());
 app.use((req, res, next) => {
+    res.locals.error_msg = req.flash("error_msg");
     res.locals.error = req.flash("error");
-    res.locals.success = req.flash("success");
     next();
 });
 
@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
 app.use("/auth", userRoutes);
 var feedbackController = require("./routes/feedbackController")(app);
 // Set port and listen to it
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8080);
 app.listen(app.get('port'), () => {
     console.log("Server started on port " + app.get('port'));
 });
