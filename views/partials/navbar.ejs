@@ -178,9 +178,15 @@ data-keyboard="true">
 
 
 <!--register with Email-->
+<% if(error_signup && error_signup.length > 0) { %>
+<div id="emailModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+data-keyboard="true" style="display: block;">
+<% } else { %>
 <div id="emailModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
 data-keyboard="true">
+<% } %>
 	<div class="modal-dialog">
 		<div class="modal-content" id="emailcontent">
       <div class="modal-header">
@@ -191,7 +197,7 @@ data-keyboard="true">
 
 
 
-	<form action="#adad" method="post" target="hidden_frame">
+	<form action="/auth/register" method="post" target="hidden_frame">
 		<input type="hidden" name="back_url" value="Lw%3D%3D">
 		<input type="hidden" name="used_login_btn" value="Y">
 
@@ -203,9 +209,13 @@ data-keyboard="true">
 		<!-- </div> -->
     <div class="or">OR</div>
 
-    <input type="text" name="#" value="" placeholder="Your Name">
-    <input type="email" name="#" value="" placeholder="Your Email">
-    <input type="password" name="#" value="" placeholder="Your Password">
+    <% if(error_signup && error_signup.length > 0) { %>
+        <%= error_signup %>
+    <% } %>
+    <input type="text" name="name" value="" placeholder="Your Name" required>
+    <input type="email" name="email" value="" placeholder="Your Email" required>
+    <input type="password" name="password" value="" placeholder="Your Password" required>
+    <input type="password" name="password2" value="" placeholder="Confirm Password" required>
 		<!-- </div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
 
 
