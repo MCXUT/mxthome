@@ -27,9 +27,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/#connect">Connect</a>
                     </li>
+                <% if(currentUser) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/logout">Log Out</a>
+                    </li>
+                <% } else { %>
                     <li class="nav-item">
                         <a class="nav-link" href="#login" id="auth">Log In</a>
                     </li>
+                <% } %>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#signup" id="signup1">SignUp</a>
                     </li> -->
