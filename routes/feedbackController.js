@@ -1,15 +1,19 @@
 module.exports = function(app) {
   const nodemailer = require("nodemailer");
   const emailKeys = require("../config/keys");
+  const crypto = require("crypto");
 
   app.get("/feedback", function(req, res){
     res.render("page_feedback");
   });
 
   // Redirected route once feedback email has been successfully sent
-  app.get("/feedback_thanks", function(req, res) {
-    res.render("feedback_thanks");
-  });
+  // app.get("/feedback_thanks", function(req, res) {
+  //     if(!req.user) {
+  //         return res.status(500).send("Permission Denied");
+  //     }
+  //     res.render("feedback_thanks");
+  // });
 
   var transporter = nodemailer.createTransport({
     service: "gmail",
@@ -33,8 +37,12 @@ module.exports = function(app) {
           console.error("Send Mail Error : ", err);
         }
         else {
-          console.log("Message sent : ", info);
-          res.redirect("/feedback_thanks");
+          // console.log("Message sent : ", info);
+          // crypto.randomBytes(10, (err, buf) => {
+          //     var token = buf.toString('hex');
+          //     res.redirect("/feedback_thanks");
+          // });
+          return res.render("feedback_thanks");
         }
       });
     }
