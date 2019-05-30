@@ -7,7 +7,7 @@ const passport = require("../config/passport_config");
 const User = require("../models/User");
 
 router.get("/register", (req, res) => {
-    res.send("Under Construction...");
+    res.render("register");
 });
 
 router.post("/register", (req, res) => {

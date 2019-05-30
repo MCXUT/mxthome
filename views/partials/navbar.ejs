@@ -15,7 +15,6 @@
 
 <!-- Navigation -->
 
-
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid"> <!--so it takes up 100% of screen-->
             <a class="navbar-brand " href="/"><img src="/static/images/this.png" id="logo"></a>
@@ -43,30 +42,191 @@
                         <a class="nav-link" href="/#connect">Connect</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#login" id="auth">Log In/Sign Up</a>
+                        <a class="nav-link" href="#login" id="auth">Log In</a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#signup" id="signup1">SignUp</a>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
 
 
-    <% if(error && error.length > 0) { %>
-    <div class="bg-modal sticky-top" style="display: flex;" id="outside">
-        <div class="modal-content">
-            <%= error %>
-    <% } else { %>
-    <div class="bg-modal sticky-top" id="outside">
-        <div class="modal-content">
-    <% } %>
-            <div class="close">+</div>
-            <form action="/auth/login" method="POST">
-                <input type="text" name="email" placeholder="username">
-                <input type="password" name="password" placeholder="password">
-                <input type="submit" name="submit" value="Submit">
-            </form>
-        </div>
+
+
+<!-- practice -->
+
+<div id="cocoaModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+data-keyboard="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+      <div class="modal-header">
+	<h2 id="login" class="active">LogIn</h2><a class="link" href="#signup" id="signup"><h2>Register</h2></a>
+      </div>
+<article class="modal_article login p_lr_space pb24">
+	<button class="close" data-dismiss="modal" aria-label="Close">+</button>
+
+
+
+	<form action="/auth/login" method="post" target="hidden_frame">
+		<input type="hidden" name="back_url" value="Lw%3D%3D">
+		<input type="hidden" name="used_login_btn" value="Y">
+
+		<div class="input_block">
+			<div class="input_form">
+        <div class="inputWithIcon" id="icon">
+				<span style="color: red">*</span><span style="margin-left: 0px;">email: </span><input type="text" name="uid" value="" placeholder="Email">
+			</div>
+      </div>
+			<div class="input_form brt"><input name="passwd" type="password" value=""
+        placeholder="Password"><i class="zmdi zmdi-check"></i></div><br>
+		</div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
+
+		<!-- <div class="cheak_article">
+			<div class="checkbox checkbox-styled">
+				<label class="form-label">
+					<input type="checkbox" class="ie" name="auto_login" data-type="use"
+          value="ok" checked="checked">
+					<span class="agree_tit">Stay Logined</span>
+				</label>
+			</div>
+		</div> -->
+
+		<p>
+			<button class="btn btn-primary btn-block" style="font-size: 14px;">LogIn</button>
+		</p>
+	</form>
+
+
+		<!-- <a href="#"
+            class="float_l" id="signup">SignUp</a> -->
+        <a href="#"
+            onclick="SITE_MEMBER.openFindPassword('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');"
+            class="float_r">Find My Account</a>
+
+
+
+
+
+		<!-- <div class="divider txt_c">
+			<div class="border"></div>
+			Or			<div class="border right"></div>
+		</div>
+		<p class="txt_c mb20">
+						<a class="btn blocked non_btn" href="javascript:;"
+            onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
+            Gimochi</a>		</p> -->
+		</article></div>
+	</div>
+</div>
+
+
+<!-- second button -->
+<div id="jungohModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+data-keyboard="true">
+	<div class="modal-dialog">
+		<div class="modal-content" id="jungohcontent">
+      <div class="modal-header">
+	<a class="link" href="#login" id="login1"><h2>LogIn</h2></a><h2 id="signup" class="active">Register</h2>
+      </div>
+<article class="modal_article login p_lr_space pb24">
+	<button class="close" id="close1" data-dismiss="modal" aria-label="Close">+</button>
+
+
+
+	<form action="#register" method="post" target="hidden_frame">
+		<input type="hidden" name="back_url" value="Lw%3D%3D">
+		<input type="hidden" name="used_login_btn" value="Y">
+
+		<!-- <div class="social-box"> -->
+			<!-- <span class="signinwith">Sign in with Social Network</span> -->
+      <h5>Login with Social Media</h5>
+      <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button>
+      <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button>
+		<!-- </div> -->
+    <div class="or">OR</div>
+    <!-- <button class="social email" id="signup_email">Sign in with Email</button> -->
+
+    <!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
+
+
+
+		<!-- <p>
+			<button class="btn btn-primary btn-block" style="font-size: 14px;">LogIn</button>
+		</p> -->
+	</form>
+  <button type="button" class="social email" id="signup_email">Sign in with Email</button>
+  <br><a href="#term">Terms of Use Agreement</a>
+
+
+  		<!-- <div class="divider txt_c">
+  			<div class="border"></div>
+  			Or			<div class="border right"></div>
+  		</div>
+  		<p class="txt_c mb20">
+  						<a class="btn blocked non_btn" href="javascript:;"
+              onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
+              Gimochi</a>		</p>
+  		</article> -->
     </div>
+	</div>
+</div>
+
+
+
+<!--register with Email-->
+<div id="emailModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+data-keyboard="true">
+	<div class="modal-dialog">
+		<div class="modal-content" id="emailcontent">
+      <div class="modal-header">
+	<a class="link" href="#login" id="login2"><h2>LogIn</h2></a><h2 id="signup" class="active">Register</h2>
+      </div>
+<article class="modal_article login p_lr_space pb24">
+	<button class="close" id="close2" data-dismiss="modal" aria-label="Close">+</button>
+
+
+
+	<form action="#adad" method="post" target="hidden_frame">
+		<input type="hidden" name="back_url" value="Lw%3D%3D">
+		<input type="hidden" name="used_login_btn" value="Y">
+
+		<!-- <div class="social-box"> -->
+			<!-- <span class="signinwith">Sign in with Social Network</span> -->
+      <h5>Login with Social Media</h5>
+      <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button>
+      <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button>
+		<!-- </div> -->
+    <div class="or">OR</div>
+
+    <input type="text" name="#" value="" placeholder="Your Name">
+    <input type="email" name="#" value="" placeholder="Your Email">
+    <input type="password" name="#" value="" placeholder="Your Password">
+		<!-- </div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
+
+
+
+
+	   <button class="btn btn-primary btn-block" style="font-size: 14px;">Register</button>
+
+	</form>
+
+
+		<!-- <div class="divider txt_c">
+			<div class="border"></div>
+			Or			<div class="border right"></div>
+		</div> -->
+		<!-- <p class="txt_c mb20">
+						<a class="btn blocked non_btn" href="javascript:;"
+            onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
+            Gimochi</a>		</p> -->
+		</article>
+    </div>
+	</div>
 </div>
 
 
