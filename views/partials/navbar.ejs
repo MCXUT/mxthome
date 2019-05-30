@@ -6,11 +6,6 @@
 }
 </style> -->
 
-/* Style the active class, and buttons on mouse-over */
-.active, .nav-item:hover {
-  color: #666;;
-}
-</style> -->
 
 /* Style the active class, and buttons on mouse-over */
 .active, .nav-item:hover {
@@ -20,33 +15,42 @@
 
 <!-- Navigation -->
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e1767e4bbe94ec82e921651b118147d1a1d3029
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid"> <!--so it takes up 100% of screen-->
-            <a class="navbar-brand" href="/"><img src="/static/images/this.png" id="logo"></a>
+            <a class="navbar-brand " href="/"><img src="/static/images/this.png" id="logo"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/#mainDiv">Home</a>
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="/#mainDiv">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#about">About MxT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#team">Team</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/#project">Our Projects</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/#teams">Team</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/feedback">Services</a>
-                    </li><li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/#connect">Connect</a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="#login" id="auth">Log In</a>
+=======
+                        <a class="nav-link" href="/#login" id="auth">Log In/Sign Up</a>
+>>>>>>> 7e1767e4bbe94ec82e921651b118147d1a1d3029
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#signup" id="signup1">SignUp</a>
@@ -57,6 +61,7 @@
     </nav>
 
 
+<<<<<<< HEAD
 
 
 <!-- practice -->
@@ -229,13 +234,32 @@ data-keyboard="true">
             onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
             Gimochi</a>		</p> -->
 		</article>
+=======
+    <% if(error && error.length > 0) { %>
+    <div class="bg-modal sticky-top" style="display: flex;" id="outside">
+        <div class="modal-content">
+            <%= error %>
+    <% } else { %>
+    <div class="bg-modal sticky-top" id="outside">
+        <div class="modal-content">
+    <% } %>
+            <div class="close">+</div>
+            <form action="/auth/login" method="POST">
+                <input type="text" name="email" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <input type="submit" name="submit" value="Submit">
+            </form>
+        </div>
+>>>>>>> 7e1767e4bbe94ec82e921651b118147d1a1d3029
     </div>
 	</div>
 </div>
 
 
 
+  <script src="/static/scripts/modalSetting.js"></script>
 
+<<<<<<< HEAD
 
 
 
@@ -252,18 +276,21 @@ data-keyboard="true">
     //   this.className += " active";
     //   });
     // }
+=======
+>>>>>>> 7e1767e4bbe94ec82e921651b118147d1a1d3029
 
-    $("nav").find("a").click(function(e) {
-      // e.preventDefault();
-      var section = $(this).attr("href").slice(1);
-      if(section !== "feedback") {
-          e.preventDefault();
-          $("html, body").animate({
-              scrollTop: $(section).offset().top
-          });
-      }
+<script>
 
-    });
+// Add active class to the current button (highlight it)
+var header = document.getElementById("navbarResponsive");
+var btns = header.getElementsByClassName("nav-item");
 
-  </script> -->
-  <script src="/static/scripts/modalSetting.js"></script>
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+
+</script>
