@@ -30,16 +30,18 @@ module.exports = function(app) {
 
       transporter.sendMail(mailOption, function(err, info){
         if(err) {
-          console.error("Send Mail Error : ", err);
+          req.flash("error", "Unexpected Error Happened");
+          res.redirect("/");
         }
         else {
-          console.log("Message sent : ", info);
-          res.redirect("/feedback_thanks");
+          req.flash("success", "Feedback Successfully Sent");
+          res.redirect("/feedback");
         }
       });
     }
     else
     {
+      req.flash("error", "Not Logged In");
       res.redirect("/");
     }
 
