@@ -56,14 +56,15 @@ router.post("/register", (req, res) => {
     })
 });
 
-router.get("/login", (req, res) => {
-    res.send("Under Construction...");
-});
+// router.get("/login", (req, res) => {
+//     res.send("Under Construction...");
+// });
 
 router.post('/login', passport.authenticate('local-login', {
     successRedirect: "/",
     failureRedirect: "/",
-    failureFlash: "Invalid username or password"
+    failureFlash: "Invalid username or password",
+    successFlash: "Successfully logged in"
 }), (req, res) => {
 
 });

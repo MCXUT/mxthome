@@ -1,17 +1,3 @@
-<!-- <style>
-
-/* Style the active class, and buttons on mouse-over */
-.active, .nav-item:hover {
-  color: #666;;
-}
-</style> -->
-
-
-/* Style the active class, and buttons on mouse-over */
-.active, .nav-item:hover {
-  color: #666;;
-}
-</style>
 
 <!-- Navigation -->
 
@@ -57,9 +43,15 @@
 
 <!-- practice -->
 
+<% if(error && error.length > 0) { %>
+<div id="cocoaModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+data-keyboard="true" style="display: block;">
+<% } else { %>
 <div id="cocoaModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
 data-keyboard="true">
+<% } %>
 	<div class="modal-dialog">
 		<div class="modal-content">
       <div class="modal-header">
@@ -69,7 +61,9 @@ data-keyboard="true">
 	<button class="close" data-dismiss="modal" aria-label="Close">+</button>
 
 
-
+    <% if(error && error.length > 0) { %>
+      <%= error %>
+    <% } %>
 	<form action="/auth/login" method="post" target="hidden_frame">
 		<input type="hidden" name="back_url" value="Lw%3D%3D">
 		<input type="hidden" name="used_login_btn" value="Y">
@@ -77,10 +71,10 @@ data-keyboard="true">
 		<div class="input_block">
 			<div class="input_form">
         <div class="inputWithIcon" id="icon">
-				<span style="color: red">*</span><span style="margin-left: 0px;">email: </span><input type="text" name="uid" value="" placeholder="Email">
+				<span style="color: red">*</span><span style="margin-left: 0px;">email: </span><input type="text" name="email" value="" placeholder="Email">
 			</div>
       </div>
-			<div class="input_form brt"><input name="passwd" type="password" value=""
+			<div class="input_form brt"><input name="password" type="password" value=""
         placeholder="Password"><i class="zmdi zmdi-check"></i></div><br>
 		</div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
 
@@ -137,7 +131,7 @@ data-keyboard="true">
 
 
 
-	<form action="#register" method="post" target="hidden_frame">
+	<form action="/auth/register" method="post" target="hidden_frame">
 		<input type="hidden" name="back_url" value="Lw%3D%3D">
 		<input type="hidden" name="used_login_btn" value="Y">
 

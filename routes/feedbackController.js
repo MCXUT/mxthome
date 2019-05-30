@@ -40,7 +40,8 @@ module.exports = function(app) {
     }
     else
     {
-      res.redirect("/");
+      req.flash("error", "Must be logged in first");
+      res.redirect("/feedback");
     }
 
   });
