@@ -6,9 +6,9 @@ const bcrypt = require("bcryptjs");
 const passport = require("../config/passport_config");
 const User = require("../models/User");
 
-router.get("/register", (req, res) => {
-    res.render("register");
-});
+// router.get("/register", (req, res) => {
+//     res.render("register");
+// });
 
 router.post("/register", (req, res) => {
     var newUser = {
@@ -23,20 +23,27 @@ router.post("/register", (req, res) => {
     };
 
     if(!(req.body.name && req.body.email && req.body.password && req.body.password2)) {
-        return res.json({error: "Some information missing"});
+        req.flash("error_signup", "Some information is missing");
+        return res.redirect("/");
     }
+    // req.body.password2 = "gggggggg";
+    // if(!(req.body.name && req.body.email && req.body.password)) {
+    //     return res.json({error: "Some information missing"});
+    // }
 
     User.getUserByUsername(newUser.email, (err, user) => {
         if(err) throw err;
         if(user) {
-            return res.json({error: "Username already taken"});
+            req.flash("error_signup", "Username is already taken");
+            return res.redirect("/");
         } else {
             bcrypt.hash(req.body.password2, 10, (err, hash) => {
                 if(err) throw err;
                 User.comparePassword(newUser.password, hash, (err, isMatch) => {
                     if(err) throw err;
                     if(!isMatch) {
-                        return res.json({error: "Passwords do not match"});
+                        req.flash("error_signup", "Passwords do not match");
+                        return res.redirect("/");
                     } else {
                         var user = new User({
                             name: newUser.name,
@@ -48,7 +55,8 @@ router.post("/register", (req, res) => {
                             if(err) throw err;
                             console.log(user);
                         });
-                        res.redirect("/");
+                        req.flash("success", "Signup Completed");
+                        return res.redirect("/");
                     }
                 });
             });

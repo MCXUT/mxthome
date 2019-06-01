@@ -4,7 +4,7 @@ document.getElementById("auth").addEventListener("click", (e) => {
 
 document.getElementById("login1").addEventListener("click", (e) => {
     document.querySelector("#cocoaModal").style.display = "block";
-    document.querySelector("#jungohModal").style.display = "none";
+    document.querySelector("#registerModal").style.display = "none";
 });
 
 document.getElementById("login2").addEventListener("click", (e) => {
@@ -13,7 +13,7 @@ document.getElementById("login2").addEventListener("click", (e) => {
 });
 
 document.getElementById("signup_email").addEventListener("click", () => {
-    document.querySelector("#jungohModal").style.display = "none";
+    document.querySelector("#registerModal").style.display = "none";
     document.querySelector("#emailModal").style.display = "block";
 });
 
@@ -21,21 +21,36 @@ document.querySelector(".close").addEventListener("click", (e) => {
     document.querySelector("#cocoaModal").style.display = "none";
 });
 
-// document.querySelector(".modal").addEventListener("click", (e) => {
-//   console.log(e);
-//     document.querySelector("#cocoaModal").style.display = "none";
-// });
-
 document.querySelector("#close1").addEventListener("click", (e) => {
-    console.log(e);
-    document.querySelector("#jungohModal").style.display = "none";
+    //console.log(e);
+    document.querySelector("#registerModal").style.display = "none";
 });
 
 document.querySelector("#close2").addEventListener("click", (e) => {
-    console.log(e);
+    //console.log(e);
     document.querySelector("#emailModal").style.display = "none";
 });
 
+
+//=======EVENT LISTENERS FOR CLOSING THE FORM WHEN CLICKING OUTSIDE THE BOX====//
+document.getElementById("cocoaModal").addEventListener("click", (e) => {
+    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
+        document.getElementById("cocoaModal").style.display = "none";
+    }
+});
+
+document.getElementById("registerModal").addEventListener("click", (e) => {
+    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
+        document.getElementById("registerModal").style.display = "none";
+    }
+});
+
+document.getElementById("emailModal").addEventListener("click", (e) => {
+    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
+        document.getElementById("emailModal").style.display = "none";
+    }
+});
+//====================================================================//
 
 
 
@@ -48,7 +63,7 @@ document.querySelector("#close2").addEventListener("click", (e) => {
 //
 document.getElementById("signup").addEventListener("click", () => {
     document.querySelector("#cocoaModal").style.display = "none";
-    document.querySelector("#jungohModal").style.display = "block";
+    document.querySelector("#registerModal").style.display = "block";
 });
 
 // document.getElementById("signup1").addEventListener("click", () => {

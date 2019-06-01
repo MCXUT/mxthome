@@ -124,11 +124,11 @@ data-keyboard="true">
 
 
 <!-- second button -->
-<div id="jungohModal" role="dialog" aria-hidden="true"
+<div id="registerModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
 data-keyboard="true">
 	<div class="modal-dialog">
-		<div class="modal-content" id="jungohcontent">
+		<div class="modal-content" id="registercontent">
       <div class="modal-header">
 	<a class="link" href="#login" id="login1"><h2>LogIn</h2></a><h2 id="signup" class="active">Register</h2>
       </div>
@@ -144,7 +144,7 @@ data-keyboard="true">
 		<!-- <div class="social-box"> -->
 			<!-- <span class="signinwith">Sign in with Social Network</span> -->
       <h5>Login with Social Media</h5>
-      <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button>
+      <!-- <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button> -->
       <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button>
 		<!-- </div> -->
     <div class="or">OR</div>
@@ -178,9 +178,15 @@ data-keyboard="true">
 
 
 <!--register with Email-->
+<% if(error_signup && error_signup.length > 0) { %>
+<div id="emailModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+data-keyboard="true" style="display: block;">
+<% } else { %>
 <div id="emailModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
 data-keyboard="true">
+<% } %>
 	<div class="modal-dialog">
 		<div class="modal-content" id="emailcontent">
       <div class="modal-header">
@@ -191,21 +197,25 @@ data-keyboard="true">
 
 
 
-	<form action="#adad" method="post" target="hidden_frame">
+	<form action="/auth/register" method="post" target="hidden_frame">
 		<input type="hidden" name="back_url" value="Lw%3D%3D">
 		<input type="hidden" name="used_login_btn" value="Y">
 
 		<!-- <div class="social-box"> -->
 			<!-- <span class="signinwith">Sign in with Social Network</span> -->
       <h5>Login with Social Media</h5>
-      <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button>
+      <!-- <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button> -->
       <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button>
 		<!-- </div> -->
     <div class="or">OR</div>
 
-    <input type="text" name="#" value="" placeholder="Your Name">
-    <input type="email" name="#" value="" placeholder="Your Email">
-    <input type="password" name="#" value="" placeholder="Your Password">
+    <% if(error_signup && error_signup.length > 0) { %>
+        <%= error_signup %>
+    <% } %>
+    <input type="text" name="name" value="" placeholder="Your Name" required>
+    <input type="email" name="email" value="" placeholder="Your Email" required>
+    <input type="password" name="password" value="" placeholder="Your Password" required>
+    <input type="password" name="password2" value="" placeholder="Confirm Password" required>
 		<!-- </div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
 
 
