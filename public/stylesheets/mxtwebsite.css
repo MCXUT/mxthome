@@ -214,6 +214,31 @@ navbar{
   font-size:1.1em !important;
 }
 
+nav ul li a {
+    color: grey;
+}
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border-radius: 0px 0px 4px 4px;
+}
+nav ul li:hover ul{
+    display: block;
+}
+
+nav ul li ul li {
+    border-radius: 4px;
+    width: 130px;
+}
+nav ul li ul li a {
+    padding: 8px 14px;
+}
+nav ul li ul li a:hover {
+    background-color: #f3f3f3;
+}
+
 /* .modal-header{
   justify-content: center;
   align-items: center;

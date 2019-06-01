@@ -76,6 +76,15 @@ router.post('/login', passport.authenticate('local-login', {
 }), (req, res) => {
 
 });
+
+router.get("/google", passport.authenticate('google', {
+    scope: ['email', 'profile']
+}));
+
+router.get("/google/redirect", passport.authenticate('google'), (req, res) => {
+    res.redirect("/");
+});
+
 router.get("/logout", function(req,res) {
   req.logout();
   res.redirect("/");
