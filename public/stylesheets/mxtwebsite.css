@@ -370,7 +370,7 @@ button.social{
   animation: drop 0.5s ease forwards;
 } */
 
-#cocoaModal .modal-dialog{
+#cocoaModal, #registerModal .modal-dialog{
   /* top: -400px; */
   /* animation: unfoldIn 0.7s ease forwards; */
   animation: fadeIn 1.0s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
