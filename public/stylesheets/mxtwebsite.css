@@ -111,6 +111,8 @@ img.image-left {
 img.img-full-width {
 	width: 100%;
 }
+
+
 /* =============== PREDEFINED CONTENT ALIGN =============== */
 /*	margin-left: 1em !important;
 	margin-right: 0;
@@ -120,6 +122,16 @@ img.img-full-width {
 	margin-right: 1em !important;
 }*/
 /* ============================== LAYOUT ============================== */
+
+/*welcome to mxt this is our official website*/
+
+#typedtext{
+  font-family: 'Waiting for the Sunrise', cursive;
+  font-size:30px;
+  margin: 10px 50px;
+  letter-spacing: 6px;
+  font-weight: bold;
+}
 /* =============== LAYOUT - GENERAL LAYOUT =============== */
 .container {
 	position: relative;
@@ -420,7 +432,7 @@ button.social{
   padding-bottom: 2rem;
 }
 .empty{
-  padding: 70px;
+  padding: 40px;
 }
 
 .Philosophy hr{
@@ -465,7 +477,6 @@ button.social{
 }
 .fun {
   width: 100%;
-  margin-bottom: 2rem;
 }
 .gif{
   max-width: 100%;
@@ -872,7 +883,8 @@ figure {
   height: 100%;
 }
 #fixed {
-  background-image: url('/static/images/mac.png');
+  background-image: url('/static/images/together.jpg');
+
   position: fixed;
   display: block;
   top: 0;
