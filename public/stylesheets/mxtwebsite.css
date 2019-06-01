@@ -234,6 +234,7 @@ nav ul li ul {
     display: none;
     position: absolute;
     background-color: white;
+    right: 20px;
     padding: 10px;
     border-radius: 0px 0px 4px 4px;
 }
@@ -368,6 +369,31 @@ button.social{
 /* .modal-dialog{
   top: -400px;
   animation: drop 0.5s ease forwards;
+} */
+a.btn.btn-info {
+    width: 210px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+a.btn.btn-info:hover {
+    background-color: #F4F4F0;
+}
+button.btn.btn-primary {
+    background-color: #F4573C;
+    border-radius: 4px;
+    width: 210px;
+    font-size: 16px;
+}
+button.btn.btn-primary:hover {
+    background-color: #D00000;
+}
+/* #cocoaModal input {
+    width: 210px;
+    height: 35px;
+}
+#emailModal input {
+
 } */
 
 #cocoaModal .modal-dialog{
@@ -756,13 +782,23 @@ button.social{
 
 #emailcontent{
   width: 500px;
-  height: 430px;
+  height: 530px;
 }
 
-.modal-content input {
+.modal-content input.form-control {
+    border-radius: 0px;
     width: 50%;
     display: flex;
     margin: 15px auto;
+    width: 210px;
+    height: 35px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+.modal-content input.form-control:focus {
+    background-color:#FBFAFB
 }
 .close {
     position: absolute;
