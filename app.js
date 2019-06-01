@@ -51,9 +51,15 @@ app.use((req, res, next) => {
     next();
 });
 
+var fs = require("fs");
 // Home route
 app.get("/", (req, res) => {
-    res.render("mxtwebsite");
+  fs.readFile("./test2.txt", function(err, data) {
+    if(err) throw err;
+    res.render("mxtwebsite", {data: data});
+    // console.log(data);
+    // res.render("mxtwebsite");
+  });
 });
 
 app.use("/auth", userRoutes);
