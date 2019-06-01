@@ -29,7 +29,11 @@
                     </li>
                 <% if(currentUser) { %>
                     <li class="nav-item">
-                        <a class="nav-link" href="/auth/logout">Log Out</a>
+                        <a class="nav-link" href="#profile"><%= currentUser.name %></a>
+                        <ul>
+                            <li class="nav-item"><a href="#">View Profile</a></li>
+                            <li class="nav-item"><a href="/auth/logout">Log Out</a></li>
+                        </ul>
                     </li>
                 <% } else { %>
                     <li class="nav-item">
@@ -156,7 +160,8 @@ data-keyboard="true">
 			<!-- <span class="signinwith">Sign in with Social Network</span> -->
       <h5>Login with Social Media</h5>
       <!-- <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button> -->
-      <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button>
+      <!-- <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button> -->
+      <a href="/auth/google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</a>
 		<!-- </div> -->
     <div class="or">OR</div>
     <!-- <button class="social email" id="signup_email">Sign in with Email</button> -->
@@ -215,8 +220,9 @@ data-keyboard="true">
 			<!-- <span class="signinwith">Sign in with Social Network</span> -->
       <h5>Login with Social Media</h5>
       <!-- <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button> -->
-      <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button>
-		<!-- </div> -->
+      <!-- <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button> -->
+      <a href="/auth/google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</a>
+    	<!-- </div> -->
     <div class="or">OR</div>
 
     <% if(error_signup && error_signup.length > 0) { %>
