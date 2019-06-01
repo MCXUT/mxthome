@@ -21,21 +21,36 @@ document.querySelector(".close").addEventListener("click", (e) => {
     document.querySelector("#cocoaModal").style.display = "none";
 });
 
-// document.querySelector(".modal").addEventListener("click", (e) => {
-//   console.log(e);
-//     document.querySelector("#cocoaModal").style.display = "none";
-// });
-
 document.querySelector("#close1").addEventListener("click", (e) => {
-    console.log(e);
+    //console.log(e);
     document.querySelector("#registerModal").style.display = "none";
 });
 
 document.querySelector("#close2").addEventListener("click", (e) => {
-    console.log(e);
+    //console.log(e);
     document.querySelector("#emailModal").style.display = "none";
 });
 
+
+//=======EVENT LISTENERS FOR CLOSING THE FORM WHEN CLICKING OUTSIDE THE BOX====//
+document.getElementById("cocoaModal").addEventListener("click", (e) => {
+    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
+        document.getElementById("cocoaModal").style.display = "none";
+    }
+});
+
+document.getElementById("registerModal").addEventListener("click", (e) => {
+    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
+        document.getElementById("registerModal").style.display = "none";
+    }
+});
+
+document.getElementById("emailModal").addEventListener("click", (e) => {
+    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
+        document.getElementById("emailModal").style.display = "none";
+    }
+});
+//====================================================================//
 
 
 
