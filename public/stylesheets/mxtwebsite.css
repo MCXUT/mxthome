@@ -312,7 +312,7 @@ button.social{
 /* div.fb-login-button {
     width: 210px;
 } */
-a svg{
+.modal-content a svg{
     position: absolute;
     left: 133px;
 }
@@ -320,7 +320,7 @@ a svg{
 a #facebookIcon{
     position: absolute;
     left: 5px;
-    top: 137px;
+    top: 137  px;
 }
 a.btn.btn-info {
     width: 255px;
@@ -948,7 +948,7 @@ clip: rect(0px,50px,100px,50px);
 /*end of meet the team*/
 
 .social a{
-  font-size: 2.7em;
+  font-size: 2.7rem;
   padding: 2rem;
 }
 .fa-facebook-square{

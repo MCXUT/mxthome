@@ -24,6 +24,8 @@ var UserSchema = mongoose.Schema({
     city: String,
     country: String,
     googleID: String,
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
     facebookID: String
 });
 
