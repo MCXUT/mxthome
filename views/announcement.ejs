@@ -4,9 +4,6 @@
   <title>MxTwebsite</title>
   <meta charset="utf-8">
 
-  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!--for mobile websites-->
 
 <link rel="stylesheet" href="/static/stylesheets/announcement.css">
@@ -14,6 +11,7 @@
 </head>
 <% include ./partials/navbar %>
 <body>
+  <div class="active">
   <br><br><br>
   <div class="announcement">
     <h1><i class="fas fa-bullhorn"></i>  Announcements</h1>
@@ -32,7 +30,7 @@
           <div class="card-body">
             <h4 class="card-title">Announcement1:</h4>
             <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
+            <a href="#" class="btn stretched-link"></a>
           </div>
         </div>
     </div>
@@ -43,7 +41,7 @@
           <div class="card-body">
             <h4 class="card-title">Announcement2:</h4>
             <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
+            <a href="#" class="btn stretched-link"></a>
           </div>
         </div>
     </div>
@@ -54,7 +52,7 @@
           <div class="card-body">
             <h4 class="card-title">Announcement3:</h4>
             <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
+            <a href="#" class="btn stretched-link"></a>
           </div>
         </div>
     </div>
@@ -65,7 +63,7 @@
           <div class="card-body">
             <h4 class="card-title">Announcement4:</h4>
             <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
+            <a href="#" class="btn stretched-link"></a>
           </div>
         </div>
     </div>
@@ -76,7 +74,7 @@
           <div class="card-body">
             <h4 class="card-title">Announcement5:</h4>
             <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-            <a href="#" class="btn btn-primary stretched-link">See More</a>
+            <a href="#" class="btn stretched-link"></a>
           </div>
         </div>
     </div>
@@ -90,6 +88,10 @@
   <button type="button" class="btn btn-outline-secondary btn-lg ">&#8249;</button>
   <button type="button" class="btn btn-outline-secondary btn-lg ">&#8250;</button>
 </div><br>
+<!-- <div class="next">
+<a href="#"><i class="fas fa-chevron-left"></i></a>
+<a href="#"><i class="fas fa-chevron-right"></i></a>
+</div> -->
 <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -107,4 +109,5 @@ if (content.style.display === "block") {
 }
 </script>
  <% include ./partials/footer %>
+ </div>
 </body>

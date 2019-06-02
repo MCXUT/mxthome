@@ -54,6 +54,8 @@ display: block;
 position: relative;
 color:grey;
 font-size:20px;
+padding-top: 20px;
+padding-bottom: 20px;
 }
 .mb-0 > a:hover {
 color:grey;
@@ -67,13 +69,17 @@ position: absolute;
 right: 0;
 color:grey;
 font-size:20px;
+padding-top: 20px;
+padding-bottom: 40px;
 }
 
 .mb-0 > a[aria-expanded="true"]:after {
 content: "\f077"; /* fa-chevron-up */
 
-color:grey;
+color: #d9d9d9;
 font-size:23px;
+padding-top: 20px;
+padding-bottom: 40px;
 }
 
 #accordion{
@@ -87,8 +93,12 @@ font-size:23px;
   padding-bottom: 20px;
 }
 #accordion .collapsed:hover, #accordion .collapsed:after{
-  color: #d9d9d9;
+
+  color:grey;
   background-color: transparent;
+   padding-top: 20px;
+    padding-bottom: 20px;
+
 }
 #accordion .card-header{
   background-color: transparent;
