@@ -909,7 +909,12 @@ form button.btn.btn-info {
 .cropimg {
 clip: rect(0px,50px,100px,50px);
 }
-
+#fb{
+  color:grey;
+}
+#fb:hover{
+  color:#262626;
+}
 /* =============== SECTION COUNTING =============== */
 #counting {
 	padding: 0;
