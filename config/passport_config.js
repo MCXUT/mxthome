@@ -1,5 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+//Facebook
+const FacebookStrategy = require("passport-facebook").Strategy;
 const GoogleStrategy = require("passport-google-oauth20");
 const User = require("../models/User");
 const keys = require("./keys");
@@ -87,5 +89,25 @@ passport.deserializeUser((id, done) => {
         done(err, user);
     });
 });
+
+const fKeys = require("../config/keys");
+
+passport.use(
+  new FacebookStrategy({
+    clientID: fKeys.facebookClientInfo.cId,
+    clientSecret: fKeys.facebookClientInfo.cPw,
+    callbackURL : "https://crewmxt.com/auth/facebook/callback",
+    passReqToCallback: true,
+  }, (req, accessToken, refreshToken, profile, done) => {
+    User.findOne({id: profile.id}, (err, user) => {
+      if(user) {return done(err,user);} // ID 가 있으면 로그인
+      const newUser = newUser({
+        id: profile.id
+      }); //ID가 없으면 회원생성
+      newUser.save((user) => {
+        return done(null, user); // 새로운 회원 생성 후 로그인
+    });
+  });
+}));
 
 module.exports = passport;
