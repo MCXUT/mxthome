@@ -90,12 +90,10 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-const fKeys = require("../config/keys");
-
 passport.use(
   new FacebookStrategy({
-    clientID: fKeys.facebookClientInfo.cId,
-    clientSecret: fKeys.facebookClientInfo.cPw,
+    clientID: keys.facebookClientInfo.cId,
+    clientSecret: keys.facebookClientInfo.cPw,
     callbackURL : "https://crewmxt.com/auth/facebook/callback",
     passReqToCallback: true,
   }, (req, accessToken, refreshToken, profile, done) => {

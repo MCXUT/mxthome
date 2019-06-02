@@ -312,7 +312,7 @@ button.social{
 /* div.fb-login-button {
     width: 210px;
 } */
-a svg{
+.modal-content a svg{
     position: absolute;
     left: 133px;
 }
@@ -921,6 +921,10 @@ clip: rect(0px,50px,100px,50px);
 }
 /*end of meet the team*/
 
+#connect a {
+    font-size: 2.7em;
+    padding: 2rem;
+}
 .social a{
   font-size: 2.7em;
   padding: 2rem;

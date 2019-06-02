@@ -23,7 +23,9 @@ var UserSchema = mongoose.Schema({
     company: String,
     city: String,
     country: String,
-    googleID: String
+    googleID: String,
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);
