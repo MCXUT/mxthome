@@ -41,7 +41,9 @@
         style="right: -65px; position: relative;">Submit</button>
       </center>
     </form>
-
+    <% if(error_reset && error_reset.length < 0) { %>
+        <span style="color: red"><%= error %></span>
+    <% } %>
     <script>
         function gg(e) {
             e.preventDefault();

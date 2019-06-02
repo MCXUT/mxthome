@@ -126,9 +126,15 @@ data-keyboard="true">
 
 
 <!-- find pasword button-->
+<% if(error_reset && error_reset.length > 0) { %>
+<div id="findpasswordModal" role="dialog" aria-hidden="true"
+class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+data-keyboard="true" style="display: block;">
+<% } else { %>
 <div id="findpasswordModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
 data-keyboard="true">
+<% } %>
     <div class="modal-dialog">
         <div class="modal-content" id="findpasswordcontent">
             <div class="modal-header">
@@ -137,6 +143,10 @@ data-keyboard="true">
                <article class="modal_article login p_lr_space pb24">
                    <button class="close" id="close3" data-dismiss="modal"
                    aria-label="Close">+</button>
+
+                   <% if(error_reset && error_reset.length > 0) { %>
+                     <span style="color: red"><%= error_reset %></span>
+                   <% } %>
 
                    <form action="/auth/reset" method="post" target="hidden_frame">
                        <input type="hidden" name="back_url" value="Lw%3D%3D">
