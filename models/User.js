@@ -24,7 +24,9 @@ var UserSchema = mongoose.Schema({
     city: String,
     country: String,
     googleID: String,
-    facebookID: String
+    facebookID: String,
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);

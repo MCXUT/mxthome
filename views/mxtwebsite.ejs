@@ -65,7 +65,7 @@
 <body>
   <script>
   document.addEventListener("DOMContentLoaded", function (event) {
-     type();
+     // type();
      movingBackgroundImage();
   });
 </script>
@@ -77,7 +77,29 @@
 
 
 <!--scroll to top button-->
+<<<<<<< HEAD
 <button onclick="topFunction()" id="myBtn" title="Go to top" >&uarr;<br>top</button>
+=======
+<!-- <a href="#" class="btn" onclick="topFunction()" id="myBtn" title="Go to top"><br>top</a> -->
+<!-- <button onclick="topFunction()" href="#" id="myBtn" title="Go to top" >&uarr;<br>top</button> -->
+<button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
+<script>
+
+$(document).ready(function(){
+  $(window).scroll(function(){
+      if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn().css("z-index","1");
+      } else {
+          $('#scroll').fadeOut();
+      }
+  });
+  $('#scroll').click(function(){
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return false;
+  });
+});
+</script>
+>>>>>>> 74f18bfae4161c7128443f2e7116b0296bd865a7
 <!--- Image Slider -->
 
       <div class="container-fluid" id="mainDiv">
@@ -231,7 +253,20 @@ typewriter();
 
 <!--- Empty Section -->
 <div class="container-fluid padding">
-<div class="row">
+<div class="row empty">
+  <div class="col-12"></div>
+</div>
+</div>
+<!--/Empty section-->
+
+<!--- Fixed background -->
+
+<!--- Emoji Section -->
+
+
+<!--- Empty Section -->
+<div class="container-fluid padding">
+<div class="row empty">
   <div class="col-12"></div>
 </div>
 </div>
@@ -357,10 +392,96 @@ typewriter();
 </div>
 </div>
 <!--/meet the team section-->
+<style media="screen">
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 400px;
+}
+</style>
 <!--- Emoji Section -->
 <button class="fun" data-toggle="collapse" data-target="#emoji">
 click for fun</button>
+<<<<<<< HEAD
 
+=======
+<div id="emoji" class="collapse">
+  <canvas id="gc" width="400" height="400" ></canvas>
+  <script>
+  window.onload=function() {
+      canv=document.getElementById("gc");
+      ctx=canv.getContext("2d");
+      document.addEventListener("keydown",keyPush);
+      setInterval(game,1000/15);
+  }
+  px=py=10;
+  gs=tc=20;
+  ax=ay=15;
+  xv=yv=0;
+  trail=[];
+  tail = 5;
+  function game() {
+      px+=xv;
+      py+=yv;
+      if(px<0) {
+          px= tc-1;
+      }
+      if(px>tc-1) {
+          px= 0;
+      }
+      if(py<0) {
+          py= tc-1;
+      }
+      if(py>tc-1) {
+          py= 0;
+      }
+      ctx.fillStyle="black";
+      ctx.fillRect(0,0,canv.width,canv.height);
+
+      ctx.fillStyle="lime";
+      for(var i=0;i<trail.length;i++) {
+          ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
+          if(trail[i].x==px && trail[i].y==py) {
+              tail = 5;
+          }
+      }
+      trail.push({x:px,y:py});
+      while(trail.length>tail) {
+      trail.shift();
+      }
+
+      if(ax==px && ay==py) {
+          tail++;
+          ax=Math.floor(Math.random()*tc);
+          ay=Math.floor(Math.random()*tc);
+      }
+      ctx.fillStyle="red";
+      ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
+  }
+  function keyPush(evt) {
+      switch(evt.keyCode) {
+          case 65:
+              xv=-1;yv=0;
+              break;
+          case 87:
+              xv=0;yv=-1;
+              break;
+          case 68:
+              xv=1;yv=0;
+              break;
+          case 83:
+              xv=0;yv=1;
+              break;
+      }
+  }
+  </script>
+
+</div>
+>>>>>>> 74f18bfae4161c7128443f2e7116b0296bd865a7
 
 
 
@@ -431,6 +552,7 @@ click for fun</button>
 </div>
 </div>
 
+<<<<<<< HEAD
 <script>
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -459,6 +581,8 @@ function myFunction() {
   popup.classList.toggle("show");
 }
 </script>
+=======
+>>>>>>> 74f18bfae4161c7128443f2e7116b0296bd865a7
 <!---->
 <% include ./partials/footer %>
 

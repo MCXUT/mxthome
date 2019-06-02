@@ -5,9 +5,8 @@ var middleware = {};
 middleware.matchUserEmail = (req, res, next) => {
     User.findOne({email: req.body.email}).then((foundUser) => {
         if(!foundUser) {
-            // req.flash("error_reset", "No user exists with such email");
-            // return res.redirect("/");
-            return res.json({error: "No user exists with such email"});
+            req.flash("error_reset", "No user exists with such email");
+            return res.redirect("/");
         } else {
             return next();
         }
