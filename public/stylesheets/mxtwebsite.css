@@ -95,23 +95,23 @@ ul, ul li {
 	list-style: none;
 }
 
-#myBtn {
 
-  border: 1px solid #999;
-  background-color: transparent;
-  color: #999;
-  padding: 5px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  border-radius: 4px;
+
+#scroll {
+    border: 1px solid #999;
+    background-color: transparent;
+    color: #999;
+    padding: 5px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border-radius: 4px;
 }
-
-#myBtn:hover {
-  background-color: #e7e7e7;
+#scroll:hover {
+    background-color: #e7e7e7;
 }
 
 /* =============== DEFAULT HTML - IMAGES STYLES =============== */
@@ -330,6 +330,12 @@ button.social{
 .modal-content a svg{
     position: absolute;
     left: 133px;
+}
+
+a #facebookIcon{
+    position: absolute;
+    left: 5px;
+    top: 137  px;
 }
 a.btn.btn-info {
     width: 255px;
@@ -714,7 +720,7 @@ a.btn.btn-info:hover {
   padding: 0px;
 }
 .modal-content {
-  width: 500px;
+  width: 350px;
   height: 320px;
   background-color: white;
   border-radius: 4px;
@@ -725,7 +731,7 @@ a.btn.btn-info:hover {
   margin : 0px;
 }
 #registercontent{
-  width: 500px;
+  width: 350px;
   height: 360px;
   background-color: white;
   border-radius: 4px;
@@ -736,8 +742,28 @@ a.btn.btn-info:hover {
   margin : 0px;
 }
 
+#findpasswordcontent{
+    width: 350px;
+    height: 200px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    margin: 0px;
+}
+#findpasswordcontent .modal-header{
+  /* border-bottom: 1px solid black; */
+  margin-bottom: 40px;
+}
+#findpasswordcontent form button{
+  width: 150px;
+  height: 35px;
+}
+
 #emailcontent{
-  width: 500px;
+  width: 350px;
   height: 550px;
 }
 
@@ -808,7 +834,12 @@ form button.btn.btn-info {
   background-color: gray;
   border: 1px solid gray;
 }
-
+.Jumbotron{
+  padding: 0.5rem;
+  border-radius:0;
+  background-color: #2125291c;
+  height:100px;
+}
 
 .lead{
   margin-bottom: 0;
