@@ -327,7 +327,7 @@ button.social{
 /* div.fb-login-button {
     width: 210px;
 } */
-a svg{
+.modal-content a svg{
     position: absolute;
     left: 133px;
 }
