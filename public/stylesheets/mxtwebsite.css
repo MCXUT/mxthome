@@ -113,6 +113,9 @@ ul, ul li {
 #myBtn:hover {
   background-color: #e7e7e7;
 }
+#myBtn span.uarrow {
+    margin-left: 5px;
+}
 
 /* =============== DEFAULT HTML - IMAGES STYLES =============== */
 img {
