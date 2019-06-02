@@ -7,6 +7,7 @@ const path = require("path");
 const session = require("express-session");
 const ejs = require("ejs");
 const flash = require("connect-flash");
+const methodOverride = require("method-override");
 
 const passport = require("./config/passport_config");
 const keys = require("./config/keys");
@@ -15,6 +16,7 @@ const app = express();
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const resetRoutes = require("./routes/reset");
+const serviceRoutes = require("./routes/services");
 
 // Connect to database
 mongoose.connect("mongodb+srv://" + keys.mongodb.user + ":" + keys.mongodb.pass + "@cluster0-gdoa3.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
@@ -24,6 +26,7 @@ const db = mongoose.connection;
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.engine("html", ejs.renderFile);
+app.use(methodOverride("_method"));
 
 // Set bodyparser
 app.use(bodyParser.json());
@@ -61,17 +64,18 @@ app.get("/", (req, res) => {
     res.render("mxtwebsite");
 });
 
-app.get("/announcement", (req, res) => {
-  res.render("announcement");
-});
-
-app.get("/faq", (req, res) => {
-  res.render("faq");
-});
+// app.get("/announcement", (req, res) => {
+//   res.render("announcement");
+// });
+//
+// app.get("/faq", (req, res) => {
+//   res.render("faq");
+// });
 
 app.use("/auth", loginRoutes);
 app.use("/auth", registerRoutes);
 app.use("/auth", resetRoutes);
+app.use("/services", serviceRoutes);
 
 var feedbackController = require("./routes/feedbackController")(app);
 // Set port and listen to it

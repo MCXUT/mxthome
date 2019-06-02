@@ -14,6 +14,10 @@ var UserSchema = mongoose.Schema({
     password: {
         type: String
     },
+    isAdmin: {
+      type: Boolean,
+      default: false
+    },
     gender: {
         // enum: ["M", "F", "undefined"]
         type: String,
