@@ -101,19 +101,23 @@ router.post("/reset/password/:token", (req, res) => {
                     console.log(foundUser);
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(passwordR, salt, (err, hash) => {
-                            foundUser.resetPasswordToken = undefined;
-                            foundUser.resetPasswordExpires = undefined;
-                            var passwordRefresh = {$set: {password: hash}};
+                            var passwordRefresh = {$set: {
+                                password: hash,
+                                resetPasswordToken: undefined,
+                                resetPasswordExpires: undefined
+                            }};
                             User.findByIdAndUpdate(foundUser._id, passwordRefresh, (err) => {
                                 if(err) {
                                     req.flash("error_reset", "Unknown Error Occurred");
                                     return res.redirect("/");
                                 }
                             });
-                            // res.redirect("/");
-                            res.json({success: "Password Successfully Changed"});
+                            return res.redirect("/");
                         });
                     });
+                } else {
+                    req.flash("error_reset", "Passwords do not match");
+                    return res.redirect("back");
                 }
             });
         }
