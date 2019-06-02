@@ -39,69 +39,72 @@
   We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
 </div>
 </ol> -->
-<div class="container-fluid padding">
-  <div class="row padding">
 
-    <% if(announcements) { %>
-      <% for (var i = 0; i < announcements.length; i++) { %>
-        <div class="col-md-4">
-          <div class="card">
-            <a href="/services/board/<%= announcements[i]._id %>" style="color:black;">
-              <% var hasPic = 0; %>
-              <% var picFile; %>
-              <% for (var j = 0; j < files.length; j++) { %>
-                <% if (files[j].filename == announcements[i].imageID) { %>
-                    <% if(files[j].isImage) { %>
-                      <img class="card-img-top" src="image/<%= files[j].filename %>" alt="" style="width: 215px;">
-                    <% } else { %>
-                      <%= files[j].filename %>
-                    <% } %>
-                    <% hasPic = 1; %>
-                    <% picFile = files[j]; %>
-                <% } %>
-              <% } %>
-              <div class="card-body">
-                <h4 class="card-title"><%= announcements[i].title %></h4>
-                <font size="1"><%= announcements[i].board_date %></font><br>
-                <font size="1">Views: <%= announcements[i].views %></font><br>
-                <p class="card-text"><%= announcements[i].contents %></p>
-              </div>
-            </a>
-            <% if (hasPic) { %>
-              <% if (req.user) { %>
-                  <% if (req.user.isAdmin) { %>
-                    <form action="/services/files/<%= picFile._id %>/<%= picFile.filename %>?_method=DELETE" method="post">
-                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
-                    </form>
-                  <% } %>
-              <% } %>
+<a href="/services/announcement" class="ml-5">< Back to Announcements</a><br>
+
+<!-- <div class="container-fluid padding">
+  <div class="row padding"> -->
+  <div class="container" style="padding-bottom:25px;">
+      <div class="row">
+        <div class="col-md-6 m-auto">
+    <h1><%= board.title %></h1><br>
+    <font size="1"><%= board.board_date %></font><br>
+    <font size="1">Views: <%= board.views+1 %></font><br>
+
+    <% if (board.imageID) { %>
+      <% for (var i = 0; i < files.length; i++) { %>
+        <% if (files[i].filename == board.imageID) { %>
+            <% if(files[i].isImage) { %>
+              <img class="card-img-top" src="/services/image/<%= files[i].filename %>" alt="" style="width: 215px;">
             <% } else { %>
-              <% if (req.user) { %>
-                  <% if (req.user.isAdmin) { %>
-                    <form action="/services/announcements/<%= announcements[i]._id %>?_method=DELETE" method="post">
-                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
-                    </form>
-                  <% } %>
-              <% } %>
+              <%= files[i].filename %>
             <% } %>
-          </div>
-        </div>
+        <% } %>
       <% } %>
-    <% } else { %>
-      <p class="ml-5">No announcements to show</p>
     <% } %>
 
+    <h5 style="word-wrap: break-word"><%= board.contents %></h5>
 
-  </div>
-</div>
 
-<% if (req.user) { %>
-    <% if (req.user.isAdmin) { %>
-      <div class="col-md-6 m-auto">
-        <a href="announcement_upload" class="btn btn-primary btn-block mb-5" role="button" style="width:75%;">Post New Announcement</a>
+    <hr>
+
+    <% if (board.comments !== null) { %>
+      Comments:<hr style="width:75%;">
+      <% var comment = board.comments; %>
+      <% for (var i = 0; i < board.comments.length; i++) { %>
+          <font size=1  style="word-wrap: break-word"><%= comment[i].author %> :  "<%= comment[i].contents %>"</font>
+          <!-- <br><font size=1><%= comment[i].comment_date %></font> -->
+          <% if (req.user) { %>
+            <% if ( (req.user.email === comment[i].authorEmail) || (req.user.isAdmin) ) { %>
+              <form action="/services/comment/<%= board._id %>/<%= comment[i]._id %>?_method=DELETE" method="post">
+                <button class="btn btn-danger btn-sm mt-2">Delete</button>
+              </form>
+            <% } %>
+          <% } %>
+          <hr style="width:75%;">
+      <% } %>
+    <% } %>
+
+    <% if (req.user) { %>
+      <!-- ONLY LOGGED IN USERS CAN SEE THE FORM BELOW -->
+      <form action="/services/comment/write/<%= board._id %>" method="post">
+        <input type="hidden" id="author" name="author" value="<%= req.user.name %>">
+        <input type="hidden" id="authorEmail" name="authorEmail" value="<%= req.user.email %>">
+        <div class="form-group">
+          Comment: <textarea class="form-control" name="contents" placeholder="Comment..."></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+      </form>
+    <% } %>
+
       </div>
-    <% } %>
-<% } %>
+    </div>
+  </div>
+
+
+  <!-- </div>
+</div> -->
+
 
 <div class="next">
   <button type="button" class="btn btn-outline-secondary btn-lg ">&#8249;</button>

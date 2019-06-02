@@ -39,69 +39,36 @@
   We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
 </div>
 </ol> -->
+
+<a href="/services/announcement" class="ml-5">< Back to Announcements</a><br>
+
+
 <div class="container-fluid padding">
   <div class="row padding">
 
-    <% if(announcements) { %>
-      <% for (var i = 0; i < announcements.length; i++) { %>
-        <div class="col-md-4">
-          <div class="card">
-            <a href="/services/board/<%= announcements[i]._id %>" style="color:black;">
-              <% var hasPic = 0; %>
-              <% var picFile; %>
-              <% for (var j = 0; j < files.length; j++) { %>
-                <% if (files[j].filename == announcements[i].imageID) { %>
-                    <% if(files[j].isImage) { %>
-                      <img class="card-img-top" src="image/<%= files[j].filename %>" alt="" style="width: 215px;">
-                    <% } else { %>
-                      <%= files[j].filename %>
-                    <% } %>
-                    <% hasPic = 1; %>
-                    <% picFile = files[j]; %>
-                <% } %>
-              <% } %>
-              <div class="card-body">
-                <h4 class="card-title"><%= announcements[i].title %></h4>
-                <font size="1"><%= announcements[i].board_date %></font><br>
-                <font size="1">Views: <%= announcements[i].views %></font><br>
-                <p class="card-text"><%= announcements[i].contents %></p>
-              </div>
-            </a>
-            <% if (hasPic) { %>
-              <% if (req.user) { %>
-                  <% if (req.user.isAdmin) { %>
-                    <form action="/services/files/<%= picFile._id %>/<%= picFile.filename %>?_method=DELETE" method="post">
-                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
-                    </form>
-                  <% } %>
-              <% } %>
-            <% } else { %>
-              <% if (req.user) { %>
-                  <% if (req.user.isAdmin) { %>
-                    <form action="/services/announcements/<%= announcements[i]._id %>?_method=DELETE" method="post">
-                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
-                    </form>
-                  <% } %>
-              <% } %>
-            <% } %>
-          </div>
-        </div>
-      <% } %>
-    <% } else { %>
-      <p class="ml-5">No announcements to show</p>
-    <% } %>
 
+    <div class="col-md-6 m-auto">
+      <form action="/services/upload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <label for="contents">Content:</label>
+          <textarea class="form-control" name="contents" id="contents" placeholder="Announcement..."></textarea>
+        </div>
+        <div class="custom-file mb-3">
+          <input type="file" name="file" id="file" class="custom-file-input">
+          <label for="file" class="custom-file-label">Choose File</label>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+        <a href="/" class="btn btn-danger btn-block mt-4" role="button">Cancel</a>
+      </form>
+    </div>
 
   </div>
 </div>
 
-<% if (req.user) { %>
-    <% if (req.user.isAdmin) { %>
-      <div class="col-md-6 m-auto">
-        <a href="announcement_upload" class="btn btn-primary btn-block mb-5" role="button" style="width:75%;">Post New Announcement</a>
-      </div>
-    <% } %>
-<% } %>
 
 <div class="next">
   <button type="button" class="btn btn-outline-secondary btn-lg ">&#8249;</button>
