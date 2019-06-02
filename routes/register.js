@@ -49,7 +49,7 @@ router.post("/register", (req, res) => {
                         User.createUser(user, (err, user) => {
                             if(err) throw err;
                         });
-                        req.flash("success", "Signup Completed");
+                        req.flash("success_validate", "Signup Completed");
                         return res.redirect("/");
                     }
                 });

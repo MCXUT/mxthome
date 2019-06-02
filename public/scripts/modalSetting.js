@@ -92,6 +92,16 @@ document.getElementById("signup").addEventListener("click", () => {
     document.querySelector("#registerModal").style.display = "block";
 });
 
+document.getElementById("close4").addEventListener("click", (e) => {
+    document.querySelector("#validateEmailModal").style.display = "none";
+});
+
+document.getElementById("validateEmailModal").addEventListener("click", (e) => {
+    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
+        document.getElementById("validateEmailModal").style.display = "none";
+    }
+});
+
 // document.getElementById("signup1").addEventListener("click", () => {
 //     document.querySelector("#jungohModal").style.display = "block";
 // });
