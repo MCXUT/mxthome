@@ -2,9 +2,14 @@ const express = require("express");
 const router = express.Router()
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const nodemailer = require("nodemailer");
+const crypto = require("crypto");
+const async = require("async");
 
+const keys = require("../config/keys");
 const passport = require("../config/passport_config");
 const User = require("../models/User");
+const middleware = require("../middlewares/middleware");
 
 // router.get("/register", (req, res) => {
 //     res.render("register");
