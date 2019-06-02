@@ -17,6 +17,11 @@ document.getElementById("signup_email").addEventListener("click", () => {
     document.querySelector("#emailModal").style.display = "block";
 });
 
+document.getElementById("fold").addEventListener("click", () => {
+    document.querySelector("#registerModal").style.display = "block";
+    document.querySelector("#emailModal").style.display = "none";
+})
+
 document.querySelector(".close").addEventListener("click", (e) => {
     document.querySelector("#cocoaModal").style.display = "none";
 });
