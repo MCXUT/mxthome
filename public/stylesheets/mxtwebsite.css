@@ -227,67 +227,6 @@ navbar{
   font-size:1.1em !important;
 }
 
-nav ul li a {
-    color: grey;
-}
-nav ul li ul {
-    display: none;
-    position: absolute;
-    background-color: white;
-    right: 20px;
-    padding: 10px;
-    border-radius: 0px 0px 4px 4px;
-}
-nav ul li:hover ul{
-    display: block;
-}
-
-nav ul li ul li {
-    border-radius: 4px;
-    width: 130px;
-}
-nav ul li ul li a {
-    padding: 8px 14px;
-}
-nav ul li ul li a:hover {
-    background-color: #f3f3f3;
-}
-
-/* .modal-header{
-  justify-content: center;
-  align-items: center;
-}
-h2{
-  margin: 10px;
-} */
-/* .inputWithIcon input[type=text]{
-  padding-left: 40px;
-}
-.inputWithIcon input[className=fa]{
-  padding-left: 5px;
-}
-.inputWithIcon{
-  position: relative;
-}
-#icon .i{
-  position: absolute;
-  left: 0px;
-  top: 8px;
-  padding: 9px 8px;
-} */
-/* register */
-
-/* .social-box{
-  position: flex;
-  top: 0px;
-  width: 20px;
-  height: 20px;
-  justify-content: center;
-  align-items: center;
-} */
-/* .social-box i{
-  color: #fff;
-} */
 button.social{
   margin-bottom: 10px;
   width: 220px;

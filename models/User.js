@@ -23,7 +23,8 @@ var UserSchema = mongoose.Schema({
     company: String,
     city: String,
     country: String,
-    googleID: String
+    googleID: String,
+    facebookID: String
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);
