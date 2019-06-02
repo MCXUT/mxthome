@@ -370,8 +370,15 @@ button.social{
   top: -400px;
   animation: drop 0.5s ease forwards;
 } */
-a.btn.btn-info {
+/* div.fb-login-button {
     width: 210px;
+} */
+a svg{
+    position: absolute;
+    left: 133px;
+}
+a.btn.btn-info {
+    width: 255px;
     background-color: white;
     color: black;
     font-size: 16px;
@@ -382,7 +389,7 @@ a.btn.btn-info:hover {
 .modal-content button.btn.btn-primary {
     background-color: #F4573C;
     border-radius: 4px;
-    width: 210px;
+    width: 255px;
     font-size: 16px;
 }
 .modal-content button.btn.btn-primary:hover {
@@ -745,8 +752,9 @@ a.btn.btn-info:hover {
 }
 
 
-
-
+.modal-content h2.active {
+    background-color:#E0E4E2;
+}
 
 .modal-header{
   padding: 0px;
@@ -776,14 +784,14 @@ a.btn.btn-info:hover {
 
 #emailcontent{
   width: 500px;
-  height: 550px;
+  height: 600px;
 }
 
 .modal-content input.form-control {
     border-radius: 0px;
     width: 50%;
     margin: 10px auto;
-    width: 210px;
+    width: 255px;
     height: 35px;
     border: 0;
     outline: 0;
@@ -796,16 +804,6 @@ a.btn.btn-info:hover {
     background-color:#FBFAFB
 }
 
-form .input-icon {
-    position: absolute;
-    width: 28px;
-    height: 28px;
-}
-form .input-icon.icon-username {
-    background: url("../images/usericon.png");
-    /* background-repeat: repeat; */
-    /* background-color: black; */
-}
 
 form button {
     margin: 5px auto;
