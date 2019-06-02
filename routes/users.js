@@ -164,7 +164,7 @@ router.get('/reset/password/:token', (req, res) => {
             req.flash("error_reset", "Password Reset Token has expired");
             return res.redirect("/");
         }
-        res.render("reset");
+        res.render("page_reset", {token: req.params.token});
     });
 });
 

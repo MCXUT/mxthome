@@ -134,6 +134,13 @@ img.img-full-width {
 }*/
 /* ============================== LAYOUT ============================== */
 /* =============== LAYOUT - GENERAL LAYOUT =============== */
+#typedtext{
+  font-family: 'Waiting for the Sunrise', cursive;
+  font-size:30px;
+  margin: 10px 50px;
+  letter-spacing: 6px;
+  font-weight: bold;
+}
 .container {
 	position: relative;
 }
@@ -846,7 +853,13 @@ form button.btn.btn-info {
   margin-top: .3rem;
   margin-bottom: 1rem;
 }
+.about{
+  margin-left: 50px;
+  font-family: 'Waiting for the Sunrise', cursive;
+  color: #fff2e6;
+}
 /* =============== Projects =============== */
+
 #project .content {
 	font-weight: 700;
 	font-size: 14px;
@@ -1229,7 +1242,7 @@ figure {
   height: 100%;
 }
 #fixed {
-  background-image: url('/static/images/mac.png');
+  background-image: url('/static/images/together.jpg');
   position: fixed;
   display: block;
   top: 0;
