@@ -90,6 +90,8 @@ passport.deserializeUser((id, done) => {
     });
 });
 
+const fKeys = require("../config/keys");
+
 passport.use(
   new FacebookStrategy({
     clientID: keys.facebookClientInfo.cId,

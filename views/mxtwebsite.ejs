@@ -65,11 +65,11 @@
 <body>
   <script>
   document.addEventListener("DOMContentLoaded", function (event) {
-     type();
+     // type();
      movingBackgroundImage();
   });
 </script>
-<script type="text/javascript" src="/static/stylesheets/css/main.70a66962.js"></script>
+
 
 
 
@@ -98,60 +98,67 @@ $(document).ready(function(){
   });
 });
 </script>
-
 <!--- Image Slider -->
 
       <div class="container-fluid" id="mainDiv">
-      <div id="slides" class="carousel slide" data-ride="carousel">
-      <ul class="carousel-indicators">
-        <li data-target="#slides" data-slide-to="0" class="active"></li>
-        <li data-target="#slides" data-slide-to="1"></li>
-        <li data-target="#slides" data-slide-to="2"></li>
-      </ul>
+
       <div class="carousel-inner">
 
         <div class="carousel-item active text-center">
-          <img src="/static/images/background2.jpg" class="center">
-          <div class="overlay"></div>
+          <img src="/static/images/background.jpg" class="center">
+          <div class="overlay"></div> <!--add filter effect on img-->
                       <div class="carousel-caption">
                         <h1 class="display-2">MxT</h1>
-                        <h3><span id="typed-strings" >
-                            <span>Welcome to MxT</span>
-                            <span>This is our Official Website.</span>
-                          </span>
-                          <span id="typed"></span><br></h3>
-                          <button type="button" class="btn btn-outline-light btn-lg">Button1</button>
-                          <button type="button" class="btn btn-primary btn-lg">Button2</button>
+                         <div id="typedtext"></div>
+
                       </div>
         </div>
-        <div class="carousel-item text-center">
-          <img src="/static/images/background.png" class="center">
-          <div class="carousel-caption " >
-            <h1 class="display-2">MxT</h1>
-            <h3>Welcome to MxT</h3>
-            <button type="button" class="btn btn-outline-light btn-lg">Button1</button>
-            <button type="button" class="btn btn-primary btn-lg">Button2</button>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="/static/images/background.png" class="center">
-        </div>
-      </div>
+<!-- js script for typewriting effect-->
+        <script>
+        var aText = new Array(
+"Welcome to MxT!","",
+"This is our official website.","",
+":)"
+);
+var iSpeed = 100; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+
+function typewriter()
+{
+sContents =  ' ';
+iRow = Math.max(0, iIndex-iScrollAt);
+var destination = document.getElementById("typedtext");
+
+while ( iRow < iIndex ) {
+sContents += aText[iRow++] + '<br />';
+}
+destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+if ( iTextPos++ == iArrLength ) {
+iTextPos = 0;
+iIndex++;
+if ( iIndex != aText.length ) {
+iArrLength = aText[iIndex].length;
+setTimeout("typewriter()", 500);
+}
+} else {
+setTimeout("typewriter()", iSpeed);
+}
+}
+
+
+typewriter();
+        </script>
+
       </div>
       </div>
 
 
-<!--- Jumbotron -->
-<div class="container-fluid">
-<div class="row Jumbotron">
-  <div class="col-xs-12 col-md-9 col-lg-9 col-xl-12">
-    <p class="lead">A web hosting service allows individuals
-       and organizations to make their website accessible via
-       the World Wide Web. Change content.
-    </p>
-  </div>
-</div>
-</div>
 
 <!--- Empty Section -->
 <div class="container-fluid padding">
@@ -161,37 +168,29 @@ $(document).ready(function(){
 </div>
 
 <!--- Fixed background -->
+<div id="about"><br><br></div>
+
+</div>
 <figure>
   <div class="fixed-wrap">
     <div id="fixed">
-      <img src="/static/images/mac.png" class="img-fluid">
-    </div>
+      <div class="overlay"></div>
+
   </div>
-</figure>
-
-
-<!--- Two Column Section -->
-<div id="about">
-<div class="container-fluid padding">
-<div class="row Philosophy padding">
-  <div class="col-lg-6"> <!--may or may not include col-md-12-->
-    <h1>Our Philosophy</h1>
+  <div class="col-lg-8 about "> <!--may or may not include col-md-12-->
+    <br><p style="font-size:40px;color:white;"><b>About Us</b></p>
     <hr class="my-4">
-    <p>(edit)We know the greatness in a disruptive era requires bold ambition,
-      curious talent and a culture that believes we're smarter together.</p>
-    <p>(edit)We approach every challange holistically, with best-inclass expertise in data,
+
+    <p style="font-size:21px;color:white;"><b>(edit)We know the greatness in a disruptive era requires bold ambition,
+      curious talent and a culture that believes we're smarter together.</b></p>
+    <p style="font-size:21px;color:white;"><b>(edit)We approach every challange holistically, with best-inclass expertise in data,
        creativity, media, technology, search, social and more.
        We call this Alchemy. It has the power to build our client's brand
        amd transform their business. And while it may seem like magic, we've got it
-       down to a science.</p>
-  </div>
-  <div class="col-lg-6">
-    <img src="/static/images/team1.png" class="img-fluid"> <!--img-fluid is for responsiveness-->
-  </div>
+       down to a science.</b></p>
 </div>
-<hr class="my-4">
-</div>
-</div>
+</figure>
+
 
 <!--- Empty Section -->
 <div class="container-fluid ">
@@ -204,12 +203,13 @@ $(document).ready(function(){
 <!--Projects-->
 <section id="project"><br><br><br><br>
   <div class="container">
-    <h1>Our Projects</h1>
+    <h1 class="display-2">Our Projects</h1>
     <hr class="my-4">
     <p class="sectionDesc">In the future, promise rejections that are not handled wi
       ll terminate the Node.js process with a non-zero exit code. In the future, promise rejections that are not handled wi
 ll terminate the Node.js process with a non-zero exit code.</p>
     <div class="sectionContent">
+
       <div class="row hoverEffect">
         <div class="col-md-4 col-sm-4">
           <div class="item">
@@ -259,35 +259,10 @@ ll terminate the Node.js process with a non-zero exit code.</p>
 <!--/Empty section-->
 
 <!--- Fixed background -->
-<figure>
-  <div class="fixed-wrap">
-    <div id="fixed">
-      <img src="/static/images/mac.png" class="img-fluid">
-    </div>
-  </div>
-</figure>
+
 
 <!--- Emoji Section -->
-<button class="fun" data-toggle="collapse" data-target="#emoji">
-click for fun</button>
-<div id="emoji" class="collapse">
-  <div class="container-fluid padding">
-  <div class="row text-center"> <!--row가 없으면 이모지마다 하나의 row 를 차지하는데 row class있으면 row share하는거 가능-->
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/panda.gif">
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/poo.gif">
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/unicorn.gif">
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/chicken.gif">
-    </div>
-  </div>
-  </div>
-</div>
+
 
 <!--- Empty Section -->
 <div class="container-fluid padding">
@@ -299,7 +274,7 @@ click for fun</button>
 <!-- =============================  meet the team ===================== -->
 <div id="teams"><br><br>
 <div class="container-fluid padding">
-<h1>Meet the Team</h1>
+<h1 id="header">Meet the Team</h1>
 <hr class="my-4">
 <section id="team">
   <div class="container">
@@ -395,15 +370,14 @@ click for fun</button>
       <div class="col-md-6">
         <div layout="row" class="item">
           <div class="avatar fsr">
-            <img class="rounded-circle" src="/static/images/nibbler.jpeg" alt="">
+            <div class="popup" onclick="myFunction()"><img class="rounded-circle" src="/static/images/nibbler.jpeg" alt="">
+            <span class="popuptext" id="myPopup">Nibbler!</span>
+          </div>
           </div>
           <div class="info">
             <h4 class="name">Nibbler</h4>
             <span class="regency">Visual</span>
-            <p class="desc">Detract yet delight written farther his general.
-              If in so bred at dare rose lose good.
-              Feel and make two real miss use easy. Celebrated delightful an especially
-              increasing instrument am.  </p>
+            <p class="desc">Farts.  </p>
               <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
                <a href="#" class="btn btn-outline-secondary">See Profile</a>
                <!--<button type="button" class="btn btn-primary btn-lg">Button2</button> -->
@@ -418,29 +392,30 @@ click for fun</button>
 </div>
 </div>
 <!--/meet the team section-->
-
-<!--- Empty Section -->
-<div class="container-fluid padding">
-<div class="row empty">
-  <div class="col-12"></div>
-</div>
-<!--/meet the team section-->
-
-<!--- Empty Section -->
-<div class="container-fluid padding">
-<div class="row empty">
-  <div class="col-12"></div>
-</div>
-</div>
-
-<!--- Fixed background -->
-<figure>
-  <div class="fixed-wrap">
-    <div id="fixed">
-      <img src="/static/images/mac.png" class="img-fluid">
+<!--- Emoji Section -->
+<button class="fun" data-toggle="collapse" data-target="#emoji">
+click for fun</button>
+<div id="emoji" class="collapse">
+  <div class="container-fluid padding">
+  <div class="row text-center"> <!--row가 없으면 이모지마다 하나의 row 를 차지하는데 row class있으면 row share하는거 가능-->
+    <div class="col-sm-6 col-md-3">
+      <img class="gif" src="/static/images/gif/panda.gif">
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <img class="gif" src="/static/images/gif/poo.gif">
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <img class="gif" src="/static/images/gif/unicorn.gif">
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <img class="gif" src="/static/images/gif/chicken.gif">
     </div>
   </div>
-</figure>
+  </div>
+</div>
+
+
+
 
 <!--- Empty Section -->
 <div class="container-fluid padding">
@@ -491,9 +466,10 @@ click for fun</button>
 <div class="container-fluid padding">
 <div class="row text-center padding">
   <div class="col-12">
-    <h1>Connect</h1>
+    <h1 id="header">Connect</h1>
+    <hr class="my-4">
   </div>
-  <div class="col-12 social padding" style="display: block;">
+  <div class="col-12 social padding">
     <a href="#"><i class="fab fa-facebook-square"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -504,24 +480,7 @@ click for fun</button>
 </div>
 </div>
 
-<!-- <script>
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     document.getElementById("myBtn").style.display = "block";
-//   } else {
-//     document.getElementById("myBtn").style.display = "none";
-//   }
-// }
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script> -->
+<!---->
 <% include ./partials/footer %>
 
 
