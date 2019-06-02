@@ -782,6 +782,26 @@ a.btn.btn-info:hover {
   margin : 0px;
 }
 
+#findpasswordcontent{
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    margin: 0px;
+}
+#findpasswordcontent .modal-header{
+  /* border-bottom: 1px solid black; */
+  margin-bottom: 40px;
+}
+#findpasswordcontent form button{
+  width: 150px;
+  height: 35px;
+}
+
 #emailcontent{
   width: 500px;
   height: 550px;
