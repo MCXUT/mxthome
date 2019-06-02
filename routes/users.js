@@ -85,6 +85,14 @@ router.get("/google/redirect", passport.authenticate('google'), (req, res) => {
     res.redirect("/");
 });
 
+// --> FacebookStrategy
+router.get("/facebook", passport.authenticate("facebook", { scope: ["email", "public_profile"] }));
+
+router.get("/facebook/callback", passport.authenticate("facebook"), (req,res) => {
+  res.redirect("/");
+});
+// --> FacebookStrategy
+
 router.get("/logout", function(req,res) {
   req.logout();
   res.redirect("/");
