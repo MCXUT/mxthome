@@ -15,6 +15,7 @@ const app = express();
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const resetRoutes = require("./routes/reset");
+const verificationRoutes = require("./routes/verification");
 
 // Connect to database
 mongoose.connect("mongodb+srv://" + keys.mongodb.user + ":" + keys.mongodb.pass + "@cluster0-gdoa3.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
@@ -72,6 +73,7 @@ app.get("/faq", (req, res) => {
 app.use("/auth", loginRoutes);
 app.use("/auth", registerRoutes);
 app.use("/auth", resetRoutes);
+app.use("/auth", verificationRoutes);
 
 var feedbackController = require("./routes/feedbackController")(app);
 // Set port and listen to it

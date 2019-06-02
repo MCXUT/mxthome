@@ -2,7 +2,12 @@ const express = require("express");
 const router = express.Router()
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const crypto = require("crypto");
+const nodemailer = require("nodemailer");
+const async = require("async");
+const keys = require("../config/keys");
 
+const Verification = require("./createToken");
 const User = require("../models/User");
 
 router.post("/register", (req, res) => {
@@ -46,8 +51,9 @@ router.post("/register", (req, res) => {
                             password: newUser.password,
                             gender: newUser.gender
                         });
-                        User.createUser(user, (err, user) => {
+                        User.createUser(user, (err, createdUser) => {
                             if(err) throw err;
+                            Verification.createToken(req,createdUser);
                         });
                         req.flash("success_validate", "Signup Completed");
                         return res.redirect("/");

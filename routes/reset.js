@@ -76,7 +76,7 @@ router.get('/reset/password/:token', (req, res) => {
         resetPasswordExpires: {$gt: Date.now()},
     }).then((foundUser) => {
         if(!foundUser) {
-            req.flash("error_reset", "Password Reset Token has expired");
+            req.flash("error_reset", "Password Reset Token has been expired");
             return res.redirect("/");
         }
         res.render("page_reset", {token: req.params.token});
