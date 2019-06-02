@@ -210,10 +210,11 @@ img.img-full-width {
   width:53px;
 }
 .active, .navbar-toggler:hover {
- color:#666;
+ color: #666;
 }
 navbar{
   padding:.8rem; /*16px*/
+  overflow: hidden;
 }
 .navbar-brand{
   height:47px;
@@ -226,41 +227,7 @@ navbar{
   font-size:1.1em !important;
 }
 
-/* .modal-header{
-  justify-content: center;
-  align-items: center;
-}
-h2{
-  margin: 10px;
-} */
-/* .inputWithIcon input[type=text]{
-  padding-left: 40px;
-}
-.inputWithIcon input[className=fa]{
-  padding-left: 5px;
-}
-.inputWithIcon{
-  position: relative;
-}
-#icon .i{
-  position: absolute;
-  left: 0px;
-  top: 8px;
-  padding: 9px 8px;
-} */
-/* register */
 
-/* .social-box{
-  position: flex;
-  top: 0px;
-  width: 20px;
-  height: 20px;
-  justify-content: center;
-  align-items: center;
-} */
-/* .social-box i{
-  color: #fff;
-} */
 button.social{
   margin-bottom: 10px;
   width: 220px;
@@ -388,9 +355,7 @@ button.social{
   width:100%;
 }
 
-.active, .nav-item:hover {
 
-}
 #mainDiv {
     padding: 0px;
 }
@@ -416,12 +381,7 @@ button.social{
   background-color: gray;
   border: 1px solid gray;
 }
-.Jumbotron{
-  padding: 0.5rem;
-  border-radius:0;
-  background-color: #2125291c;
-  height:100px;
-}
+
 
 .lead{
   margin-bottom: 0;
@@ -435,11 +395,10 @@ button.social{
   padding: 40px;
 }
 
-.Philosophy hr{
-  border-top: 2px solid #b4b4b4;
-  width: 100%;
-  margin-top: .3rem;
-  margin-bottom: 1rem;
+.about{
+  margin-left: 50px;
+  font-family: 'Waiting for the Sunrise', cursive;
+  color: #fff2e6;
 }
 /* =============== Projects =============== */
 #project .content {
