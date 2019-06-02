@@ -17,7 +17,9 @@ passport.use(
             if(!user) {
                 return done(null, false, {message: "Invalid Username or Password"});
             }
-
+            if(!user.isVerified) {
+                return done(null, false, {message: "Your email has not been verified yet!"});
+            }
             User.comparePassword(password, user.password, (err, isMatch) => {
                 if(err) throw err;
                 if(!isMatch) {

@@ -8,6 +8,7 @@ router.post('/login', passport.authenticate('local-login', {
     successRedirect: "/",
     failureRedirect: "/",
     failureFlash: "Invalid username or password",
+    failureFlash: "Your email has not been verified yet!",
     successFlash: "Successfully logged in"
 }), (req, res) => {
 

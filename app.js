@@ -16,6 +16,7 @@ const app = express();
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const resetRoutes = require("./routes/reset");
+const verificationRoutes = require("./routes/verification");
 const serviceRoutes = require("./routes/services");
 
 // Connect to database
@@ -75,6 +76,7 @@ app.get("/", (req, res) => {
 app.use("/auth", loginRoutes);
 app.use("/auth", registerRoutes);
 app.use("/auth", resetRoutes);
+app.use("/auth", verificationRoutes);
 app.use("/services", serviceRoutes);
 
 var feedbackController = require("./routes/feedbackController")(app);
