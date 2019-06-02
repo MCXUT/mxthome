@@ -5,7 +5,6 @@
   <meta charset="utf-8">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <a href="#mainDiv" id="myBtn" title="Go to top"><span class="uarrow">&uarr;</span><br>top</a>
   <script>
   $(document).ready(function(){
     // Add smooth scrolling to all links
@@ -81,6 +80,23 @@
 
 <!--scroll to top button-->
 <!-- <button onclick="topFunction()" id="myBtn" title="Go to top" >&uarr;<br>top</button> -->
+<a href="#" id="scroll" style="display: none;"><span></span></a>
+<script>
+
+$(document).ready(function(){
+  $(window).scroll(function(){
+      if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn().css("z-index","1");
+      } else {
+          $('#scroll').fadeOut();
+      }
+  });
+  $('#scroll').click(function(){
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return false;
+  });
+});
+</script>
 <!--- Image Slider -->
 
       <div class="container-fluid" id="mainDiv">
