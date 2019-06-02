@@ -3,6 +3,7 @@ const router = express.Router()
 
 const keys = require("../config/keys");
 const User = require("../models/User");
+const tokenmailer = require("./createToken");
 
 
 router.get('/verification/emailAddress/:token', (req, res) => {
@@ -11,7 +12,7 @@ router.get('/verification/emailAddress/:token', (req, res) => {
         emailVerificationExpires: {$gt: Date.now()},
     }).then((foundUser) => {
         if(!foundUser) {
-            req.flash("error_reset", "Your Token has been expired");
+            req.flash("error_signup", "Your Token is invalid or has been expired");
             return res.redirect("/");
         }
         // foundUser.isVerified = true;
@@ -41,6 +42,20 @@ router.get("/verification/resend", (req, res) => {
   //NOT COMPLETED
   res.redirect("/");
 });
+
+router.post("/verification/resend", (req, res) => {
+    User.findOne({email: req.body.email}).then((foundUser) => {
+        if(!foundUser) {
+            //req.flash("error_verify", "No such username exists");
+            // res.redirect("/verification/resend");
+            return res.json({error: "No such username exists"});
+        }
+        if(!foundUser.emailVerificationToken || !foundUser.emailVerificationExpires) {
+            return res.status(500).send("Forbidden Access");
+        }
+        tokenmailer.createToken(req, res, foundUser);
+    });
+})
 
 
 module.exports = router;

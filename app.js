@@ -50,11 +50,12 @@ app.use("/static", express.static(path.join(__dirname, 'public')));
 
 app.use(flash());
 app.use((req, res, next) => {
-    res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     res.locals.success_validate = req.flash("success_validate");
+    res.locals.error = req.flash("error");
     res.locals.error_signup = req.flash("error_signup");
     res.locals.error_reset = req.flash('error_reset');
+    res.locals.error_verify = req.flash("error_verify");
     res.locals.currentUser = req.user;
     next();
 });
