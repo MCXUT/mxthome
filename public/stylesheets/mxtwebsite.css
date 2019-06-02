@@ -124,6 +124,8 @@ img.image-left {
 img.img-full-width {
 	width: 100%;
 }
+
+
 /* =============== PREDEFINED CONTENT ALIGN =============== */
 /*	margin-left: 1em !important;
 	margin-right: 0;
@@ -133,6 +135,16 @@ img.img-full-width {
 	margin-right: 1em !important;
 }*/
 /* ============================== LAYOUT ============================== */
+
+/*welcome to mxt this is our official website*/
+
+#typedtext{
+  font-family: 'Waiting for the Sunrise', cursive;
+  font-size:30px;
+  margin: 10px 50px;
+  letter-spacing: 6px;
+  font-weight: bold;
+}
 /* =============== LAYOUT - GENERAL LAYOUT =============== */
 .container {
 	position: relative;
@@ -211,10 +223,11 @@ img.img-full-width {
   width:53px;
 }
 .active, .navbar-toggler:hover {
- color:#666;
+ color: #666;
 }
 navbar{
   padding:.8rem; /*16px*/
+  overflow: hidden;
 }
 .navbar-brand{
   height:47px;
@@ -767,9 +780,7 @@ form button.btn.btn-info {
   width:100%;
 }
 
-.active, .nav-item:hover {
 
-}
 #mainDiv {
     padding: 0px;
 }
@@ -795,12 +806,7 @@ form button.btn.btn-info {
   background-color: gray;
   border: 1px solid gray;
 }
-.Jumbotron{
-  padding: 0.5rem;
-  border-radius:0;
-  background-color: #2125291c;
-  height:100px;
-}
+
 
 .lead{
   margin-bottom: 0;
@@ -811,14 +817,13 @@ form button.btn.btn-info {
   padding-bottom: 2rem;
 }
 .empty{
-  padding: 70px;
+  padding: 40px;
 }
 
-.Philosophy hr{
-  border-top: 2px solid #b4b4b4;
-  width: 100%;
-  margin-top: .3rem;
-  margin-bottom: 1rem;
+.about{
+  margin-left: 50px;
+  font-family: 'Waiting for the Sunrise', cursive;
+  color: #fff2e6;
 }
 /* =============== Projects =============== */
 #project .content {
@@ -832,6 +837,8 @@ form button.btn.btn-info {
 #project h1{
   font-size: 2.2em;
 }
+
+
 /* =============== End of Projects =============== */
 .welcome hr{
   border-top: 2px solid #b4b4b4;
@@ -854,7 +861,6 @@ form button.btn.btn-info {
 }
 .fun {
   width: 100%;
-  margin-bottom: 2rem;
 }
 .gif{
   max-width: 100%;
@@ -919,6 +925,64 @@ clip: rect(0px,50px,100px,50px);
 	height: 2px;
 	background: #95e1d3;
 }
+
+/*-----hello popup-------*/
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+/*-------end of hello popup----------*/
 /*end of meet the team*/
 
 #connect a {
@@ -1207,7 +1271,8 @@ figure {
   height: 100%;
 }
 #fixed {
-  background-image: url('/static/images/mac.png');
+  background-image: url('/static/images/together.jpg');
+
   position: fixed;
   display: block;
   top: 0;

@@ -91,6 +91,13 @@ router.get("/google/redirect", passport.authenticate('google'), (req, res) => {
     res.redirect("/");
 });
 
+// --> FacebookStrategy
+router.get("/facebook", passport.authenticate("facebook", { scope: ["email", "public_profile"] }));
+
+router.get("/facebook/callback", passport.authenticate("facebook"), (req,res) => {
+  res.redirect("/");
+});
+
 router.post("/reset", middleware.matchUserEmail, (req, res) => {
     var userEmail = req.body.email;
 

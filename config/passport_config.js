@@ -94,18 +94,26 @@ passport.use(
   new FacebookStrategy({
     clientID: keys.facebookClientInfo.cId,
     clientSecret: keys.facebookClientInfo.cPw,
-    callbackURL : "https://crewmxt.com/auth/facebook/callback",
-    passReqToCallback: true,
-  }, (req, accessToken, refreshToken, profile, done) => {
-    User.findOne({id: profile.id}, (err, user) => {
-      if(user) {return done(err,user);} // ID 가 있으면 로그인
-      const newUser = newUser({
-        id: profile.id
-      }); //ID가 없으면 회원생성
-      newUser.save((user) => {
-        return done(null, user); // 새로운 회원 생성 후 로그인
-    });
-  });
-}));
+    callbackURL : keys.facebookClientInfo.callback,
+    profileFields: ['id', 'email', 'name']
+    //passReqToCallback: true
+  }, (accessToken, refreshToken, profile, done) => {
+    User.findOne({facebookID: profile.id}).then((foundUser) => {
+        if(foundUser) {
+            done(null, foundUser);
+        } else {
+            console.log(profile);
+            new User({
+                name: profile.name.givenName + " " + profile.name.familyName,
+                email: profile.emails[0].value,
+                facebookID: profile.id
+            }).save().then((newUser) => {
+                console.log("new User Created: " + newUser);
+                done(null, newUser);
+            });
+        }
+    })
+  }
+));
 
 module.exports = passport;

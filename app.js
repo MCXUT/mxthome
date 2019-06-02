@@ -54,12 +54,15 @@ app.use((req, res, next) => {
 var fs = require("fs");
 // Home route
 app.get("/", (req, res) => {
-  fs.readFile("./test2.txt", function(err, data) {
-    if(err) throw err;
-    res.render("mxtwebsite", {data: data});
-    // console.log(data);
-    // res.render("mxtwebsite");
-  });
+    res.render("mxtwebsite");
+});
+
+app.get("/announcement", (req, res) => {
+  res.render("announcement");
+});
+
+app.get("/faq", (req, res) => {
+  res.render("faq");
 });
 
 app.use("/auth", userRoutes);
