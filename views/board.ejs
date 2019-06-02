@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MxTwebsite</title>
+  <meta charset="utf-8">
+
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<link rel="stylesheet" href="/static/stylesheets/announcement.css">
+<% include ./partials/header %>
+</head>
+<% include ./partials/navbar %>
+<body>
+  <br><br><br>
+  <div class="announcement">
+    <h1><i class="fas fa-bullhorn"></i>  Announcements</h1>
+  </div>
+
+<div class="search">
+<input class="searchbox" type="text" placeholder="Search  " name="" value="" style="height:40px;width:250px;text-align:right;" >
+<button type="button" name="button" class="search_button" style="height:38px;width:40px;"><i class="fas fa-search" style="font-size:17px;"></i></button>
+</div>
+<hr class="upper">
+
+<!-- <ol>
+  <button class="collapsible">Announcement1:anouncement preview   <i class="fa fa-caret-down"></i></button>
+  <div class="content">
+    We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
+  </div>
+<hr class="under">
+<button class="collapsible">Announcement2:anouncement preview   <i class="fa fa-caret-down"></i></button>
+<div class="content">
+  We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
+</div>
+<hr class="under">
+
+<button class="collapsible">Announcement3:anouncement preview   <i class="fa fa-caret-down"></i></button>
+<div class="content">
+  We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
+</div>
+</ol> -->
+
+<a href="/services/announcement" class="ml-5">< Back to Announcements</a><br>
+
+<!-- <div class="container-fluid padding">
+  <div class="row padding"> -->
+  <div class="container" style="padding-bottom:25px;">
+      <div class="row">
+        <div class="col-md-6 m-auto">
+    <h1><%= board.title %></h1><br>
+    <font size="1"><%= board.board_date %></font><br>
+    <font size="1">Views: <%= board.views+1 %></font><br>
+    <% var hasPic = 0; %>
+    <% var picFile; %>
+    <% if (board.imageID) { %>
+      <% for (var i = 0; i < files.length; i++) { %>
+        <% if (files[i].filename == board.imageID) { %>
+            <% if(files[i].isImage) { %>
+              <img class="card-img-top" src="/services/image/<%= files[i].filename %>" alt="" style="width: 215px;">
+              <% hasPic = 1; %>
+              <% picFile = files[i]; %>
+            <% } else { %>
+              <%= files[i].filename %>
+            <% } %>
+        <% } %>
+      <% } %>
+    <% } %>
+
+    <h5 style="word-wrap: break-word"><%= board.contents %></h5>
+
+
+    <% if (hasPic) { %>
+      <% if (req.user) { %>
+          <% if (req.user.isAdmin) { %>
+            <form action="/services/files/<%= picFile._id %>/<%= picFile.filename %>?_method=DELETE" method="post">
+              <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete Post</button>
+            </form>
+          <% } %>
+      <% } %>
+    <% } else { %>
+      <% if (req.user) { %>
+          <% if (req.user.isAdmin) { %>
+            <form action="/services/announcements/<%= board._id %>?_method=DELETE" method="post">
+              <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete Post</button>
+            </form>
+          <% } %>
+      <% } %>
+    <% } %>
+
+
+    <hr>
+
+    <% if (board.comments !== null) { %>
+      Comments:<hr style="width:75%;">
+      <% var comment = board.comments; %>
+      <% for (var i = 0; i < board.comments.length; i++) { %>
+          <font size=1  style="word-wrap: break-word"><%= comment[i].author %> :  "<%= comment[i].contents %>"</font>
+          <!-- <br><font size=1><%= comment[i].comment_date %></font> -->
+          <% if (req.user) { %>
+            <% if ( (req.user.email === comment[i].authorEmail) || (req.user.isAdmin) ) { %>
+              <form action="/services/comment/<%= board._id %>/<%= comment[i]._id %>?_method=DELETE" method="post">
+                <button class="btn btn-danger btn-sm mt-2">Delete Comment</button>
+              </form>
+            <% } %>
+          <% } %>
+          <hr style="width:75%;">
+      <% } %>
+    <% } %>
+
+    <% if (req.user) { %>
+      <!-- ONLY LOGGED IN USERS CAN SEE THE FORM BELOW -->
+      <form action="/services/comment/write/<%= board._id %>" method="post">
+        <input type="hidden" id="author" name="author" value="<%= req.user.name %>">
+        <input type="hidden" id="authorEmail" name="authorEmail" value="<%= req.user.email %>">
+        <div class="form-group">
+          Comment: <textarea class="form-control" name="contents" placeholder="Comment..."></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+      </form>
+    <% } %>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- </div>
+</div> -->
+
+
+<div class="next">
+  <button type="button" class="btn btn-outline-secondary btn-lg ">&#8249;</button>
+  <button type="button" class="btn btn-outline-secondary btn-lg ">&#8250;</button>
+</div><br>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+coll[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var content = this.nextElementSibling;
+if (content.style.display === "block") {
+  content.style.display = "none";
+} else {
+  content.style.display = "block";
+}
+});
+}
+</script>
+ <% include ./partials/footer %>
+</body>

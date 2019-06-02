@@ -6,6 +6,9 @@
 
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!--for mobile websites-->
+
 <link rel="stylesheet" href="/static/stylesheets/announcement.css">
 <% include ./partials/header %>
 </head>
@@ -16,91 +19,73 @@
     <h1><i class="fas fa-bullhorn"></i>  Announcements</h1>
   </div>
 
-<div class="search">
-<input class="searchbox" type="text" placeholder="Search  " name="" value="" style="height:40px;width:250px;text-align:right;" >
-<button type="button" name="button" class="search_button" style="height:38px;width:40px;"><i class="fas fa-search" style="font-size:17px;"></i></button>
-</div>
+
 <hr class="upper">
 
-<!-- <ol>
-  <button class="collapsible">Announcement1:anouncement preview   <i class="fa fa-caret-down"></i></button>
-  <div class="content">
-    We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
-  </div>
-<hr class="under">
-<button class="collapsible">Announcement2:anouncement preview   <i class="fa fa-caret-down"></i></button>
-<div class="content">
-  We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
-</div>
-<hr class="under">
 
-<button class="collapsible">Announcement3:anouncement preview   <i class="fa fa-caret-down"></i></button>
-<div class="content">
-  We approach every challange holistically, with best-inclass expertise in data, creativity, media, technology, search, social and more. We call this Alchemy. It has the power to build our client's brand amd transform their business. And while it may seem like magic, we've got it down to a science.
-</div>
-</ol> -->
 <div class="container-fluid padding">
   <div class="row padding">
 
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="team1.png">
-        <div class="card-body">
-          <h4 class="card-title">Yona Kim</h4>
-          <p class="card-text">Yona Kim is a front-end developper with 2 weeks of experience.</p>
-          <a href="#" class="btn btn-outline-secondary">See Profile</a>
+    <% if(announcements) { %>
+      <% for (var i = 0; i < announcements.length; i++) { %>
+        <div class="col-md-4">
+          <div class="card">
+            <a href="/services/board/<%= announcements[i]._id %>" style="color:black;">
+              <% var hasPic = 0; %>
+              <% var picFile; %>
+              <% for (var j = 0; j < files.length; j++) { %>
+                <% if (files[j].filename == announcements[i].imageID) { %>
+                    <% if(files[j].isImage) { %>
+                      <img class="card-img-top" src="image/<%= files[j].filename %>" alt="" style="width: 215px;">
+                    <% } else { %>
+                      <%= files[j].filename %>
+                    <% } %>
+                    <% hasPic = 1; %>
+                    <% picFile = files[j]; %>
+                <% } %>
+              <% } %>
+              <div class="card-body">
+                <h4 class="card-title"><%= announcements[i].title %></h4>
+                <font size="1"><%= announcements[i].board_date %></font><br>
+                <font size="1">Views: <%= announcements[i].views %></font><br>
+                <p class="card-text"><%= announcements[i].contents %></p>
+              </div>
+            </a>
+            <% if (hasPic) { %>
+              <% if (req.user) { %>
+                  <% if (req.user.isAdmin) { %>
+                    <form action="/services/files/<%= picFile._id %>/<%= picFile.filename %>?_method=DELETE" method="post">
+                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete Post</button>
+                    </form>
+                  <% } %>
+              <% } %>
+            <% } else { %>
+              <% if (req.user) { %>
+                  <% if (req.user.isAdmin) { %>
+                    <form action="/services/announcements/<%= announcements[i]._id %>?_method=DELETE" method="post">
+                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete Post</button>
+                    </form>
+                  <% } %>
+              <% } %>
+            <% } %>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="team2.png">
-        <div class="card-body">
-          <h4 class="card-title">Yona Kim</h4>
-          <p class="card-text">Yona Kim is a front-end developper with 2 weeks of experience.</p>
-          <a href="#" class="btn btn-outline-secondary">See Profile</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="team3.png">
-        <div class="card-body">
-          <h4 class="card-title">Yona Kim</h4>
-          <p class="card-text">Yona Kim is a front-end developper with 2 weeks of experience.</p>
-          <a href="#" class="btn btn-outline-secondary">See Profile</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="team1.png">
-        <div class="card-body">
-          <h4 class="card-title">Yona Kim</h4>
-          <p class="card-text">Yona Kim is a front-end developper with 2 weeks of experience.</p>
-          <a href="#" class="btn btn-outline-secondary">See Profile</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="team1.png">
-        <div class="card-body">
-          <h4 class="card-title">Yona Kim</h4>
-          <p class="card-text">Yona Kim is a front-end developper with 2 weeks of experience.</p>
-          <a href="#" class="btn btn-outline-secondary">See Profile</a>
-        </div>
-      </div>
-    </div>
+      <% } %>
+    <% } else { %>
+      <p class="ml-5">No announcements to show</p>
+    <% } %>
 
 
   </div>
 </div>
 
+<% if (req.user) { %>
+    <% if (req.user.isAdmin) { %>
+      <div class="col-md-6 m-auto">
+        <a href="announcement_upload" class="btn btn-primary btn-block mb-5" role="button" style="width:75%;">Post New Announcement</a>
+      </div>
+    <% } %>
+<% } %>
 
 <div class="next">
   <button type="button" class="btn btn-outline-secondary btn-lg ">&#8249;</button>

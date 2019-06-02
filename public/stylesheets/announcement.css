@@ -7,11 +7,10 @@
   padding-bottom: 20px;
 }
 
-.search{
-  text-align:right;
-  margin-right:30px;
-}
-.search_button{
+.search-container{
+  text-align: right;
+  padding-right: 30px;
+  font-size: 20px;
   background-color: transparent;
 }
 .upper{
@@ -35,33 +34,68 @@
 
 .next{
   text-align: center;
+  font-size: 40px;
+  padding: 30px;
 }
-.collapsible {
+.fa-chevron-right, .fa-chevron-left{
+  color:#666666;
+}
+.fa-chevron-right:hover, .fa-chevron-left:hover{
+  color:#d9d9d9;
+}
+
+#qlist {
+  padding-left: 30px;
+}
+
+
+.mb-0 > a {
+display: block;
+position: relative;
+color:grey;
+font-size:20px;
+}
+.mb-0 > a:hover {
+color:grey;
+font-size:20px;
+}
+
+.mb-0 > a:after {
+content: "\f078"; /* fa-chevron-down */
+font-family: 'FontAwesome';
+position: absolute;
+right: 0;
+color:grey;
+font-size:20px;
+}
+
+.mb-0 > a[aria-expanded="true"]:after {
+content: "\f077"; /* fa-chevron-up */
+
+color:grey;
+font-size:23px;
+}
+
+#accordion{
+  padding-left: 100px;
+  padding-right: 100px;
   background-color: transparent;
-  color: #404040;
-  font-size:27px;
-  cursor: pointer;
-  width: 60%;
+}
+#accordion .collapsed{
+  color: #666666;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#accordion .collapsed:hover, #accordion .collapsed:after{
+  color: #d9d9d9;
+  background-color: transparent;
+}
+#accordion .card-header{
+  background-color: transparent;
+
+}
+#accordion .card{
+
   border: none;
-  text-align: left;
-  outline: none;
-  display:block;
-}
-
- .active, .collapsible:hover {
-  background-color: transparent;
-  color:grey;
-  overflow: hidden;
-}
-
-.content {
-	display:none;
-  overflow: hidden;
-  background-color: transparent;
-	color: #404040;
-	font-size: 17px;
-	width: 60%;
-  padding-top:30px;
-  padding-left: 10px;
 }
 }
