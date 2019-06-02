@@ -26,10 +26,6 @@ router.post("/register", (req, res) => {
         req.flash("error_signup", "Some information is missing");
         return res.redirect("/");
     }
-    // req.body.password2 = "gggggggg";
-    // if(!(req.body.name && req.body.email && req.body.password)) {
-    //     return res.json({error: "Some information missing"});
-    // }
 
     User.getUserByUsername(newUser.email, (err, user) => {
         if(err) throw err;
@@ -53,10 +49,9 @@ router.post("/register", (req, res) => {
                         });
                         User.createUser(user, (err, createdUser) => {
                             if(err) throw err;
-                            Verification.createToken(req,createdUser);
+                            Verification.createToken(req, res, createdUser);
                         });
-                        req.flash("success_validate", "Signup Completed");
-                        return res.redirect("/");
+
                     }
                 });
             });

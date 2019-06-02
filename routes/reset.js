@@ -30,7 +30,6 @@ router.post("/reset", middleware.matchUserEmail, (req, res) => {
                 }
                 foundUser.resetPasswordToken = token;
                 foundUser.resetPasswordExpires = Date.now() + 3600000;
-                console.log(foundUser);
                 foundUser.save((err) => {
                     done(err, token, foundUser);
                 })
