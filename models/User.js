@@ -11,6 +11,10 @@ var UserSchema = mongoose.Schema({
         unique: true,
         required: true
     },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
     password: {
         type: String
     },
@@ -30,7 +34,9 @@ var UserSchema = mongoose.Schema({
     googleID: String,
     facebookID: String,
     resetPasswordToken: String,
-    resetPasswordExpires: Date
+    resetPasswordExpires: Date,
+    emailVerificationToken: String,
+    emailVerificationExpires: Date
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);

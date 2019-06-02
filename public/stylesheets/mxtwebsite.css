@@ -24,12 +24,6 @@ body {
 
 
 
-
-
-
-
-
-
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main {
     display: block;
 }
@@ -906,6 +900,8 @@ form button.btn.btn-info {
 }
 .fun {
   width: 100%;
+  padding: 7px;
+  font-size: 17px;
 }
 .gif{
   max-width: 100%;
@@ -913,7 +909,12 @@ form button.btn.btn-info {
 .cropimg {
 clip: rect(0px,50px,100px,50px);
 }
-
+#fb{
+  color:grey;
+}
+#fb:hover{
+  color:#262626;
+}
 /* =============== SECTION COUNTING =============== */
 #counting {
 	padding: 0;
