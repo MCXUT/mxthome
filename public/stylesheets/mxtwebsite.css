@@ -329,12 +329,12 @@ button.social{
 } */
 .modal-content a svg{
     position: absolute;
-    left: 133px;
+    left: 63px;
 }
 
 a #facebookIcon{
     position: absolute;
-    left: 5px;
+    left: 6px;
     top: 137  px;
 }
 a.btn.btn-info {
@@ -357,19 +357,19 @@ a.btn.btn-info:hover {
 }
 
 
-#cocoaModal, #registerModal .modal-dialog{
+#cocoaModal .modal-dialog{
   /* top: -400px; */
   /* animation: unfoldIn 0.7s ease forwards; */
   animation: fadeIn 1.0s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
   .modal-content {
-        background-color:transparent;
-        animation: modalFadeIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-        .modal-svg {
-              rect {
-                animation: sketchIn .5s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-              }
-            }
-}
+    background-color:transparent;
+    animation: modalFadeIn .5s .8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    .modal-svg {
+      rect {
+        animation: sketchIn .5s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+      }
+    }
+  }
 }
 
 @keyframes drop{
@@ -719,6 +719,12 @@ a.btn.btn-info:hover {
 .modal-header{
   padding: 0px;
 }
+.modal-dialog{
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  width: 100%;
+}
 .modal-content {
   width: 350px;
   height: 320px;
@@ -764,7 +770,7 @@ a.btn.btn-info:hover {
 
 #emailcontent{
   width: 350px;
-  height: 550px;
+  height: 570px;
 }
 
 .modal-content input.form-control {
