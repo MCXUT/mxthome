@@ -5,8 +5,8 @@ const keys = require("../config/keys");
 const passport = require("../config/passport_config");
 
 router.post('/login', passport.authenticate('local-login', {
-    successRedirect: "/",
-    failureRedirect: "/",
+    successRedirect: "back",
+    failureRedirect: "back",
     failureFlash: "Invalid username or password",
     successFlash: "Successfully logged in"
 }), (req, res) => {
@@ -30,7 +30,7 @@ router.get("/facebook/callback", passport.authenticate("facebook"), (req,res) =>
 
 router.get("/logout", function(req,res) {
   req.logout();
-  res.redirect("/");
+  res.redirect("back");
 });
 
 module.exports = router;
