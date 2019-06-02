@@ -761,7 +761,7 @@ a.btn.btn-info:hover {
 }
 .modal-content {
   width: 500px;
-  height: 330px;
+  height: 320px;
   background-color: white;
   border-radius: 4px;
   text-align: center;
@@ -772,7 +772,7 @@ a.btn.btn-info:hover {
 }
 #registercontent{
   width: 500px;
-  height: 320px;
+  height: 360px;
   background-color: white;
   border-radius: 4px;
   text-align: center;
@@ -784,13 +784,13 @@ a.btn.btn-info:hover {
 
 #emailcontent{
   width: 500px;
-  height: 600px;
+  height: 550px;
 }
 
 .modal-content input.form-control {
     border-radius: 0px;
     width: 50%;
-    margin: 10px auto;
+    margin-bottom: 10px;
     width: 255px;
     height: 35px;
     border: 0;
