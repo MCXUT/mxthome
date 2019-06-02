@@ -79,7 +79,25 @@
 
 
 <!--scroll to top button-->
-<button onclick="topFunction()" id="myBtn" title="Go to top" >&uarr;<br>top</button>
+<!-- <a href="#" class="btn" onclick="topFunction()" id="myBtn" title="Go to top"><br>top</a> -->
+<!-- <button onclick="topFunction()" href="#" id="myBtn" title="Go to top" >&uarr;<br>top</button> -->
+<button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
+<script>
+
+$(document).ready(function(){
+  $(window).scroll(function(){
+      if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn().css("z-index","1");
+      } else {
+          $('#scroll').fadeOut();
+      }
+  });
+  $('#scroll').click(function(){
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return false;
+  });
+});
+</script>
 
 <!--- Image Slider -->
 
@@ -486,24 +504,24 @@ click for fun</button>
 </div>
 </div>
 
-<script>
+<!-- <script>
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
+// function scrollFunction() {
+//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//     document.getElementById("myBtn").style.display = "block";
+//   } else {
+//     document.getElementById("myBtn").style.display = "none";
+//   }
+// }
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-</script>
+</script> -->
 <% include ./partials/footer %>
 
 
