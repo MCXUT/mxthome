@@ -21,27 +21,32 @@
         </nav>
     <center><h2>Reset Password</h2></center>
 
-    <form action="/auth/reset/password/<%=token%>" method="post" target="hidden_frame">
+    <form action="/auth/reset/password/<%= token %>" onSubmit="gg" method="post" target="hidden_frame">
       <center>
         <div style="position: absolute; left:22px; opacity: 0.5;">
           <i class="fas fa-envelope"></i>
         </div>
-        <input class="form-control" type="password" name="email" value=""
+        <input class="form-control" type="password" name="password" value=""
           placeholder="New Password"
           style="padding-left: 30px; margin-bottom: 10px;" required>
           <br>
         <div style="position: absolute; left:22px; opacity: 0.5;">
           <i class="fas fa-envelope"></i>
         </div>
-        <input class="form-control" type="password" name="email" value=""
+        <input class="form-control" type="password" name="password2" value=""
           placeholder="Confirm New Password" style="padding-left: 30px;
           margin-bottom: 10px;" required>
         <br>
-      <button class="btn btn-primary" type="button"
+      <button class="btn btn-primary"
         style="right: -65px; position: relative;">Submit</button>
       </center>
     </form>
 
-
+    <script>
+        function gg(e) {
+            e.preventDefault();
+            console.log(e.target.className);
+        }
+    </script>
   </body>
 </html>
