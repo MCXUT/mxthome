@@ -1,23 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
-@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
-@import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
 
-html,body{
-  height:100%;
-  width:100%;
-  line-height: 1.7;
-  margin: 0;
-  padding: 0;
-}
-body {
-	color: #999;
-	font-size: 13px;
-	font-weight: 400;
-	overflow-x: hidden;
-	position: relative;
-	font-family: 'Roboto', sans-serif;
-}
 
 .announcement{
   text-align: center;

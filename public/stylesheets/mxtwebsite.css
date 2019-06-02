@@ -15,7 +15,6 @@ html,body{
 
 
 body {
-	color: #999;
 	font-size: 13px;
 	font-weight: 400;
 	overflow-x: hidden;
@@ -56,15 +55,16 @@ a[class*="glyphicon-"] {
 	}
 h1,h2, h3, h4, h5, h6 {
 	margin: 5px 0 10px;
-	color: #333;
+	color: #666666;
 	text-transform: uppercase;
 	font-family: 'Montserrat', sans-serif;
 }
 h1, h2 {
 	font-weight: 300;
 }
-h1 {
+#header {
 	font-size: 2.2em;
+  font-weight: 100;
 }
 h2 {
 	font-size: 1.8em;
@@ -88,7 +88,9 @@ p, form, input {
 }
 p {
 	margin-bottom: 10px;
+  color:#808080;
 }
+
 ul, ul li {
 	list-style: none;
 }
@@ -915,6 +917,7 @@ clip: rect(0px,50px,100px,50px);
 	display: inline-block;
 	font-style: italic;
 	margin-bottom: 12px;
+  color:#666666;
 }
 #team .regency:after {
 	content: "";
