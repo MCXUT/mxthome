@@ -316,6 +316,12 @@ a svg{
     position: absolute;
     left: 133px;
 }
+
+a #facebookIcon{
+    position: absolute;
+    left: 5px;
+    top: 137px;
+}
 a.btn.btn-info {
     width: 255px;
     background-color: white;
