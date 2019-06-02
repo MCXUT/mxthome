@@ -11,7 +11,7 @@
     $("a").on('click', function(event) {
       // Make sure this.hash has a value before overriding default behavior
       if (this.hash !== "") {
-        if(this.hash !== "#login" && this.hash !== "#signup") {
+        if(this.hash !== "#login" && this.hash !== "#signup" && this.hash !== "#profile") {
             //console.log(this.hash);
             // Prevent default anchor click behavior
             event.preventDefault();
@@ -34,6 +34,28 @@
   });
   </script>
 
+  <script>
+    console.log(`%c                 ________            ________\t\t\t\t
+                 \\       \\          /       /\t\t\t\t
+                  \\       \\        /       /\t\t\t\t
+                   \\       \\      /       /\t\t\t\t\t
+                    \\       \\    /       /\t\t\t\t\t
+     ____       ____ \\       \\  /       / _____________\t\t
+    |    \\     /    | \\       \\/       / |             |\t
+    |     \\   /     |  \\              /  |____     ____|\t
+    |      \\_/      |   \\            /        |   |\t\t\t
+    |    |\\   /|    |   /            \\        |   |\t\t\t
+    |    | \\_/ |    |  /      /\\      \\       |   |\t\t\t
+    |____|     |____| /      /  \\      \\      |___|\t\t\t
+                     /      /    \\      \\\t\t\t\t\t
+ Nogada_Life        /      /      \\      \\\t\t\t\t\t
+ JSW && KBW        /      /        \\      \\\t\t\t\t\t
+                  /      /          \\      \\\t\t\t\t
+                 /______/            \\______\\\t\t\t\t
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t
+`, "background: black; color: white; font-size: 14px; font-weight: bold;");
+  </script>
+
 
   <% include ./partials/header %>
 </head>
@@ -47,6 +69,13 @@
      movingBackgroundImage();
   });
 </script>
+
+
+
+
+
+
+
 
 
 <!--scroll to top button-->

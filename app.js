@@ -51,9 +51,18 @@ app.use((req, res, next) => {
     next();
 });
 
+var fs = require("fs");
 // Home route
 app.get("/", (req, res) => {
     res.render("mxtwebsite");
+});
+
+app.get("/announcement", (req, res) => {
+  res.render("announcement");
+});
+
+app.get("/faq", (req, res) => {
+  res.render("faq");
 });
 
 app.use("/auth", userRoutes);
