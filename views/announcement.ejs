@@ -55,7 +55,7 @@
               <% if (req.user) { %>
                   <% if (req.user.isAdmin) { %>
                     <form action="/services/files/<%= picFile._id %>/<%= picFile.filename %>?_method=DELETE" method="post">
-                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
+                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete Post</button>
                     </form>
                   <% } %>
               <% } %>
@@ -63,7 +63,7 @@
               <% if (req.user) { %>
                   <% if (req.user.isAdmin) { %>
                     <form action="/services/announcements/<%= announcements[i]._id %>?_method=DELETE" method="post">
-                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
+                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete Post</button>
                     </form>
                   <% } %>
               <% } %>
