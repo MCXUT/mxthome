@@ -6,9 +6,8 @@ const keys = require("../config/keys");
 const User = require("../models/User");
 
 
-module.exports.createToken = (req,user) => {
+module.exports.createToken = (req, res, user) => {
   //Add codes for email verified.
-  console.log(user);
   var userEmail = user.email;
   async.waterfall([
     (done) => {
@@ -20,7 +19,6 @@ module.exports.createToken = (req,user) => {
     (token, done) => {
       user.emailVerificationToken = token;
       user.emailVerificationExpires = Date.now() + 36000;
-      console.log(user);
       user.save((err) => {
           done(err, token, user);
       })
@@ -45,12 +43,22 @@ module.exports.createToken = (req,user) => {
                 '<h3>Click the link below to verify your email</h3>' +
                 '<a href="http://' + req.headers.host + '/auth/verification/emailAddress/' + token + '">verify your email</a>'
         };
+        // transporter.sendMail(mailOption, (err) => {
+        //     if(err) {
+        //         req.flash("error_reset", "Error Occured when sending the email");
+        //         return done(err);
+        //     }
+        //     req.flash("success_validate", "Email Successfully Sent");
+        //     return done(null);
+        // });
         transporter.sendMail(mailOption, (err) => {
             if(err) {
-                req.flash("error_reset", "Error Occured when sending the email");
+                req.flash("error_signup", "Error occured when sending the email");
+                return res.redirect("/");
+            } else {
+                req.flash("success_validate", "Successfully sent email");
                 return res.redirect("/");
             }
-            res.redirect("/");
         });
     }
   ])

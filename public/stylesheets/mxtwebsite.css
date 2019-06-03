@@ -10,6 +10,44 @@ html,body{
   margin: 0;
 }
 
+#hov .dropdown-menu{
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#hov2:hover .dropdown-menu{
+  height: 70px;
+  display: block;
+  /* animation: moveDown 0.7s; */
+
+}
+
+#hov:hover .dropdown-menu{
+  height: 95px;
+  display: block;
+  /* animation: moveDown 0.7s; */
+
+}
+/* #sival:onclick .dropdown-menu{
+  display: block; */
+}
+
+@keyframes moveDown {
+  0% {
+    transform:translateY(0px);
+  }
+  70%{
+    transform:translateY(60px);
+  }
+  100% {
+    transform:translateY(-5px);
+  }
+}
+
 
 
 
@@ -267,13 +305,7 @@ button.social{
   margin-top: 0px;
   margin-bottom: 10px;
 }
-/* .social-box .signinwith{
-  display: flex;
-  margin-bottom: 40px;
-  font-size: 14px;
-  color: blue;
 
-} */
 
 
 #login, #login1, #login2, #signup{
@@ -293,18 +325,7 @@ button.social{
 }
 
 
-/* #jungohModal{
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
 
-} */
 .modal{
     /* z-index: 11; */
     width: 100%;
@@ -318,13 +339,6 @@ button.social{
     /* top: -400px; */
 }
 
-/* .modal-dialog{
-  top: -400px;
-  animation: drop 0.5s ease forwards;
-} */
-/* div.fb-login-button {
-    width: 210px;
-} */
 .modal-content a svg{
     position: absolute;
     left: 63px;
@@ -355,7 +369,7 @@ a.btn.btn-info:hover {
 }
 
 
-#cocoaModal .modal-dialog{
+#cocoaModal, #registerModal .modal-dialog{
   /* top: -400px; */
   /* animation: unfoldIn 0.7s ease forwards; */
   animation: fadeIn 1.0s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
@@ -518,14 +532,7 @@ a.btn.btn-info:hover {
   }
 }
 
-@keyframes moveDown {
-  0% {
-    transform:translateY(0px);
-  }
-  100% {
-    transform:translateY(150px);
-  }
-}
+
 
 @keyframes blowUpContent {
   0% {
@@ -748,7 +755,7 @@ a.btn.btn-info:hover {
 
 #findpasswordcontent{
     width: 350px;
-    height: 215px;
+    height: 230px;
     background-color: white;
     border-radius: 4px;
     text-align: center;
@@ -759,7 +766,7 @@ a.btn.btn-info:hover {
 }
 #findpasswordcontent .modal-header{
   /* border-bottom: 1px solid black; */
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 #findpasswordcontent form button{
   width: 150px;

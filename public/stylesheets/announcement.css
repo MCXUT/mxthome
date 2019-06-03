@@ -15,6 +15,11 @@
   padding-bottom: 20px;
 }
 
+#abc .card-text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .search-container{
   text-align: right;
   padding-right: 30px;
@@ -50,6 +55,7 @@
 }
 .fa-chevron-right:hover, .fa-chevron-left:hover{
   color:#d9d9d9;
+
 }
 
 #qlist {
@@ -57,9 +63,11 @@
 }
 
 
+
 .mb-0 > a {
 display: block;
 position: relative;
+
 padding-top: 20px;
 padding-bottom: 20px;
 color:grey;
@@ -78,6 +86,7 @@ position: absolute;
 right: 0;
 color:grey;
 font-size:20px;
+
 padding-top: 20px;
 padding-bottom: 40px;
 }
@@ -92,6 +101,7 @@ padding-bottom: 40px;
 }
 
 #accordion{
+
   padding-left: 20%;
   padding-right: 8%;
 }
@@ -103,6 +113,7 @@ padding-bottom: 40px;
 
 }
 #accordion .collapsed:hover, #accordion .collapsed:after{
+
 
   color:grey;
    padding-top: 20px;

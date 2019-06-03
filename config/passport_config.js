@@ -48,7 +48,6 @@ passport.use(
             if(foundUser) {
                 done(null, foundUser);
             } else {
-                console.log(profile);
                 new User({
                     name: profile.displayName,
                     email: profile.emails[0].value,
@@ -59,26 +58,6 @@ passport.use(
                 });
             }
         })
-        // DBmySQL.query(commands.query.searchGoogle, profile.id, (err, rows) => {
-        //     if(err) {
-        //         return done(err);
-        //     }
-        //     if(rows.length) {
-        //         return done(null, rows[0]);
-        //     } else {
-        //         var userData = {
-        //             username: profile.displayName,
-        //             email: profile.emails[0].value,
-        //             googleID: profile.id
-        //         };
-        //         DBmySQL.query(commands.query.insertUser, userData, (err, newUser) => {
-        //             if(err) throw err;
-        //             // console.log(newUser.insertId);
-        //             userData.id = newUser.insertId;
-        //             return done(null, userData);
-        //         });
-        //     }
-        // });
     })
 );
 
@@ -92,7 +71,7 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-const fKeys = require("../config/keys");
+//const fKeys = require("../config/keys");
 
 passport.use(
   new FacebookStrategy({
