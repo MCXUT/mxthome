@@ -1,10 +1,17 @@
-
+#more{
+  display: none;
+}
 
 .announcement{
   text-align: center;
   color:grey;
   padding-top:40px;
   padding-bottom: 20px;
+}
+
+#abc .card-text{
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .search-container{
