@@ -143,8 +143,6 @@
 
 <!--scroll to top button-->
 
-<!-- <a href="#" class="btn" onclick="topFunction()" id="myBtn" title="Go to top"><br>top</a> -->
-<!-- <button onclick="topFunction()" href="#" id="myBtn" title="Go to top" >&uarr;<br>top</button> -->
 <button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
 <script>
 
@@ -602,27 +600,7 @@ canvas {
 </div>
 
 
-<script>
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-
-}
-</script>
-
-<!--hello popup-->
+<!-- hello popup-->
 <script>
 // When the user clicks on div, open the popup
 function myFunction() {
@@ -631,15 +609,11 @@ function myFunction() {
 }
 </script>
 
-<!---->
+
 <% include ./partials/footer %>
 
 
   <script src="/static/scripts/modalSetting.js"></script>
-
-
-
-
 
 </body>
 </html>

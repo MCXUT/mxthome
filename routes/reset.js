@@ -60,6 +60,7 @@ router.post("/reset", middleware.matchUserEmail, (req, res) => {
                     req.flash("error_reset", "Error Occured when sending the email");
                     return res.redirect("/");
                 }
+                req.flash("success_validate", "Check your email for password reset");
                 res.redirect("/");
             });
         }
@@ -111,6 +112,7 @@ router.post("/reset/password/:token", (req, res) => {
                                     return res.redirect("/");
                                 }
                             });
+                            req.flash("success_validate", "Your password has been successfully reset");
                             return res.redirect("/");
                         });
                     });

@@ -27,9 +27,12 @@ router.get('/verification/emailAddress/:token', (req, res) => {
           }
         });
         req.login(foundUser,function(err) {
-          if(!err){return res.redirect("/");}
+          if(!err){
+              req.flash("success_validate", "Your account has been verified successfully!");
+              return res.redirect("/");
+          }
         })
-        // return res.redirect("/");
+
     });
 });
 

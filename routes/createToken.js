@@ -56,7 +56,7 @@ module.exports.createToken = (req, res, user) => {
                 req.flash("error_signup", "Error occured when sending the email");
                 return res.redirect("/");
             } else {
-                req.flash("success_validate", "Successfully sent email");
+                req.flash("success_validate", "Check your email for validation");
                 return res.redirect("/");
             }
         });
