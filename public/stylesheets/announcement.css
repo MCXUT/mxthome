@@ -49,6 +49,7 @@
 }
 .fa-chevron-right:hover, .fa-chevron-left:hover{
   color:#d9d9d9;
+
 }
 
 #qlist {
@@ -56,13 +57,12 @@
 }
 
 
+
 .mb-0 > a {
 display: block;
 position: relative;
 color:grey;
 font-size:20px;
-padding-top: 20px;
-padding-bottom: 20px;
 }
 .mb-0 > a:hover {
 color:grey;
@@ -76,6 +76,7 @@ position: absolute;
 right: 0;
 color:grey;
 font-size:20px;
+
 padding-top: 20px;
 padding-bottom: 40px;
 }
@@ -93,6 +94,7 @@ padding-bottom: 40px;
   padding-left: 100px;
   padding-right: 100px;
   background-color: transparent;
+
 }
 #accordion .collapsed{
   color: #666666;
@@ -101,10 +103,26 @@ padding-bottom: 40px;
 }
 #accordion .collapsed:hover, #accordion .collapsed:after{
 
-  color:grey;
+}
+.mb-0 > a[aria-expanded="true"]:after {
+content: "\f077"; /* fa-chevron-up */
+color:grey;
+font-size:23px;
+}
+
+#accordion{
+  padding-left: 100px;
+  padding-right: 100px;
   background-color: transparent;
-   padding-top: 20px;
-    padding-bottom: 20px;
+}
+#accordion .collapsed{
+  color: #666666;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#accordion .collapsed:hover, #accordion .collapsed:after{
+  color: #d9d9d9;
+  background-color: transparent;
 
 }
 #accordion .card-header{

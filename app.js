@@ -66,13 +66,6 @@ app.get("/", (req, res) => {
     res.render("mxtwebsite");
 });
 
-// app.get("/announcement", (req, res) => {
-//   res.render("announcement");
-// });
-//
-// app.get("/faq", (req, res) => {
-//   res.render("faq");
-// });
 
 app.use("/auth", loginRoutes);
 app.use("/auth", registerRoutes);

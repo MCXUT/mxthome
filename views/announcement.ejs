@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    img {
+      width: 215px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
   <title>MxTwebsite</title>
   <meta charset="utf-8">
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!--for mobile websites-->
 
@@ -88,6 +97,7 @@
 <div class="container-fluid padding">
   <div class="row padding">
 
+<<<<<<< HEAD
     <div class="col-md-4">
       <div class="card" style="width:400px">
           <img class="card-img-top" src="bbler.jpeg" alt="Card image" style="width:100%">
@@ -142,20 +152,69 @@
             <h4 class="card-title">Announcement4:</h4>
             <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
             <a href="#" class="btn stretched-link"></a>
+=======
+    <% if(announcements) { %>
+      <% for (var i = 0; i < announcements.length; i++) { %>
+        <div class="col-md-4">
+          <div class="card">
+            <a href="/services/board/<%= announcements[i]._id %>" style="color:black;">
+              <% var hasPic = 0; %>
+              <% var picFile; %>
+              <% for (var j = 0; j < files.length; j++) { %>
+                <% if (files[j].filename == announcements[i].imageID) { %>
+                    <% if(files[j].isImage) { %>
+                      <img class="card-img-top" src="image/<%= files[j].filename %>" alt="" style="width: 215px;">
+                    <% } else { %>
+                      <%= files[j].filename %>
+                    <% } %>
+                    <% hasPic = 1; %>
+                    <% picFile = files[j]; %>
+                <% } %>
+              <% } %>
+              <div class="card-body">
+                <h4 class="card-title"><%= announcements[i].title %></h4>
+                <font size="1"><%= announcements[i].board_date %></font><br>
+                <font size="1">Views: <%= announcements[i].views %></font><br>
+                <p class="card-text"><%= announcements[i].contents %></p>
+              </div>
+            </a>
+            <% if (hasPic) { %>
+              <% if (req.user) { %>
+                  <% if (req.user.isAdmin) { %>
+                    <form action="/services/files/<%= picFile._id %>/<%= picFile.filename %>?_method=DELETE" method="post">
+                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
+                    </form>
+                  <% } %>
+              <% } %>
+            <% } else { %>
+              <% if (req.user) { %>
+                  <% if (req.user.isAdmin) { %>
+                    <form action="/services/announcements/<%= announcements[i]._id %>?_method=DELETE" method="post">
+                      <button class="btn btn-danger btn-block mt-4" style="width:95%;">Delete</button>
+                    </form>
+                  <% } %>
+              <% } %>
+            <% } %>
+>>>>>>> ee27b110481b703825458207d135b6d533662e62
           </div>
         </div>
-    </div>
+      <% } %>
+    <% } else { %>
+      <p class="ml-5">No announcements to show</p>
+    <% } %>
 
-    <div class="col-md-4">
-      <div class="card" style="width:400px">
-          <img class="card-img-top" src="bbler.jpeg" alt="Card image" style="width:100%">
-          <div class="card-body">
-            <h4 class="card-title">Announcement5:</h4>
-            <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-            <a href="#" class="btn stretched-link"></a>
-          </div>
-        </div>
-    </div>
+  </div>
+</div>
+
+<% if (req.user) { %>
+    <% if (req.user.isAdmin) { %>
+      <div class="col-md-6 m-auto">
+        <a href="announcement_upload" class="btn btn-primary btn-block mb-5" role="button" style="margin:0 auto;width:75%;">Post New Announcement</a>
+      </div>
+    <% } %>
+<% } %>
+
+
 
 
   </div>
