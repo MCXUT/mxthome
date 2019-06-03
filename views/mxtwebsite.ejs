@@ -76,11 +76,8 @@
 
 
 
-
-
 <!--scroll to top button-->
 <button onclick="topFunction()" id="myBtn" title="Go to top" >&uarr;<br>top</button>
-
 <!--- Image Slider -->
 
       <div class="container-fluid" id="mainDiv">
@@ -99,8 +96,8 @@
 <!-- js script for typewriting effect-->
         <script>
         var aText = new Array(
-"Welcome to MxT!","",
-"This is our official website.","",
+"WELCOME TO MXT!","",
+"THIS IS OUR OFFICIAL WEBSITE.","",
 ":)"
 );
 var iSpeed = 100; // time delay of print out
@@ -151,26 +148,25 @@ typewriter();
 </div>
 
 <!--- Fixed background -->
-<div id="about"><br><br></div>
+<div id="about">
+<br><br><br><br><br></div>
 
 </div>
 <figure>
   <div class="fixed-wrap">
     <div id="fixed">
-      <div class="overlay"></div>
+
 
   </div>
-  <div class="col-lg-8 about "> <!--may or may not include col-md-12-->
-    <br><p style="font-size:40px;color:white;"><b>About Us</b></p>
+  <div class="col-8 about " > <!--may or may not include col-md-12-->
+    <br><h1 id="header">About Us</h1>
     <hr class="my-4">
 
-    <p style="font-size:21px;color:white;"><b>(edit)We know the greatness in a disruptive era requires bold ambition,
-      curious talent and a culture that believes we're smarter together.</b></p>
-    <p style="font-size:21px;color:white;"><b>(edit)We approach every challange holistically, with best-inclass expertise in data,
-       creativity, media, technology, search, social and more.
-       We call this Alchemy. It has the power to build our client's brand
-       amd transform their business. And while it may seem like magic, we've got it
-       down to a science.</b></p>
+    <p><b>(edit)We know the greatness in a disruptive era requires bold ambition,
+      curious talent and a culture that believes we're smarter together.(edit)We know the greatness in a disruptive era requires bold ambition,
+        curious talent and a culture that believes we're smarter together.</b></p>
+
+</div>
 </div>
 </figure>
 
@@ -188,23 +184,23 @@ typewriter();
   <div class="container">
     <h1 class="display-2">Our Projects</h1>
     <hr class="my-4">
-    <p class="sectionDesc">In the future, promise rejections that are not handled wi
-      ll terminate the Node.js process with a non-zero exit code. In the future, promise rejections that are not handled wi
-ll terminate the Node.js process with a non-zero exit code.</p>
+
     <div class="sectionContent">
 
       <div class="row hoverEffect">
         <div class="col-md-4 col-sm-4">
           <div class="item">
-            <a class="overlay" href="#">
+            <a class="overlay">
               <span class="content">
                 <i class="mdi mdi-account-multiple icon"></i>
                 Project 1
+
               </span>
               <img src="/static/images/projects/img-1.jpg" alt="">
             </a>
           </div>
         </div>
+
         <div class="col-md-4 col-sm-4">
           <div class="item">
             <a class="overlay" href="#">
@@ -261,7 +257,7 @@ ll terminate the Node.js process with a non-zero exit code.</p>
               If in so bred at dare rose lose good.
               Feel and make two real miss use easy. Celebrated delightful an especially
               increasing instrument am.  </p>
-               <a href="#" class="btn btn-outline-secondary">See Profile</a>
+               <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
       </div>
@@ -278,7 +274,7 @@ ll terminate the Node.js process with a non-zero exit code.</p>
               If in so bred at dare rose lose good.
               Feel and make two real miss use easy. Celebrated delightful an especially
               increasing instrument am.  </p>
-               <a href="#" class="btn btn-outline-secondary">See Profile</a>
+               <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
       </div>
@@ -297,7 +293,7 @@ ll terminate the Node.js process with a non-zero exit code.</p>
               If in so bred at dare rose lose good.
               Feel and make two real miss use easy. Celebrated delightful an especially
               increasing instrument am.  </p>
-               <a href="#" class="btn btn-outline-secondary">See Profile</a>
+               <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
       </div>
@@ -314,7 +310,7 @@ ll terminate the Node.js process with a non-zero exit code.</p>
               If in so bred at dare rose lose good.
               Feel and make two real miss use easy. Celebrated delightful an especially
               increasing instrument am.  </p>
-               <a href="#" class="btn btn-outline-secondary">See Profile</a>
+               <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
       </div>
@@ -331,7 +327,7 @@ ll terminate the Node.js process with a non-zero exit code.</p>
               If in so bred at dare rose lose good.
               Feel and make two real miss use easy. Celebrated delightful an especially
               increasing instrument am.  </p>
-               <a href="#" class="btn btn-outline-secondary">See Profile</a>
+               <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
       </div>
@@ -346,9 +342,9 @@ ll terminate the Node.js process with a non-zero exit code.</p>
           <div class="info">
             <h4 class="name">Nibbler</h4>
             <span class="regency">Visual</span>
-            <p class="desc">Farts.  </p>
+            <p class="desc">Farts. <br>(Click on Nibbler!) </p>
               <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
-               <a href="#" class="btn btn-outline-secondary">See Profile</a>
+               <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
                <!--<button type="button" class="btn btn-primary btn-lg">Button2</button> -->
           </div>
         </div>
@@ -364,24 +360,7 @@ ll terminate the Node.js process with a non-zero exit code.</p>
 <!--- Emoji Section -->
 <button class="fun" data-toggle="collapse" data-target="#emoji">
 click for fun</button>
-<div id="emoji" class="collapse">
-  <div class="container-fluid padding">
-  <div class="row text-center"> <!--row가 없으면 이모지마다 하나의 row 를 차지하는데 row class있으면 row share하는거 가능-->
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/panda.gif">
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/poo.gif">
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/unicorn.gif">
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <img class="gif" src="/static/images/gif/chicken.gif">
-    </div>
-  </div>
-  </div>
-</div>
+
 
 
 
@@ -394,7 +373,7 @@ click for fun</button>
 </div>
 <!-- Counting
   ================================================== -->
-  <section id="counting">
+  <section id="counting" style="background-color: #a5c0ac;">
     <div class="container">
       <div layout="row" class="verticalStretch">
 
@@ -403,27 +382,30 @@ click for fun</button>
           <div class="text">Web Design Projects</div>
         </div>
 
-
-        <div class="item">
-          <div class="number">6</div>
-          <div class="text">happy clients</div>
-        </div>
-
-
         <div class="item">
           <div class="number">5</div>
-          <div class="text">award winner</div>
+          <div class="text">members</div>
         </div>
 
         <div class="item">
-          <div class="number">999</div>
-          <div class="text">cups of coffee</div>
+          <div class="number">22</div>
+          <div class="text"> Crew Average Age</div>
         </div>
+
+        <div class="item">
+          <div class="number">2+</div>
+          <div class="text">Happy clients <br>(soon to be)</div>
+        </div>
+
+
 
         <div class="item">
           <div class="number">0</div>
-          <div class="text">members</div>
+          <div class="text">Happy Clients</div>
         </div>
+
+
+
       </div>
     </div>
 
@@ -440,10 +422,10 @@ click for fun</button>
   </div>
   <div class="col-12 social padding">
     <a href="#"><i class="fab fa-facebook-square"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a ><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-google-plus-g"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a ><i class="fab fa-youtube"></i></a>
   </div>
 </div>
 </div>
@@ -465,8 +447,10 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+
 }
 </script>
+
 <!--hello popup-->
 <script>
 // When the user clicks on div, open the popup
@@ -480,6 +464,8 @@ function myFunction() {
 
 
   <script src="/static/scripts/modalSetting.js"></script>
+
+
 
 
 
