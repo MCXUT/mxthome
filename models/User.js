@@ -11,8 +11,16 @@ var UserSchema = mongoose.Schema({
         unique: true,
         required: true
     },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
     password: {
         type: String
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false
     },
     gender: {
         // enum: ["M", "F", "undefined"]
@@ -24,7 +32,11 @@ var UserSchema = mongoose.Schema({
     city: String,
     country: String,
     googleID: String,
-    facebookID: String
+    facebookID: String,
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
+    emailVerificationToken: String,
+    emailVerificationExpires: Date
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);

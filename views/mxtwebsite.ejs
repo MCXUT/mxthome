@@ -65,7 +65,7 @@
 <body>
   <script>
   document.addEventListener("DOMContentLoaded", function (event) {
-     type();
+     // type();
      movingBackgroundImage();
   });
 </script>
@@ -77,7 +77,30 @@
 
 
 <!--scroll to top button-->
+
 <button onclick="topFunction()" id="myBtn" title="Go to top" >&uarr;<br>top</button>
+
+<!-- <a href="#" class="btn" onclick="topFunction()" id="myBtn" title="Go to top"><br>top</a> -->
+<!-- <button onclick="topFunction()" href="#" id="myBtn" title="Go to top" >&uarr;<br>top</button> -->
+<button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
+<script>
+
+$(document).ready(function(){
+  $(window).scroll(function(){
+      if ($(this).scrollTop() > 100) {
+          $('#scroll').fadeIn().css("z-index","1");
+      } else {
+          $('#scroll').fadeOut();
+      }
+  });
+  $('#scroll').click(function(){
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return false;
+  });
+});
+</script>
+
+>>>>>>> 2d3143d94f8daaadc0451d2f1524bec843784b42
 <!--- Image Slider -->
 
       <div class="container-fluid" id="mainDiv">
@@ -231,7 +254,7 @@ typewriter();
 
 <!--- Empty Section -->
 <div class="container-fluid padding">
-<div class="row">
+<div class="row empty">
   <div class="col-12"></div>
 </div>
 </div>
@@ -253,10 +276,10 @@ typewriter();
           <div class="info">
             <h4 class="name">Steven Joeng</h4>
             <span class="regency">Backend Developper</span>
-            <p class="desc">Detract yet delight written farther his general.
-              If in so bred at dare rose lose good.
-              Feel and make two real miss use easy. Celebrated delightful an especially
-              increasing instrument am.  </p>
+            <p class="desc">Steven is an undergraduate at McGill University majoring in Bachelor of Computer Science.
+            <br><a href="https://www.facebook.com/seungwon.jeong.773" id="fb">Check out his facebook page!</a></p>
+
+
                <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
@@ -270,10 +293,9 @@ typewriter();
           <div class="info">
             <h4 class="name">Yona Kim</h4>
             <span class="regency">Frontend Developper</span>
-            <p class="desc">Detract yet delight written farther his general.
-              If in so bred at dare rose lose good.
-              Feel and make two real miss use easy. Celebrated delightful an especially
-              increasing instrument am.  </p>
+            <p class="desc">Yona is an undergraduate at McGill University majoring in Bachelor of Computer Science.
+            <br><a href="https://www.facebook.com/seungyon.kim.3" id="fb">Check out her facebook page!</a></p>
+
                <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
@@ -289,10 +311,11 @@ typewriter();
           <div class="info">
             <h4 class="name">Greg Kim</h4>
             <span class="regency">Backend Developper</span>
-            <p class="desc">Detract yet delight written farther his general.
-              If in so bred at dare rose lose good.
-              Feel and make two real miss use easy. Celebrated delightful an especially
-              increasing instrument am.  </p>
+
+            <p class="desc">Greg is an undergraduate at McGill University majoring in Bachelor of Computer Science.
+            <br><a href="https://www.facebook.com/greg.kim.829?ref=bookmarks" id="fb">Check out his facebook page!</a></p>
+
+
                <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
@@ -304,12 +327,11 @@ typewriter();
             <img class="rounded-circle" src="/static/images/jungoh.jpeg" alt="">
           </div>
           <div class="info">
-            <h4 class="name">Jungon Chang</h4>
+            <h4 class="name">Jungoh Chang</h4>
             <span class="regency">Frontend Developper</span>
-            <p class="desc">Detract yet delight written farther his general.
-              If in so bred at dare rose lose good.
-              Feel and make two real miss use easy. Celebrated delightful an especially
-              increasing instrument am.  </p>
+            <p class="desc">Jungoh is an undergraduate at University of Toronto majoring in Bachelor of Computer Science.
+            <br><a href="https://www.facebook.com/jungoh.chang" id="fb">Check out his facebook page!</a></p>
+
                <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
@@ -323,10 +345,10 @@ typewriter();
           <div class="info">
             <h4 class="name">Sangmin Lee</h4>
             <span class="regency">Full Stack Developper</span>
-            <p class="desc">Detract yet delight written farther his general.
-              If in so bred at dare rose lose good.
-              Feel and make two real miss use easy. Celebrated delightful an especially
-              increasing instrument am.  </p>
+
+            <p class="desc">Sangmin is an undergraduate at McGill University majoring in Bachelor of Computer Science.
+            <br><a href="https://www.facebook.com/sangmin.lee.5832343" id="fb">Check out his facebook page!</a></p>
+
                <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
           </div>
         </div>
@@ -357,11 +379,93 @@ typewriter();
 </div>
 </div>
 <!--/meet the team section-->
-<!--- Emoji Section -->
-<button class="fun" data-toggle="collapse" data-target="#emoji">
-click for fun</button>
+<style media="screen">
+canvas {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 400px;
+}
+</style>
+<!--- Click for Fun Section -->
+<button class="fun" data-toggle="collapse" data-target="#emoji">click for fun!  <i class="fas fa-gamepad"></i></button>
+
+<div id="emoji" class="collapse">
+  <canvas id="gc" width="400" height="400" ></canvas>
+  <script>
+  window.onload=function() {
+      canv=document.getElementById("gc");
+      ctx=canv.getContext("2d");
+      document.addEventListener("keydown",keyPush);
+      setInterval(game,1000/15);
+  }
+  px=py=10;
+  gs=tc=20;
+  ax=ay=15;
+  xv=yv=0;
+  trail=[];
+  tail = 5;
+  function game() {
+      px+=xv;
+      py+=yv;
+      if(px<0) {
+          px= tc-1;
+      }
+      if(px>tc-1) {
+          px= 0;
+      }
+      if(py<0) {
+          py= tc-1;
+      }
+      if(py>tc-1) {
+          py= 0;
+      }
+      ctx.fillStyle="black";
+      ctx.fillRect(0,0,canv.width,canv.height);
+
+      ctx.fillStyle="lime";
+      for(var i=0;i<trail.length;i++) {
+          ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
+          if(trail[i].x==px && trail[i].y==py) {
+              tail = 5;
+          }
+      }
+      trail.push({x:px,y:py});
+      while(trail.length>tail) {
+      trail.shift();
+      }
+
+      if(ax==px && ay==py) {
+          tail++;
+          ax=Math.floor(Math.random()*tc);
+          ay=Math.floor(Math.random()*tc);
+      }
+      ctx.fillStyle="red";
+      ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
+  }
+  function keyPush(evt) {
+      switch(evt.keyCode) {
+          case 65:
+              xv=-1;yv=0;
+              break;
+          case 87:
+              xv=0;yv=-1;
+              break;
+          case 68:
+              xv=1;yv=0;
+              break;
+          case 83:
+              xv=0;yv=1;
+              break;
+      }
+  }
+  </script>
 
 
+</div>
 
 
 
@@ -431,6 +535,7 @@ click for fun</button>
 </div>
 </div>
 
+
 <script>
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -459,6 +564,7 @@ function myFunction() {
   popup.classList.toggle("show");
 }
 </script>
+
 <!---->
 <% include ./partials/footer %>
 
