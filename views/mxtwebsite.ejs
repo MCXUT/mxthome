@@ -61,8 +61,9 @@
 </head>
 
 <% include ./partials/navbar %>
-
+<% include ./partials/modal %>
 <body>
+
   <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      // type();
@@ -78,8 +79,6 @@
 
 <!--scroll to top button-->
 
-<button onclick="topFunction()" id="myBtn" title="Go to top" >&uarr;<br>top</button>
-
 <!-- <a href="#" class="btn" onclick="topFunction()" id="myBtn" title="Go to top"><br>top</a> -->
 <!-- <button onclick="topFunction()" href="#" id="myBtn" title="Go to top" >&uarr;<br>top</button> -->
 <button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
@@ -92,6 +91,7 @@ $(document).ready(function(){
       } else {
           $('#scroll').fadeOut();
       }
+
   });
   $('#scroll').click(function(){
       $("html, body").animate({ scrollTop: 0 }, 600);
@@ -100,7 +100,6 @@ $(document).ready(function(){
 });
 </script>
 
->>>>>>> 2d3143d94f8daaadc0451d2f1524bec843784b42
 <!--- Image Slider -->
 
       <div class="container-fluid" id="mainDiv">
@@ -108,10 +107,10 @@ $(document).ready(function(){
       <div class="carousel-inner">
 
         <div class="carousel-item active text-center">
-          <img src="/static/images/background.jpg" class="center">
+          <img src="/static/images/background.jpg" class="center responsive" >
           <div class="overlay"></div> <!--add filter effect on img-->
                       <div class="carousel-caption">
-                        <h1 class="display-2">MxT</h1>
+                        <h1 class="display-1">MxT</h1>
                          <div id="typedtext"></div>
 
                       </div>
@@ -182,12 +181,15 @@ typewriter();
 
   </div>
   <div class="col-8 about " > <!--may or may not include col-md-12-->
-    <br><h1 id="header">About Us</h1>
+    <br><h1 id="header">About MXT</h1>
     <hr class="my-4">
 
-    <p><b>(edit)We know the greatness in a disruptive era requires bold ambition,
-      curious talent and a culture that believes we're smarter together.(edit)We know the greatness in a disruptive era requires bold ambition,
-        curious talent and a culture that believes we're smarter together.</b></p>
+    <p><b>
+      MXT is a team of 5 passionate university students (+1 puppy) from McGill University and University of Toronto, formed with the intention of revolutionizing the world of computer science.
+      Our mission is to become the trendsetters of the modern humanity.
+      <br><br>
+      We develop web and applications that will provide convenience and innovation to the world.
+    </b></p>
 
 </div>
 </div>
@@ -329,7 +331,7 @@ typewriter();
           <div class="info">
             <h4 class="name">Jungoh Chang</h4>
             <span class="regency">Frontend Developper</span>
-            <p class="desc">Jungoh is an undergraduate at University of Toronto majoring in Bachelor of Computer Science.
+            <p class="desc">Jungoh is an undergraduate at University of Toronto majoring in Bachelor of Computer Science and Statistics.
             <br><a href="https://www.facebook.com/jungoh.chang" id="fb">Check out his facebook page!</a></p>
 
                <!-- <a href="#" class="btn btn-outline-secondary">See Profile</a> -->
@@ -528,7 +530,7 @@ canvas {
     <a href="#"><i class="fab fa-facebook-square"></i></a>
     <a ><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-google-plus-g"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/crew.mxt/"><i class="fab fa-instagram"></i></a>
     <a ><i class="fab fa-youtube"></i></a>
   </div>
 </div>

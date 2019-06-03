@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-    img {
-      width: 215px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
-  <title>MxTwebsite</title>
-  <meta charset="utf-8">
+    <title> Contact Form </title>
+    <meta charset="utf-8">
+    <% include ./partials/header %>
+    <link rel="stylesheet" href="/static/stylesheets/style_feedback.css">
 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!--for mobile websites-->
-
-<link rel="stylesheet" href="/static/stylesheets/announcement.css">
-<% include ./partials/header %>
 </head>
 <!-- Navigation bar -->
 
@@ -44,10 +33,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/#teams">Team</a>
                     </li>
-                    <li class="nav-item dropdown" id="hov" >
-                        <a class="nav-link dropdown-toggle active" href="#"
-                        id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown" id="hov">
+                        <a class="nav-link dropdown-toggle active"
+                        href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                             Services
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -62,8 +52,9 @@
                     </li>
                 <% if(currentUser) { %>
                     <li class="nav-item dropdown" id="hov2">
-                        <a class="nav-link dropdown-toggle" href="#profile" id="navbarDropdown"
-                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#profile"
+                        id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                             <%= currentUser.name %>
                         </a>
                         <div class="dropdown-menu profile-menu" aria-labelledby="navbarDropdown">
@@ -86,61 +77,29 @@
 <% include ./partials/modal %>
 <body>
   <div class="active">
-  <br><br><br>
-  <div class="announcement">
-    <h1><i class="fas fa-bullhorn"></i>  Announcements</h1>
-  </div>
-
-
-<hr class="upper">
-
-
-<a href="/services/announcement" class="ml-5">< Back to Announcements</a><br>
-
-
-<div class="container-fluid padding">
-  <div class="row padding">
-
-
-    <div class="col-md-6 m-auto">
-      <form action="/services/upload" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="title">Title:</label>
-          <input type="text" class="form-control" name="title" id="title" placeholder="Title">
-        </div>
-        <div class="form-group">
-          <label for="contents">Content:</label>
-          <textarea class="form-control" name="contents" id="contents" placeholder="Announcement..."></textarea>
-        </div>
-        <div class="custom-file mb-3">
-          <input type="file" name="file" id="file" class="custom-file-input">
-          <label for="file" class="custom-file-label">Choose File</label>
-        </div>
-        <input type="submit" value="Submit" class="btn btn-primary btn-block">
-        <a href="/services/announcement" class="btn btn-danger btn-block mt-4" role="button">Cancel</a>
-      </form>
+  <!-- Navigation -->
+  <!--feedback section-->
+    <div class="contact-title ">
+      <h1>Contact Us</h1>
+      <h2>Contact us if you have any questions or inquiries.</h2>
     </div>
+  <div class="contact-form">
+    <form id="contact-form" method="post" action="/services/contact-us">
+      <input name="name" type="text" class="form-control" placeholder="Your Name" required><br>
+      <input name="email" type="email" class="form-control" placeholder="Your Email" required><br>
+      <textarea name="message" class="form-control" placeholder="Your Message"
+       textarea rows="7" style="font-size: 20px;" required></textarea><br>
+      <input type="submit" class="form-control submit" style="font-size: 20px;"
+       value="Send Message">
+    </form>
 
   </div>
 </div>
 
-
-
-<script>
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  }
-</script>
- <% include ./partials/footer %>
 </body>
+
+<!--- Footer -->
+<% include ./partials/footer %>
+
+
+</html>
