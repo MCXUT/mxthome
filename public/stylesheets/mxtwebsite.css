@@ -8,7 +8,6 @@ html,body{
   width:100%;
   line-height: 1.7;
   margin: 0;
-  padding: 0;
 }
 
 #hov .dropdown-menu{
@@ -176,9 +175,11 @@ img.img-full-width {
   font-family: 'Roboto', cursive;
   font-size:30px;
   margin: 10px 50px;
-  letter-spacing: 6px;
-  font-weight: 500;
+  letter-spacing: 8px;
+
+  font-weight: 700;
 }
+
 /* =============== LAYOUT - GENERAL LAYOUT =============== */
 .container {
 	position: relative;
@@ -238,13 +239,13 @@ img.img-full-width {
 	text-align: center;
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 14px;
 }
 
 #counting .item {
 	width: 20%;
 	padding: 60px 5px;
 	border-right: 1px solid rgba(255, 255, 255, 0.35);
+
 }
 #counting .item:first-child {
 	border-left: 1px solid rgba(255, 255, 255, 0.35);
@@ -1343,8 +1344,30 @@ figure {
     font-size: 15px;
   }
 }
+@media screen and (max-width: 576px) {
 
-
+}
+@media screen and (max-width: 400px) {
+  html,body{
+    padding-top: 40px;
+  }
+  #typedtext{
+    font-size:15px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+  }
+  .carousel-caption{
+    padding-bottom: 0;
+  }
+  #counting .item {
+  	font-size: 10px;
+  }
+  #counting .number {
+  	font-size: 30px;
+  }
+}
 /*---Firefox Bug Fix --*/
 .carousel-item {
   transition: -webkit-transform 0.5s ease;

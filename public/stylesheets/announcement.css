@@ -1,5 +1,11 @@
-#more{
-  display: none;
+.faquestion{
+  font-size: 40px;
+  padding-left: 15%;
+  text-align: center;
+  color:#666666;
+  padding-top:40px;
+  padding-bottom: 20px;
+  font-weight:600;
 }
 
 .announcement{
@@ -61,12 +67,16 @@
 .mb-0 > a {
 display: block;
 position: relative;
+
+padding-top: 20px;
+padding-bottom: 20px;
 color:grey;
-font-size:20px;
+font-size: 25px;
 }
-.mb-0 > a:hover {
+.mb-0 > a:hover { /*question letters@hover*/
 color:grey;
-font-size:20px;
+font-size:25px;
+background-color: transparent;
 }
 
 .mb-0 > a:after {
@@ -84,53 +94,72 @@ padding-bottom: 40px;
 .mb-0 > a[aria-expanded="true"]:after {
 content: "\f077"; /* fa-chevron-up */
 
-color: #d9d9d9;
+color: grey;
 font-size:23px;
 padding-top: 20px;
 padding-bottom: 40px;
 }
 
 #accordion{
-  padding-left: 100px;
-  padding-right: 100px;
-  background-color: transparent;
 
+  padding-left: 20%;
+  padding-right: 8%;
 }
 #accordion .collapsed{
   color: #666666;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-size: 25px;
+
 }
 #accordion .collapsed:hover, #accordion .collapsed:after{
 
-}
-.mb-0 > a[aria-expanded="true"]:after {
-content: "\f077"; /* fa-chevron-up */
-color:grey;
-font-size:23px;
-}
 
-#accordion{
-  padding-left: 100px;
-  padding-right: 100px;
-  background-color: transparent;
-}
-#accordion .collapsed{
-  color: #666666;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-#accordion .collapsed:hover, #accordion .collapsed:after{
-  color: #d9d9d9;
-  background-color: transparent;
+  color:grey;
+   padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 25px;
 
 }
 #accordion .card-header{
-  background-color: transparent;
+  /*background-color: transparent;*/
 
 }
 #accordion .card{
-
+background-color: #d9d9d9;
   border: none;
 }
+@media screen and (max-width:400px){
+  .faquestion{
+    font-size: 30px;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 10%;
+    padding-top: 20px;
+    font-weight: 400;
+    padding-left: 15%;
+  }
+  .mb-0 > a { /*question letter after hover&cursor not on*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color:grey;
+  font-size: 20px;
+  }
+  .mb-0 > a:hover { /*question letters@hover*/
+    font-size:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #accordion .collapsed{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+
+  }
+  #accordion .collapsed:hover, #accordion .collapsed:after{
+     padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 20px;
+
+  }
 }
