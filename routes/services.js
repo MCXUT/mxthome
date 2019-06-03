@@ -8,6 +8,8 @@ const express = require("express"),
       Grid = require("gridfs-stream"),
       methodOverride = require("method-override"),
       mongodb = require("mongodb"),
+      nodemailer = require("nodemailer"),
+      emailKeys = require("../config/keys"),
       Board = require("../models/board"),
       Comment = require("../models/comment");
 const router = express.Router();
@@ -303,9 +305,41 @@ router.delete("/comment/:aid/:cid", (req, res) => {
 });
 
 
-
+// GET route for FAQ page
 router.get("/faq", (req, res) => {
-  res.render("faq")
+  res.render("faq");
+});
+
+// GET route for Contact-Us page
+router.get("/contact-us", (req, res) => {
+  res.render("contact-us");
+});
+
+// Transporter for emailing
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: emailKeys.emailInfo.user,
+    pass: emailKeys.emailInfo.pass
+  }
+});
+
+// POST route for sending email about the form from Contact-Us page
+router.post("/contact-us", (req, res) => {
+  var mailOption = {
+    from : req.body.email,
+    to : emailKeys.emailInfo.user,
+    subject : "MXT.com Contact-Us",
+    text : "Question/Inquiry from "+ req.body.name + " : " + req.body.email + "\n\n" + req.body.message
+  };
+
+  transporter.sendMail(mailOption, function(err, info){
+    if(err) {
+      console.error("Send Mail Error : ", err);
+    } else {
+      return res.render("contact_thanks");
+    }
+  });
 });
 
 
