@@ -11,7 +11,7 @@ html,body{
   padding: 0;
 }
 
-/* #cd-dropdown .dropdown-menu{
+#hov .dropdown-menu{
   height: 0px;
   overflow: hidden;
   -webkit-transition: all 0.5s ease-in-out;
@@ -20,9 +20,34 @@ html,body{
   transition: all 0.5s ease-in-out;
 }
 
-#cd-dropdown:hover .dropdown-menu{
-  height: 100px;
-} */
+#hov2:hover .dropdown-menu{
+  height: 70px;
+  display: block;
+  /* animation: moveDown 0.7s; */
+
+}
+
+#hov:hover .dropdown-menu{
+  height: 95px;
+  display: block;
+  /* animation: moveDown 0.7s; */
+
+}
+/* #sival:onclick .dropdown-menu{
+  display: block; */
+}
+
+@keyframes moveDown {
+  0% {
+    transform:translateY(0px);
+  }
+  70%{
+    transform:translateY(60px);
+  }
+  100% {
+    transform:translateY(-5px);
+  }
+}
 
 
 
@@ -367,7 +392,7 @@ a.btn.btn-info:hover {
 }
 
 
-#cocoaModal .modal-dialog{
+#cocoaModal, #registerModal .modal-dialog{
   /* top: -400px; */
   /* animation: unfoldIn 0.7s ease forwards; */
   animation: fadeIn 1.0s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
@@ -530,14 +555,7 @@ a.btn.btn-info:hover {
   }
 }
 
-@keyframes moveDown {
-  0% {
-    transform:translateY(0px);
-  }
-  100% {
-    transform:translateY(150px);
-  }
-}
+
 
 @keyframes blowUpContent {
   0% {

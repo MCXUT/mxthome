@@ -4,17 +4,15 @@
     <meta charset="utf-8">
     <title>Reset Password</title>
     <% include ./partials/header %>
+
+    <link rel="stylesheet" href="/static/stylesheets/page_reset.css">
   </head>
   <body>
 
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=
-      306314140252922&autoLogAppEvents=1">
-    </script>
 
+        <!-- navigation bar -->
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top"
-          style="border-bottom: 1px solid black; opacity: 0.2;">
+        >
             <div class="container-fluid"><!--so it takes up 100% of screen-->
                 <a class="navbar-brand " href="/">
                   <img src="/static/images/this.png" id="logo">
@@ -24,36 +22,75 @@
                 </button> -->
             </div>
         </nav>
-    <center><h2>Reset Password</h2></center>
+
+        <!-- empty rows -->
+        <div class="container-fluid ">
+        <div class="row empty">
+          <div class="col-16"></div>
+        </div>
+        </div>
+
+
+    <center><h2>Reset Password</h2>
 
     <form action="/auth/reset/password/<%= token %>" onSubmit="gg" method="post" target="hidden_frame">
-      <center>
-        <div style="position: absolute; left:22px; opacity: 0.5;">
-          <i class="fas fa-envelope"></i>
-        </div>
-        <input class="form-control" type="password" name="password" value=""
+        <div class="reset_content">
+
+        <input id="confirm_password3" class="form-control" type="password" name="password" value=""
           placeholder="New Password"
-          style="padding-left: 30px; margin-bottom: 10px;" required>
-          <br>
-        <div style="position: absolute; left:22px; opacity: 0.5;">
-          <i class="fas fa-envelope"></i>
+          style="margin-bottom: 10px;" required>
+
+
+
+        <div style="position: flex; opacity: 0.5;">
+
         </div>
-        <input class="form-control" type="password" name="password2" value=""
-          placeholder="Confirm New Password" style="padding-left: 30px;
+        <input id="confirm_password4" class="form-control" type="password" name="password2" value=""
+          placeholder="Confirm New Password" style="
           margin-bottom: 10px;" required>
-        <br>
+
+        </div>
+
+      <span id='message2'></span>
+
       <button class="btn btn-primary"
-        style="right: -65px; position: relative;">Submit</button>
-      </center>
+        style="position: relative; top: 150px;">Submit</button>
+
+
+
     </form>
     <% if(error_reset && error_reset.length < 0) { %>
         <span style="color: red"><%= error %></span>
     <% } %>
+
+
     <script>
         function gg(e) {
             e.preventDefault();
             console.log(e.target.className);
         }
+
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+          });
+
+
+        var check = function() {
+        if (document.getElementById('confirm_password3').value ===
+          document.getElementById('confirm_password4').value){
+          document.getElementById('message2').style.color = 'green';
+          document.getElementById('message2').innerHTML = 'password matching';
+          } else {
+          document.getElementById('message2').style.color = 'red';
+          document.getElementById('message2').innerHTML = 'password not matching';
+          }
+        }
+      }
     </script>
+
+  </center>
   </body>
 </html>
