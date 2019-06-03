@@ -3,7 +3,7 @@ body{
   margin: 0;
   padding: 0;
   text-align: center;
-  background: linear-gradient(rgba(0, 0, 50, 0.5), rgba(0, 0, 50, 0.5)), url(/static/images/feedback.jpg);
+  background: url(/static/images/1.jpg);
   background-size: cover;
   background-position: center;
   font-family: sans-serif;
@@ -44,19 +44,20 @@ navbar{
 .contact-title h1{
   font-size: 32px;
   line-height: 10px;
-  color: #fff;
+  color:#262626;
 }
 .contact-title h2{
   font-size: 16px;
-  color: #fff;
+  color:#262626;
+}
+#contactform textarea{
+  width:1000px;
 }
 .form-control{
-  width: 600px;
   background: transparent;
   border: none;
   outline: none;
   border-bottom: 1px solid gray;
-  color: #fff;
   font-size: 18px;
   margin-bottom: 16px;
 }

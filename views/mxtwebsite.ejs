@@ -63,6 +63,7 @@
 <% include ./partials/navbar %>
 
 <body>
+
   <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      // type();
@@ -78,8 +79,6 @@
 
 <!--scroll to top button-->
 
-<button onclick="topFunction()" id="myBtn" title="Go to top" >&uarr;<br>top</button>
-
 <!-- <a href="#" class="btn" onclick="topFunction()" id="myBtn" title="Go to top"><br>top</a> -->
 <!-- <button onclick="topFunction()" href="#" id="myBtn" title="Go to top" >&uarr;<br>top</button> -->
 <button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
@@ -92,6 +91,7 @@ $(document).ready(function(){
       } else {
           $('#scroll').fadeOut();
       }
+
   });
   $('#scroll').click(function(){
       $("html, body").animate({ scrollTop: 0 }, 600);
@@ -99,7 +99,6 @@ $(document).ready(function(){
   });
 });
 </script>
->>>>>>> 74f18bfae4161c7128443f2e7116b0296bd865a7
 <!--- Image Slider -->
 
       <div class="container-fluid" id="mainDiv">
@@ -107,10 +106,10 @@ $(document).ready(function(){
       <div class="carousel-inner">
 
         <div class="carousel-item active text-center">
-          <img src="/static/images/background.jpg" class="center">
+          <img src="/static/images/background.jpg" class="center responsive" >
           <div class="overlay"></div> <!--add filter effect on img-->
                       <div class="carousel-caption">
-                        <h1 class="display-2">MxT</h1>
+                        <h1 class="display-1">MxT</h1>
                          <div id="typedtext"></div>
 
                       </div>
