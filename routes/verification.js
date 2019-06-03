@@ -12,14 +12,9 @@ router.get('/verification/emailAddress/:token', (req, res) => {
         emailVerificationExpires: {$gt: Date.now()},
     }).then((foundUser) => {
         if(!foundUser) {
-            req.flash("error_signup", "Your Token is invalid or has been expired");
+            req.flash("error_verify", "Your Token is invalid or has been expired");
             return res.redirect("/");
         }
-        // foundUser.isVerified = true;
-        // foundUser.save(function(err) {
-        //   if(err) {return res.send({msg: err.message});}
-        //   return res.redirect("/");
-        // });
         var update = {$set: {
           isVerified: true,
           emailVerificationToken: undefined,
@@ -27,7 +22,7 @@ router.get('/verification/emailAddress/:token', (req, res) => {
         }};
         User.findByIdAndUpdate(foundUser._id, update, (err)=> {
           if(err) {
-              req.flash("error_reset", "Unknown Error Occurred");
+              req.flash("error_verify", "Unknown Error Occurred");
               return res.redirect("/");
           }
         });
@@ -38,17 +33,12 @@ router.get('/verification/emailAddress/:token', (req, res) => {
     });
 });
 
-router.get("/verification/resend", (req, res) => {
-  //NOT COMPLETED
-  res.redirect("/");
-});
 
 router.post("/verification/resend", (req, res) => {
     User.findOne({email: req.body.email}).then((foundUser) => {
         if(!foundUser) {
-            //req.flash("error_verify", "No such username exists");
-            // res.redirect("/verification/resend");
-            return res.json({error: "No such username exists"});
+            req.flash("error_verify", "No such username exists");
+            return res.redirect("/");
         }
         if(!foundUser.emailVerificationToken || !foundUser.emailVerificationExpires) {
             return res.status(500).send("Forbidden Access");
