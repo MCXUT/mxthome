@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    img {
+      width: 215px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
   <title>MxTwebsite</title>
   <meta charset="utf-8">
 
@@ -10,7 +18,72 @@
 <link rel="stylesheet" href="/static/stylesheets/announcement.css">
 <% include ./partials/header %>
 </head>
-<% include ./partials/navbar %>
+<!-- Navigation bar -->
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=306314140252922&autoLogAppEvents=1"></script>
+
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid"> <!--so it takes up 100% of screen-->
+            <a class="navbar-brand " href="/"><img src="/static/images/this.png" id="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/#mainDiv">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#about">About MxT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#project">Our Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#teams">Team</a>
+                    </li>
+                    <li class="nav-item dropdown" id="hov" >
+                        <a class="nav-link dropdown-toggle active" href="#"
+                        id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/services/announcement">Announcement</a>
+                            <a class="dropdown-item" href="/services/faq">FAQ</a>
+                            <a class="dropdown-item" href="/feedback">Feedback</a>
+                            <a class="dropdown-item" href="/services/contact-us">Contact Us</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/#connect">Connect</a>
+                    </li>
+                <% if(currentUser) { %>
+                    <li class="nav-item dropdown" id="hov2">
+                        <a class="nav-link dropdown-toggle" href="#profile" id="navbarDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= currentUser.name %>
+                        </a>
+                        <div class="dropdown-menu profile-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">View Profile</a>
+                            <a class="dropdown-item" href="/auth/logout">Log Out</a>
+                        </div>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cocoaModal" id="auth">Log In / Sign Up</a>
+                    </li>
+                <% } %>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#signup" id="signup1">SignUp</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+<% include ./partials/modal %>
 <body>
   <div class="active">
   <br><br><br>
@@ -54,20 +127,20 @@
 
 
 <script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
 
-for (i = 0; i < coll.length; i++) {
-coll[i].addEventListener("click", function() {
-this.classList.toggle("active");
-var content = this.nextElementSibling;
-if (content.style.display === "block") {
-  content.style.display = "none";
-} else {
-  content.style.display = "block";
-}
-});
-}
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
 </script>
  <% include ./partials/footer %>
 </body>
