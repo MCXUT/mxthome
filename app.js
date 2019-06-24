@@ -18,6 +18,7 @@ const registerRoutes = require("./routes/register");
 const resetRoutes = require("./routes/reset");
 const verificationRoutes = require("./routes/verification");
 const serviceRoutes = require("./routes/services");
+const clientPanelRoutes = require("./routes/clientPanel");
 
 // Connect to database
 mongoose.connect("mongodb+srv://" + keys.mongodb.user + ":" + keys.mongodb.pass + "@cluster0-gdoa3.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
@@ -74,6 +75,7 @@ app.use("/auth", registerRoutes);
 app.use("/auth", resetRoutes);
 app.use("/auth", verificationRoutes);
 app.use("/services", serviceRoutes);
+app.use("/services", clientPanelRoutes);
 
 var feedbackController = require("./routes/feedbackController")(app);
 // Set port and listen to it

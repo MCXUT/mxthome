@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+#scroll {
+    border: 1px solid #999;
+    background-color: transparent;
+    color: #999;
+    padding: 5px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border-radius: 4px;
+    width:50px;
+}
+#scroll:hover {
+    background-color: #e7e7e7;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #555;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #999999;
+  color: white;
+}
+
+.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.sticky-offset{
+  top:80px;
+}
+.margin{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left:10px;
+}
+.fa-caret-down {
+  float: right;
+}
+.dropdown-container {
+  display: none;
+  background-color: #f1f1f1;
+  padding-left: 8px;
+}
+.margin2{
+  margin-top:80px;
+}
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

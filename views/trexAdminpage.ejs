@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>admin 페이지 - 트렉스</title>
+  <meta charset="utf-8">
+
+  <% include ./partials/header %>
+  <!-- scroll to top button -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     // type();
+     movingBackgroundImage();
+  });
+  </script>
+  <div class="container-fluid">
+  <button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
+  </div>
+
+  <script>
+
+  $(document).ready(function(){
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > -1) {
+            $('#scroll').fadeIn().css("z-index","4");
+        } else {
+            $('#scroll').fadeOut();
+        }
+
+    });
+    $('#scroll').click(function(e){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+  });
+  </script>
+  <!-- /scroll to top button -->
+    <link rel="stylesheet" href="../static/stylesheets/adminpage.css">
+
+
+</head>
+<body>
+  <script>
+  function show-dashboard(item){
+      document.getElementById('dashBoard').style.display='inline';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('adminList').style.display='none';
+  }
+
+  function show-users-clients(item){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='inline';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('adminList').style.display='none';
+  }
+
+  function show-users-partners(item){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='inline';
+      document.getElementById('adminList').style.display='none';
+
+  }
+
+  function show-adminlist(item){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('adminList').style.display='inline';
+
+  }
+  </script>
+
+  <div class="topnav" style="background-color:white;position:fixed;width:100%;"> <!-- z-index:500; -->
+    <a class="logo " href="/"><img class="margin" src="/static/images/0.jpg" height="60" width="100"></img></a>
+  </div>
+
+
+<div id="myDIV">
+  <div class="sidebar sticky-top sticky-offset">
+  <a class="nav-item active" href="#dashboard" onclick="document.getElementById('dashBoard').style.display='inline';
+  document.getElementById('users-clients').style.display='none';
+  document.getElementById('users-partners').style.display='none';
+  document.getElementById('adminList').style.display='none';">Dashboard</a>
+  <a class="nav-item dropdown-btn" href="#?users ">Users
+      <i class="fa fa-caret-down" ></i>
+    </a>
+    <div class="dropdown-container">
+      <a class="nav-item" href="#users-clients" onclick="document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='inline';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('adminList').style.display='none';">Clients</a>
+      <a class="nav-item" href="#users-partners" onclick="document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='inline';
+      document.getElementById('adminList').style.display='none';">Partners</a>
+    </div>
+
+
+  <a class="nav-item" href="#adminlist" onclick="document.getElementById('dashBoard').style.display='none';
+  document.getElementById('users-clients').style.display='none';
+  document.getElementById('users-partners').style.display='none';
+  document.getElementById('adminList').style.display='inline';">Admin List</a>
+  </div>
+</div>
+
+
+<script>
+  var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i;
+
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+    <!-- this.classList.toggle("active"); -->
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+    } else {
+    dropdownContent.style.display = "block";
+    }
+    });
+  }
+
+
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("nav-item");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
+
+<div id="dashBoard" style="display:inline;">
+<div class="content" style="padding-top:80px;">
+<h3>dashboard content for Steven<3</h3>
+</div>
+</div>
+
+<div id="users-clients" style="display:none;">
+  <div class="content">
+
+  <table class="table table-bordered margin2" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Object_id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Region</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (var i = 0; i < clientList.length; i++) { %>
+    <tr>
+      <th scope="row"><%= i+1 %></th>
+      <td><%= clientList[i]._id %></td>
+      <td><%= clientList[i].name %></td>
+      <td><%= clientList[i].email %></td>
+      <td><%= clientList[i].password %></td>
+      <td><%= clientList[i].dateOfBirth %></td>
+      <td><%= clientList[i].address %></td>
+      <td><a href="#"><i class="far fa-edit"></i></a></td>
+      <td><a href="#"><i class="fas fa-trash"></i></a></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div id="users-partners" style="display:none;">
+  <div class="content ">
+
+  <table class="table table-bordered margin2" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Object_id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Region</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(var i = 0; i < partnerList.length; i++) { %>
+    <tr>
+      <th scope="row"><%= i+1 %></th>
+      <td><%= partnerList[i]._id %></td>
+      <td><%= partnerList[i].name %></td>
+      <td><%= partnerList[i].email %></td>
+      <td><%= partnerList[i].password %></td>
+      <td><%= partnerList[i].dateOfBirth %></td>
+      <td><%= partnerList[i].address.city %></td>
+
+      <td><a href="#"><i class="far fa-edit"></i></a></td>
+      <td><a href="#"><i class="fas fa-trash"></i></a></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<div id="adminList" style="display:none;">
+  <div class="content">
+    <table class="table table-bordered margin2" >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Object_id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Region</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i = 0; i < 100; i++) { %>
+      <tr>
+        <th scope="row"> <%= i+1 %> </th>
+        <td>777777777777</td>
+        <td>Yona Naughty Joeng</td>
+        <td>bwkim96@gmail.com</td>
+        <td>1234</td>
+        <td>08/29</td>
+        <td>Montreal, CA</td>
+        <td><a href="#"><i class="far fa-edit"></i></a></td>
+        <td><a href="#"><i class="fas fa-trash"></i></a></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
+</html>
