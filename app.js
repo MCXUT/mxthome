@@ -15,10 +15,11 @@ const app = express();
 
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
+const registerClientRoutes = require("./routes/registerClient");
 const resetRoutes = require("./routes/reset");
 const verificationRoutes = require("./routes/verification");
 const serviceRoutes = require("./routes/services");
-const clientPanelRoutes = require("./routes/clientPanel");
+const trexPanelRoutes = require("./routes/trexPanel");
 
 // Connect to database
 mongoose.connect("mongodb+srv://" + keys.mongodb.user + ":" + keys.mongodb.pass + "@cluster0-gdoa3.mongodb.net/test?retryWrites=true", {useNewUrlParser: true});
@@ -69,13 +70,17 @@ app.get("/", (req, res) => {
     res.render("mxtwebsite");
 });
 
+// app.get("/auth/register_client", (req, res) => {
+//   res.render("registerClient");
+// });
 
 app.use("/auth", loginRoutes);
 app.use("/auth", registerRoutes);
 app.use("/auth", resetRoutes);
+app.use("/auth", registerClientRoutes);
 app.use("/auth", verificationRoutes);
 app.use("/services", serviceRoutes);
-app.use("/services", clientPanelRoutes);
+app.use("/services", trexPanelRoutes);
 
 var feedbackController = require("./routes/feedbackController")(app);
 // Set port and listen to it

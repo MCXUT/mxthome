@@ -47,7 +47,9 @@
                             <%= currentUser.name %>
                         </a>
                         <div class="dropdown-menu profile-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">View Profile</a>
+                          <% if(currentUser.isAdmin) { %>
+                              <a class="dropdown-item" href="/auth/register_client">Add Client</a>
+                          <% } %>
                             <a class="dropdown-item" href="/auth/logout">Log Out</a>
                         </div>
                     </li>

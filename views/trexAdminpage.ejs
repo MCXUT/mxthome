@@ -5,6 +5,17 @@
   <meta charset="utf-8">
 
   <% include ./partials/header %>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <!-- <link rel="stylesheet" href="../static/stylesheets/style.css"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean" rel="stylesheet">
+  <link rel="stylesheet" href="/static/stylesheets/auth.css">
   <!-- scroll to top button -->
   <script>
   document.addEventListener("DOMContentLoaded", function (event) {
@@ -39,6 +50,7 @@
 
 </head>
 <body>
+
   <script>
   function show-dashboard(item){
       document.getElementById('dashBoard').style.display='inline';
@@ -81,26 +93,38 @@
   <a class="nav-item active" href="#dashboard" onclick="document.getElementById('dashBoard').style.display='inline';
   document.getElementById('users-clients').style.display='none';
   document.getElementById('users-partners').style.display='none';
-  document.getElementById('adminList').style.display='none';">Dashboard</a>
-  <a class="nav-item dropdown-btn" href="#?users ">Users
+  document.getElementById('adminList').style.display='none';"><i class="fas fa-chart-line"></i> Dashboard</a>
+  <a class="nav-item dropdown-btn" href="#?users "><i class="fas fa-users"></i> Users
       <i class="fa fa-caret-down" ></i>
     </a>
     <div class="dropdown-container">
       <a class="nav-item" href="#users-clients" onclick="document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='inline';
       document.getElementById('users-partners').style.display='none';
-      document.getElementById('adminList').style.display='none';">Clients</a>
+      document.getElementById('adminList').style.display='none';"><i class="fas fa-user"></i> Clients</a>
       <a class="nav-item" href="#users-partners" onclick="document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='none';
       document.getElementById('users-partners').style.display='inline';
-      document.getElementById('adminList').style.display='none';">Partners</a>
+      document.getElementById('adminList').style.display='none';"><i class="far fa-handshake"></i> Partners</a>
     </div>
 
 
-  <a class="nav-item" href="#adminlist" onclick="document.getElementById('dashBoard').style.display='none';
-  document.getElementById('users-clients').style.display='none';
-  document.getElementById('users-partners').style.display='none';
-  document.getElementById('adminList').style.display='inline';">Admin List</a>
+    <a class="nav-item dropdown-btn" href="#?admin "><i class="fas fa-user-secret"></i> Admin
+        <i class="fa fa-caret-down" ></i>
+      </a>
+
+  <div class="dropdown-container">
+    <a class="nav-item" href="#users-clients" onclick="document.getElementById('dashBoard').style.display='none';
+    document.getElementById('users-clients').style.display='none';
+    document.getElementById('users-partners').style.display='none';
+    document.getElementById('adminList').style.display='inline';
+    document.getElementById('addAdmin').style.display='none';"><i class="fas fa-list"></i> Admin List</a>
+    <a class="nav-item" href="#users-partners" onclick="document.getElementById('dashBoard').style.display='none';
+    document.getElementById('users-clients').style.display='none';
+    document.getElementById('users-partners').style.display='none';
+    document.getElementById('adminList').style.display='none';
+    document.getElementById('addAdmin').style.display='inline';"><i class="fas fa-plus" style="margin-left:0;padding-left:0;"></i> Add Admin</a>
+  </div>
   </div>
 </div>
 
@@ -246,6 +270,12 @@ for (var i = 0; i < btns.length; i++) {
     </tbody>
   </table>
 </div>
+</div>
+
+
+<!-- <div id="addAdmin" style="display:none;"> -->
+    <% include ./partials/addAdmin %>
+  <!-- </div> -->
 </div>
 </body>
 </html>
