@@ -84,7 +84,7 @@
 .form-group div {
     padding-bottom: 10px;
 }
-.form-group a.btn {
+.form-group a. {
     text-align: left;
 }
 .form-group a.btn span#socialText {
@@ -203,7 +203,13 @@ button.validate {
 .btn-primary.disabled {
     cursor: not-allowed;
 }
-
+#add-admin-button{
+  background-color:#007bff;
+  color:white;
+}
+#add-admin-button:hover{
+  background-color:#0063cc;
+}
 @media (max-width: 768px) {
     #clientService {
         border-right: none;
