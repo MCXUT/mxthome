@@ -1,13 +1,15 @@
 
-<div class="content" style="padding-top:80px;">
-  <p>Company Name: Test</p>
-  <input class="form-control currentname" type="hidden" name="name" value="Trex" required>
-  <p>Email</p>
-  <input class="form-control currentemail" type="email" name="email" required>
-  <p>Password</p>
-  <input class="form-control currentpassword" type="password" name="password" id="confirm_password" required>
-  <!-- <font size="3" color="red">Default password must be "1234"</font> -->
-  <p>Confirm Password</p>
-  <input class="form-control" type="password" name="password2" id="confirm_password" required>
-  <input class="form-control btn btn-primary" type="submit" value="Register">
+<div class="loginform registerform">
+  <form action="/auth/register_client" method="post" id="myform">
+    <p>Company Name: Test</p>
+    <input class="form-control currentname" type="hidden" name="name" value="Trex" required>
+    <p>Email</p>
+    <input class="form-control currentemail" type="email" name="email" required>
+    <p>Password</p>
+    <input class="form-control currentpassword" type="password" name="password" id="confirm_password" required>
+    <!-- <font size="3" color="red">Default password must be "1234"</font> -->
+    <p>Confirm Password</p>
+    <input class="form-control" type="password" name="password2" id="confirm_password" required>
+    <input class="form-control btn btn-primary" type="submit" value="Register">
+  </form>
 </div>
