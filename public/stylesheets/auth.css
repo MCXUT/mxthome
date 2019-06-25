@@ -210,6 +210,44 @@ button.validate {
 #add-admin-button:hover{
   background-color:#0063cc;
 }
+
+/* modal thin exit('x') button */
+.close1 {
+  position: absolute;
+//  right: 8px;
+  top: 24px;
+  width: 32px;
+  height: 32px;
+  opacity: 1.0;
+}
+.close1:hover {
+  opacity: 1;
+  cursor:pointer;
+}
+.close1:before, .close1:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close1:before {
+  transform: rotate(45deg);
+}
+.close1:after {
+  transform: rotate(-45deg);
+}
+/* end of thin exit button */
+
+td{
+  max-width: 25px;
+  word-wrap: break-word;
+}
+#edit-delete{
+  width:5px !important;
+}
+
 @media (max-width: 768px) {
     #clientService {
         border-right: none;

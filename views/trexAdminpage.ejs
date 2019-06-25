@@ -6,6 +6,7 @@
 
   <% include ./partials/header %>
   <link rel="stylesheet" href="/static/stylesheets/auth.css">
+
   <!-- scroll to top button -->
   <script>
   document.addEventListener("DOMContentLoaded", function (event) {
@@ -72,9 +73,10 @@
 
   }
   </script>
-
   <div class="topnav" style="background-color:white;position:fixed;width:100%;"> <!-- z-index:500; -->
     <a class="logo " href="/"><img class="margin" src="/static/images/0.jpg" height="60" width="100"></img></a>
+    <a class="close1" style="color:black;"></a>
+    <a class="logo" href="/"><img src="/static/images/this.png" id="logo2" style="margin-left:45px;"></img></a>
   </div>
 
 
@@ -83,7 +85,8 @@
   <a class="nav-item active" href="#dashboard" onclick="document.getElementById('dashBoard').style.display='inline';
   document.getElementById('users-clients').style.display='none';
   document.getElementById('users-partners').style.display='none';
-  document.getElementById('adminList').style.display='none';"><i class="fas fa-chart-line"></i> Dashboard</a>
+  document.getElementById('adminList').style.display='none';
+  document.getElementById('addAdmin').style.display='none';"><i class="fas fa-chart-line"></i> Dashboard</a>
   <a class="nav-item dropdown-btn" href="#?users "><i class="fas fa-users"></i> Users
       <i class="fa fa-caret-down" ></i>
     </a>
@@ -91,16 +94,18 @@
       <a class="nav-item" href="#users-clients" onclick="document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='inline';
       document.getElementById('users-partners').style.display='none';
-      document.getElementById('adminList').style.display='none';"><i class="fas fa-user"></i> Clients</a>
+      document.getElementById('adminList').style.display='none;
+      document.getElementById('addAdmin').style.display='none';"><i class="fas fa-user"></i> Clients</a>
       <a class="nav-item" href="#users-partners" onclick="document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='none';
       document.getElementById('users-partners').style.display='inline';
-      document.getElementById('adminList').style.display='none';"><i class="far fa-handshake"></i> Partners</a>
+      document.getElementById('adminList').style.display='none';
+      document.getElementById('addAdmin').style.display='none';"><i class="far fa-handshake"></i> Partners</a>
     </div>
 
 
     <a class="nav-item dropdown-btn" href="#?admin "><i class="fas fa-user-secret"></i> Admin
-        <i class="fa fa-caret-down" ></i>
+        <i class="fa fa-caret-down" ></i><i class="fas fa-caret-up" style="display:none;"></i>
       </a>
 
   <div class="dropdown-container">
@@ -153,8 +158,8 @@ for (var i = 0; i < btns.length; i++) {
 </div>
 </div>
 
-<div id="users-clients" style="display:none;">
-  <div class="content">
+<div id="users-clients">
+  <div class="content" >
 
   <table class="table table-bordered margin2" >
   <thead class="thead-dark">
@@ -166,8 +171,8 @@ for (var i = 0; i < btns.length; i++) {
       <th scope="col">Password</th>
       <th scope="col">DOB</th>
       <th scope="col">Region</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
+      <th id="edit-delete" scope="col">Edit</th>
+      <th id="edit-delete" scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -180,8 +185,8 @@ for (var i = 0; i < btns.length; i++) {
       <td><%= clientList[i].password %></td>
       <td><%= clientList[i].dateOfBirth %></td>
       <td><%= clientList[i].address %></td>
-      <td><a href="#"><i class="far fa-edit"></i></a></td>
-      <td><a href="#"><i class="fas fa-trash"></i></a></td>
+      <td ><a href="#"><i class="far fa-edit"></i></a></td>
+      <td ><a href="#"><i class="fas fa-trash"></i></a></td>
     </tr>
     <% } %>
   </tbody>
@@ -202,8 +207,8 @@ for (var i = 0; i < btns.length; i++) {
       <th scope="col">Password</th>
       <th scope="col">DOB</th>
       <th scope="col">Region</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
+      <th id="edit-delete" scope="col">Edit</th>
+      <th id="edit-delete" scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -239,8 +244,8 @@ for (var i = 0; i < btns.length; i++) {
         <th scope="col">Password</th>
         <th scope="col">DOB</th>
         <th scope="col">Region</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
+        <th id="edit-delete" scope="col">Edit</th>
+        <th id="edit-delete" scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -253,8 +258,8 @@ for (var i = 0; i < btns.length; i++) {
         <td>1234</td>
         <td>08/29</td>
         <td>Montreal, CA</td>
-        <td><a href="#"><i class="far fa-edit"></i></a></td>
-        <td><a href="#"><i class="fas fa-trash"></i></a></td>
+        <td ><a href="#"><i class="far fa-edit"></i></a></td>
+        <td ><a href="#"><i class="fas fa-trash"></i></a></td>
       </tr>
       <% } %>
     </tbody>

@@ -10,6 +10,8 @@ html,body{
   margin: 0;
 }
 
+
+
 #hov .dropdown-menu{
   height: 0px;
   overflow: hidden;
@@ -259,6 +261,10 @@ img.img-full-width {
 
 #logo{
   width:53px;
+}
+#logo2{
+  width:80px;
+  height:75px;
 }
 .active, .navbar-toggler:hover {
  color: #666;
