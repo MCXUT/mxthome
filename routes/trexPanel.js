@@ -5,7 +5,6 @@ const router = express.Router()
 const keys = require("../config/keys");
 const client = require("../models/client");
 
-
 router.get("/trex", (req, res) => {
   if(!req.user) {
     return res.redirect("/");
@@ -22,34 +21,40 @@ router.get("/trex", (req, res) => {
         else {
           var MongoClient = require('mongodb').MongoClient;
           const uri = "mongodb+srv://mxt:" + keys.mongodb.pass + "@cluster0-jdwe1.mongodb.net/test?retryWrites=true&w=majority";
-          var client = new MongoClient(uri, {
+          var mClient = new MongoClient(uri, {
             useNewUrlParser: true
           });
 
-          client.connect(err => {
-            var db = client.db("test");
+          mClient.connect(err => {
+            var db = mClient.db("test");
             db.collection("partners", function(err, partnerColl) {
               partnerColl.find().toArray(function(err, partners) {
-                console.log(partners[1]);
-                var client2 = new MongoClient(uri, {
+                var mClient2 = new MongoClient(uri, {
                   useNewUrlParser: true
                 });
-                client2.connect(err => {
-                  var db2 = client2.db("test");
+                mClient2.connect(err => {
+                  var db2 = mClient2.db("test");
                   db2.collection("clients", function(err, clientColl) {
                     clientColl.find().toArray(function(err, clients) {
-                      return res.render("trexAdminpage", {
-                        partnerList: partners,
-                        clientList: clients
-                      });
+                      var query = { companyName: "Trex" };
+                      client.findAdmin("Trex", function(err, admins){
+                        console.log("Partner List: " + partners);
+                        console.log("Client List: " + clients);
+                        console.log("Admin List: " + admins);
+                        return res.render("trexAdminpage", {
+                          partnerList: partners,
+                          clientList: clients,
+                          adminList: admins
+                        });
+                      })
                     });
                   });
-                  client2.close();
+                  mClient2.close();
                 });
 
               });
             });
-            client.close();
+            mClient.close();
           });
         }
     });

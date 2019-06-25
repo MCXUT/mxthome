@@ -238,26 +238,26 @@ for (var i = 0; i < btns.length; i++) {
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Object_id</th>
+        <th scope="col">Company Name</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Password</th>
+        <!-- <th scope="col">Password</th>
         <th scope="col">DOB</th>
-        <th scope="col">Region</th>
+        <th scope="col">Region</th> -->
         <th id="edit-delete" scope="col">Edit</th>
         <th id="edit-delete" scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
-      <% for(var i = 0; i < 100; i++) { %>
+      <% for(var i = 0; i < adminList.length; i++) { %>
       <tr>
         <th scope="row"> <%= i+1 %> </th>
-        <td>777777777777</td>
-        <td>Yona Naughty Joeng</td>
-        <td>bwkim96@gmail.com</td>
-        <td>1234</td>
+        <td><%= adminList[i].companyName %></td>
+        <td><%= adminList[i].name %></td>
+        <td><%= adminList[i].email %></td>
+        <!-- <td>1234</td>
         <td>08/29</td>
-        <td>Montreal, CA</td>
+        <td>Montreal, CA</td> -->
         <td ><a href="#"><i class="far fa-edit"></i></a></td>
         <td ><a href="#"><i class="fas fa-trash"></i></a></td>
       </tr>

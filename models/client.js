@@ -25,6 +25,11 @@ var ClientSchema = mongoose.Schema({
 
 var Client = module.exports = mongoose.model('Client', ClientSchema);
 
+module.exports.findAdmin = (companyName, done) => {
+  var query = {companyName: companyName};
+  Client.find(query, done);
+};
+
 module.exports.createClient = (newClient, done) => {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newClient.password, salt, (err, hash) => {
