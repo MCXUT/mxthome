@@ -1,14 +1,13 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-//Facebook
-const FacebookStrategy = require("passport-facebook").Strategy;
-const GoogleStrategy = require("passport-google-oauth20");
+
 const User = require("../models/User");
+const Client = require("../models/client");
 const keys = require("./keys");
 
 // login passport
 passport.use(
-    "local-login", new LocalStrategy({
+    "crew-login", new LocalStrategy({
         usernameField: "email",
         passwordField: "password"
     }, (username, password, done) => {
@@ -16,9 +15,6 @@ passport.use(
             if(err) throw err;
             if(!user) {
                 return done(null, false, {message: "Invalid Username or Password"});
-            }
-            if(!user.isVerified) {
-                return done(null, false, {message: "Your email has not been verified yet!"});
             }
             User.comparePassword(password, user.password, (err, isMatch) => {
                 if(err) throw err;
@@ -32,32 +28,25 @@ passport.use(
     })
 );
 
-//PASSPORT GOOGLE
 passport.use(
-    new GoogleStrategy({
-        // options for the google strategy
-        callbackURL: "/auth/google/redirect",
-        clientID: keys.google.clientID,
-        clientSecret: keys.google.clientSecret
-    }, function(accessToken, refreshToken, profile, done) {
-        // accessToken: what we receive from Google
-        // refreshToken: refreshes the access token
-        // profile: information that passport comes back with
-        // done: call when we are done with the callback function
-        User.findOne({googleID: profile.id}).then((foundUser) => {
-            if(foundUser) {
-                done(null, foundUser);
-            } else {
-                new User({
-                    name: profile.displayName,
-                    email: profile.emails[0].value,
-                    googleID: profile.id
-                }).save().then((newUser) => {
-                    console.log("new User Created: " + newUser);
-                    done(null, newUser);
-                });
+    "client-login", new LocalStrategy({
+        usernameField: "email",
+        passwordField: "password"
+    }, (username, password, done) => {
+        Client.getClientByEmail(username, (err, user) => {
+            if(err) throw err;
+            if(!user) {
+                return done(null, false, {message: "Invalid Username or Password"});
             }
-        })
+            Client.comparePassword(password, user.password, (err, isMatch) => {
+                if(err) throw err;
+                if(!isMatch) {
+                    return done(null, false, {message: "Invalid Username or Password"});
+                } else {
+                    return done(null, user);
+                }
+            });
+        });
     })
 );
 
@@ -67,36 +56,19 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
     User.findById(id, (err, user) => {
-        done(err, user);
+        if(user) {
+          done(err, user);
+        }
+        else {
+          Client.findById(id, (err, client) => {
+            done(err, client);
+          });
+        }
     });
+    // User.findById(id, (err, user) => {
+    //     done(err, user);
+    // });
 });
 
-//const fKeys = require("../config/keys");
-
-passport.use(
-  new FacebookStrategy({
-    clientID: keys.facebookClientInfo.cId,
-    clientSecret: keys.facebookClientInfo.cPw,
-    callbackURL : keys.facebookClientInfo.callback,
-    profileFields: ['id', 'email', 'name']
-    //passReqToCallback: true
-  }, (accessToken, refreshToken, profile, done) => {
-    User.findOne({facebookID: profile.id}).then((foundUser) => {
-        if(foundUser) {
-            done(null, foundUser);
-        } else {
-            console.log(profile);
-            new User({
-                name: profile.name.givenName + " " + profile.name.familyName,
-                email: profile.emails[0].value,
-                facebookID: profile.id
-            }).save().then((newUser) => {
-                console.log("new User Created: " + newUser);
-                done(null, newUser);
-            });
-        }
-    })
-  }
-));
 
 module.exports = passport;

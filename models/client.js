@@ -10,7 +10,15 @@ var ClientSchema = mongoose.Schema({
     password: {
         type: String
     },
-    companyName: String,
+    name: {
+        type: String
+    },
+    companyName: {
+        type: String
+    },
+    adminPanel: {
+        type: String
+    },
     resetPasswordToken: String,
     resetPasswordExpires: Date
 });
@@ -20,13 +28,13 @@ var Client = module.exports = mongoose.model('Client', ClientSchema);
 module.exports.createClient = (newClient, done) => {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newClient.password, salt, (err, hash) => {
-            newUser.password = hash;
-            newUser.save(done);
+            newClient.password = hash;
+            newClient.save(done);
         });
     });
 };
 
-module.exports.getUserByUsername = (username, done) => {
+module.exports.getClientByEmail = (username, done) => {
     var query = {email: username};
     Client.findOne(query, done);
 };
