@@ -136,6 +136,17 @@
 .form-group.registerform {
     display: block;
 }
+/*트렉스 어드민 페이지 테이블 크기*/
+#adminPanelOrder{
+  width:30px;
+}
+/* #adminPanelRegDate{
+  max-width:
+} */
+/* #adminPanelName{
+
+} */
+#adminPanelEmail
 
 @media (max-width: 576px) {
     .choicetabs {
@@ -240,10 +251,10 @@ button.validate {
 }
 /* end of thin exit button */
 
-td{
+/* td{
   max-width: 25px;
   word-wrap: break-word;
-}
+} */
 #edit-delete{
   width:5px !important;
 }
