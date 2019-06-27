@@ -136,17 +136,19 @@
 .form-group.registerform {
     display: block;
 }
-/*트렉스 어드민 페이지 테이블 크기*/
-#adminPanelOrder{
-  width:30px;
-}
-/* #adminPanelRegDate{
-  max-width:
-} */
-/* #adminPanelName{
 
-} */
-#adminPanelEmail
+#admin_topNav{
+  margin-right: 30px;
+  font-size: 19px;
+  color:black;
+}
+#admin_topNav:hover{
+  color:#999999;
+}
+#admin_topNav2{
+  margin-right: 30px;
+  font-size: 15px;
+}
 
 @media (max-width: 576px) {
     .choicetabs {
@@ -255,6 +257,9 @@ button.validate {
   max-width: 25px;
   word-wrap: break-word;
 } */
+.content{
+  overflow-x: scroll;
+}
 #edit-delete{
   width:5px !important;
 }

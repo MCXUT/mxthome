@@ -47,6 +47,9 @@
       document.getElementById('dashBoard').style.display='inline';
       document.getElementById('users-clients').style.display='none';
       document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
       document.getElementById('adminList').style.display='none';
       document.getElementById('addAdmin').style.display='none';
   }
@@ -55,6 +58,9 @@
       document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='inline';
       document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
       document.getElementById('adminList').style.display='none';
       document.getElementById('addAdmin').style.display='none';
   }
@@ -63,8 +69,44 @@
       document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='none';
       document.getElementById('users-partners').style.display='inline';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
       document.getElementById('adminList').style.display='none';
       document.getElementById('addAdmin').style.display='none';
+  }
+
+  function services1(){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="inline";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
+      document.getElementById('adminList').style.display='none';
+      document.getElementById('addAdmin').style.display='none';
+  }
+
+  function services2(){
+    document.getElementById('dashBoard').style.display='none';
+    document.getElementById('users-clients').style.display='none';
+    document.getElementById('users-partners').style.display='none';
+    document.getElementById('services_1').style.display="none";
+    document.getElementById('services_2').style.display="inline";
+    document.getElementById('services_3').style.display="none";
+    document.getElementById('adminList').style.display='none';
+    document.getElementById('addAdmin').style.display='none';
+
+  }
+  function services3(){
+    document.getElementById('dashBoard').style.display='none';
+    document.getElementById('users-clients').style.display='none';
+    document.getElementById('users-partners').style.display='none';
+    document.getElementById('services_1').style.display="none";
+    document.getElementById('services_2').style.display="none";
+    document.getElementById('services_3').style.display="inline";
+    document.getElementById('adminList').style.display='none';
+    document.getElementById('addAdmin').style.display='none';
 
   }
 
@@ -72,23 +114,36 @@
       document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='none';
       document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
       document.getElementById('adminList').style.display='inline';
       document.getElementById('addAdmin').style.display='none';
-
   }
+
   function addAdmin(){
       document.getElementById('dashBoard').style.display='none';
       document.getElementById('users-clients').style.display='none';
       document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
       document.getElementById('adminList').style.display='none';
       document.getElementById('addAdmin').style.display='inline';
 
   }
   </script>
-  <div class="topnav" style="background-color:white;position:fixed;width:100%;"> <!-- z-index:500; -->
+
+  <div class="topnav" style="background-color:white;position:fixed;width:100%;z-index:500;"> <!-- z-index:500; -->
     <a class="logo " href="/"><img class="margin" src="/static/images/0.jpg" height="60" width="100"></img></a>
     <a class="close1" style="color:black;"></a>
     <a class="logo" href="/"><img src="/static/images/this.png" id="logo2" style="margin-left:45px;"></img></a>
+
+
+    <a  id="admin_topNav" href="#" style="padding-left:40%;"><i class="fas fa-phone-volume"></i> Contact Us</a>
+    <a  id="admin_topNav"href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    <a id="admin_topNav2"><i class="fas fa-briefcase"></i> Company:Trex   <i class="fas fa-user"></i> Name:MxT</a>
+
   </div>
 
 
@@ -104,6 +159,16 @@
       <a class="nav-item" href="#?users-clients" onclick="usersClients();"><i class="fas fa-user"></i> Clients</a>
       <a class="nav-item" href="#?users-partners" onclick="usersPartners();"><i class="far fa-handshake"></i> Partners</a>
     </div>
+
+    <a class="nav-item dropdown-btn" href="#?services "><i class="fas fa-cogs"></i> Services
+        <i class="fa fa-caret-down" ></i>
+      </a>
+
+      <div class="dropdown-container">
+        <a class="nav-item" href="#?services_1" onclick="services1();"><i class="far fa-envelope"></i> Steven1</a>
+        <a class="nav-item" href="#?services_2" onclick="services2();"><i class="fas fa-tools"></i> Steven2</a>
+        <a class="nav-item" href="#?services_3" onclick="services3();"><i class="fas fa-hammer"></i> Steven3</a>
+      </div>
 
 
     <a class="nav-item dropdown-btn" href="#?admin "><i class="fas fa-user-secret"></i> Admin
@@ -221,6 +286,24 @@ for (var i = 0; i < btns.length; i++) {
   </tbody>
 </table>
 
+</div>
+</div>
+
+<div id="services_1" style="display:none;">
+<div class="content" style="padding-top:80px;">
+<h3>Service 1 content</h3>
+</div>
+</div>
+
+<div id="services_2" style="display:none;">
+<div class="content" style="padding-top:80px;">
+<h3>Service 2 content</h3>
+</div>
+</div>
+
+<div id="services_3" style="display:none;">
+<div class="content" style="padding-top:80px;">
+<h3>Service 3 content</h3>
 </div>
 </div>
 
