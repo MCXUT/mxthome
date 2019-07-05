@@ -1,10 +1,7 @@
-
 <!-- Navigation bar -->
 
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en
-  _US/sdk.js#xfbml=1&version=v3.3&appId=306314140252922&autoLogAppEvents=1">
-</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=306314140252922&autoLogAppEvents=1"></script>
 
 
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
@@ -16,7 +13,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link active" href="/#mainDiv">Home</a>
+                        <a class="nav-link" href="/#mainDiv">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#about">About MxT</a>
@@ -27,27 +24,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/#teams">Team</a>
                     </li>
-                    <li class="nav-item dropdown" id="hov">
-                        <a class="nav-link dropdown-toggle" id="cd-dropdown"
-                          href="#" role="button" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown" id="hov" >
+                        <a class="nav-link dropdown-toggle active" href="#"
+                        id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                             Services
                         </a>
-
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/services/announcement">Announcement</a>
                             <a class="dropdown-item" href="/services/faq">FAQ</a>
                             <a class="dropdown-item" href="/feedback">Feedback</a>
+                            <a class="dropdown-item" href="/services/contact-us">Contact Us</a>
                         </div>
                     </li>
-
-                    <!-- <script>
-                      document.getElementById("#cd-dropdown").addEventListener("mouseover",
-                      )
-                    </script> -->
-
-
-
                     <li class="nav-item">
                         <a class="nav-link" href="/#connect">Connect</a>
                     </li>
@@ -58,356 +47,23 @@
                             <%= currentUser.name %>
                         </a>
                         <div class="dropdown-menu profile-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">View Profile</a>
+                          <% if(currentUser.isAdmin) { %>
+                              <a class="dropdown-item" href="/auth/register_client">Add Client</a>
+                          <% } else { %>
+                                <a class="dropdown-item" href="<%= currentUser.adminPanel %>">Admin Page</a>
+                          <% } %>
                             <a class="dropdown-item" href="/auth/logout">Log Out</a>
                         </div>
                     </li>
                 <% } else { %>
                     <li class="nav-item">
-                        <a class="nav-link" href="#cocoaModal" id="auth">Log In</a>
+                        <a class="nav-link" href="#cocoaModal" id="auth">Log In / Sign Up</a>
                     </li>
                 <% } %>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#signup" id="signup1">SignUp</a>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- <script>
-      $("#cd-dropdown").mouseover(function(){
-        $("#gimothi").css("height","95px");
-        $("#gimothi").css("display","block");
-
-      });
-
-
-
-<!-- practice -->
-
-<% if(error && error.length > 0) { %>
-<div id="cocoaModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-easein="flipBounceXIn" data-backdrop="true"
-data-keyboard="true" style="display: block;">
-<% } else { %>
-<div id="cocoaModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-data-keyboard="true">
-<% } %>
-	<div class="modal-dialog">
-		<div class="modal-content">
-      <div class="modal-header">
-	<h2 id="login" class="active">LogIn</h2><a class="link" href="#signup" id="signup"><h2>Register</h2></a>
-      </div>
-<article class="modal_article login p_lr_space pb24">
-	<button class="close" data-dismiss="modal" aria-label="Close">+</button>
-
-
-    <% if(error && error.length > 0) { %>
-      <span style="color: red"><%= error %></span>
-    <% } %>
-
-
-
-	<form action="/auth/login" method="post">
-		<input type="hidden" name="back_url" value="Lw%3D%3D">
-		<input type="hidden" name="used_login_btn" value="Y">
-
-
-			<div class="input_form">
-
-          <span style="position: relative; left:22px; opacity: 0.5;"><i class="fas fa-envelope"></i></span>
-          <input type="text" name="email" value=""
-          placeholder="Email" class="form-control" style="padding-left: 30px;
-          margin-top: 30px;">
-
-  			<div class="input_form brt">
-          <span style="position: relative; left: 22px; opacity: 0.5;"><i class="fas fa-lock"></i></span>
-          <input name="password" type="password" value=""
-          placeholder="Password" class="form-control" style="padding-left: 30px;">
-        </div><br>
-      </div>
-
-		<p>
-			<button class="btn btn-primary">LogIn</button>
-		</p>
-	</form>
-
-        <a href="#reset"
-            id="findpassword"
-            class="link">Find My Account</a>
-
-		</article></div>
-
-	</div>
-</div>
-
-
-<!-- find pasword button-->
-<% if(error_reset && error_reset.length > 0) { %>
-<div id="findpasswordModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-data-keyboard="true" style="display: block;">
-<% } else { %>
-<div id="findpasswordModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-data-keyboard="true">
-<% } %>
-    <div class="modal-dialog">
-        <div class="modal-content" id="findpasswordcontent">
-            <div class="modal-header">
-	               <h2>Find my Password</h2>
-               </div>
-               <article class="modal_article login p_lr_space pb24">
-                   <button class="close" id="close3" data-dismiss="modal"
-                   aria-label="Close">+</button>
-
-                   <% if(error_reset && error_reset.length > 0) { %>
-                     <span style="color: red"><%= error_reset %></span>
-                   <% } %>
-
-                   <form action="/auth/reset" method="post">
-                       <input type="hidden" name="back_url" value="Lw%3D%3D">
-                       <input type="hidden" name="used_login_btn" value="Y">
-                       <span style="position: relative; left:22px; opacity: 0.5;"><i class="fas fa-envelope"></i></span>
-                       <input class="form-control" type="email" name="email" value="" placeholder="Your Email"
-                       style="padding-left: 30px;" required>
-                       <br>
-
-
-                       <button class="btn btn-primary">Reset Password</button>
-                       Or
-                       <a href="#" id="signup_email2">LogIn</a>
-                   </form>
-               </article>
-           </div>
-       </div>
-</div>
-
-
-
-<!-- second button -->
-<div id="registerModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-data-keyboard="true">
-	<div class="modal-dialog">
-		<div class="modal-content" id="registercontent">
-      <div class="modal-header">
-	<a class="link" href="#login" id="login1"><h2>LogIn</h2></a><h2 id="signup" class="active">Register</h2>
-      </div>
-<article class="modal_article login p_lr_space pb24">
-	<button class="close" id="close1" data-dismiss="modal" aria-label="Close">+</button>
-
-
-
-	<form action="/auth/register" method="post">
-		<input type="hidden" name="back_url" value="Lw%3D%3D">
-		<input type="hidden" name="used_login_btn" value="Y">
-
-		<!-- <div class="social-box"> -->
-			<!-- <span class="signinwith">Sign in with Social Network</span> -->
-      <h5>Login with Social Media</h5>
-      <!-- <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button> -->
-      <!-- <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
-      <a href="/auth/facebook" class='btn btn-info' style="background-color: #3b5998; color: white;
-      margin-bottom: 10px;" >
-        <span id="facebookIcon" style="color: white;"><i class="fab fa-facebook-f fa-lg"></i></span>
-          Sign in with Facebook</a>
-      <!-- <button class="social google"><i class="fab fa-google" aria-hidden="true"></i>Sign in with Google+</button> -->
-      <a href="/auth/google" class='btn btn-info' style="margin-bottom: 10px;">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-            width="25" height="25"
-            viewBox="0 0 48 48"
-            style=" fill:#000000;"><g id="surface1"><path style=" fill:#FFC107;" d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 33.652344 32.65625 29.222656 36 24 36 C 17.371094 36 12 30.628906 12 24 C 12 17.371094 17.371094 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 12.953125 4 4 12.953125 4 24 C 4 35.046875 12.953125 44 24 44 C 35.046875 44 44 35.046875 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z "></path><path style=" fill:#FF3D00;" d="M 6.304688 14.691406 L 12.878906 19.511719 C 14.65625 15.109375 18.960938 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 16.316406 4 9.65625 8.335938 6.304688 14.691406 Z "></path><path style=" fill:#4CAF50;" d="M 24 44 C 29.164063 44 33.859375 42.023438 37.410156 38.808594 L 31.21875 33.570313 C 29.210938 35.089844 26.714844 36 24 36 C 18.796875 36 14.382813 32.683594 12.71875 28.054688 L 6.195313 33.078125 C 9.503906 39.554688 16.226563 44 24 44 Z "></path><path style=" fill:#1976D2;" d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 34.511719 30.238281 33.070313 32.164063 31.214844 33.570313 C 31.21875 33.570313 31.21875 33.570313 31.21875 33.570313 L 37.410156 38.808594 C 36.972656 39.203125 44 34 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z "></path></g></svg>
-     Sign in with Google+</a>
-		<!-- </div> -->
-    <div class="or">OR</div>
-
-	</form>
-  <button type="button" class="social email btn btn-primary" id="signup_email">Sign in with Email</button>
-  <br><a href="#term">Terms of Use Agreement</a>
-
-    </div>
-	</div>
-</div>
-
-
-
-<!--register with Email-->
-<% if(error_signup && error_signup.length > 0) { %>
-<div id="emailModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-data-keyboard="true" style="display: block;">
-<% } else { %>
-<div id="emailModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-data-keyboard="true">
-<% } %>
-	<div class="modal-dialog">
-		<div class="modal-content" id="emailcontent">
-      <div class="modal-header">
-	<a class="link" href="#login" id="login2"><h2>LogIn</h2></a><h2 id="signup" class="active">Register</h2>
-      </div>
-<article class="modal_article login p_lr_space pb24">
-	<button class="close" id="close2" data-dismiss="modal" aria-label="Close">+</button>
-
-
-
-	<form action="/auth/register" method="post">
-		<input type="hidden" name="back_url" value="Lw%3D%3D">
-		<input type="hidden" name="used_login_btn" value="Y">
-
-		<!-- <div class="social-box"> -->
-			<!-- <span class="signinwith">Sign in with Social Network</span> -->
-      <h5>Login with Social Media</h5>
-      <!-- <button class="social facebook"><i class="fab fa-facebook-f" style="color: #fff;"></i>Sign in with Facebook</button> -->
-      <a href="/auth/facebook" class='btn btn-info' style="background-color: #3b5998; color: white;
-      margin-bottom: 10px;" >
-        <span id="facebookIcon" style="color: white;"><i class="fab fa-facebook-f fa-lg"></i></span>
-          Sign in with Facebook</a>
-      		<!-- </div> -->
-
-    <a href="/auth/google" class='btn btn-info' style="margin-bottom: 10px;">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-          width="25" height="25"
-          viewBox="0 0 48 48"
-          style=" fill:#000000;"><g id="surface1"><path style=" fill:#FFC107;" d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 33.652344 32.65625 29.222656 36 24 36 C 17.371094 36 12 30.628906 12 24 C 12 17.371094 17.371094 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 12.953125 4 4 12.953125 4 24 C 4 35.046875 12.953125 44 24 44 C 35.046875 44 44 35.046875 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z "></path><path style=" fill:#FF3D00;" d="M 6.304688 14.691406 L 12.878906 19.511719 C 14.65625 15.109375 18.960938 12 24 12 C 27.058594 12 29.84375 13.152344 31.960938 15.039063 L 37.617188 9.382813 C 34.046875 6.054688 29.269531 4 24 4 C 16.316406 4 9.65625 8.335938 6.304688 14.691406 Z "></path><path style=" fill:#4CAF50;" d="M 24 44 C 29.164063 44 33.859375 42.023438 37.410156 38.808594 L 31.21875 33.570313 C 29.210938 35.089844 26.714844 36 24 36 C 18.796875 36 14.382813 32.683594 12.71875 28.054688 L 6.195313 33.078125 C 9.503906 39.554688 16.226563 44 24 44 Z "></path><path style=" fill:#1976D2;" d="M 43.609375 20.082031 L 42 20.082031 L 42 20 L 24 20 L 24 28 L 35.304688 28 C 34.511719 30.238281 33.070313 32.164063 31.214844 33.570313 C 31.21875 33.570313 31.21875 33.570313 31.21875 33.570313 L 37.410156 38.808594 C 36.972656 39.203125 44 34 44 24 C 44 22.660156 43.863281 21.351563 43.609375 20.082031 Z "></path></g></svg>
-    Sign in with Google+</a>    	<!-- </div> -->
-    <div class="or" style="margin-bottom: 10px;">OR</div>
-
-    <% if(error_signup && error_signup.length > 0) { %>
-        <span style="color: red"><%= error_signup %></span>
-    <% } %>
-
-    <br>
-    <span style="position: relative; left: 22px; opacity: 0.5;"><i class="fas fa-user"></i></span>
-    <input class="form-control" type="text" name="name" value="" placeholder="Your Name"
-      style="padding-left: 30px;" required>
-      <br>
-    <span style="position: relative; left:22px; opacity: 0.5;"><i class="fas fa-envelope"></i></span>
-    <input class="form-control" type="email" name="email" value="" placeholder="Your Email"
-      style="padding-left: 30px;" required>
-      <br>
-    <span style="position: relative; left: 22px; opacity: 0.5;"><i class="fas fa-lock"></i></span>
-    <input class="form-control" type="password" name="password" value=""
-      id="confirm_password" placeholder="Your Password"
-      onkeyup='check();' style="padding-left: 30px;" required>
-      <br>
-    <span style="position: relative; left: 22px; opacity: 0.5;"><i class="fas fa-lock"></i></span>
-    <input class="form-control" type="password" name="password2" value=""
-    id="confirm_password2" placeholder="Confirm Password" style="padding-left: 30px;"
-    onkeyup='check();' required>
-    <br><span id='message'></span>
-		<!-- </div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
-
-	   <button class="btn btn-primary">Register</button>
-       <br><button class="btn btn-info" id="fold">Fold</button>
-	</form>
-		</article>
-    </div>
-	</div>
-</div>
-
-
-<!-- find pasword button-->
-<% if(success_validate && success_validate.length > 0) { %>
-<div id="validateEmailModal" role="dialog" aria-hidden="true"
-class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-data-keyboard="true" style="display: block;">
-
-
-    <div class="modal-dialog">
-        <div class="modal-content" id="findpasswordcontent">
-            <div class="modal-header">
-	               <h2>Check your email for validation</h2>
-               </div>
-               <article class="modal_article login p_lr_space pb24">
-                   <button class="close" id="close4" data-dismiss="modal"
-                   aria-label="Close">+</button>
-               </article>
-               <button class="btn btn-primary" id="exit">Ok</button>
-           </div>
-       </div>
-</div>
-<% } %>
-
-
-<% if(error_verify && error_verify.length > 0) { %>
-    <div id="tokenResendModal" role="dialog" aria-hidden="true"
-    class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
-    data-keyboard="true" style="display: block;">
-
-        <div class="modal-dialog">
-            <div class="modal-content" id="findpasswordcontent">
-                <div class="modal-header">
-                      <h2>Resend validation email</h2>
-                   </div>
-                   <span style="color: red"><%= error_verify %></span>
-                   <article class="modal_article login p_lr_space pb24">
-                       <button class="close" id="close5" data-dismiss="modal"
-                       aria-label="Close">+</button>
-
-
-                       <form action="/auth/verification/resend" method="post">
-                           <span style="position: relative; left:22px; opacity: 0.5;"><i class="fas fa-envelope"></i></span>
-                           <input class="form-control" type="email" name="email" value="" placeholder="Your Email"
-                           style="padding-left: 30px;" required>
-                           <br>
-
-                           <button class="btn btn-primary">Resend the Email</button>
-
-                       </form>
-                   </article>
-               </div>
-           </div>
-    </div>
-<% } %>
-
-
-<script src="/static/scripts/modalSetting.js"></script>
-<script src="/static/scripts/emailResendModal.js"></script>
-
-<script>
-
-// Add active class to the current button (highlight it)
-var header = document.getElementById("navbarResponsive");
-var btns = header.getElementsByClassName("nav-item");
-
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace(" active", "");
-  this.className += " active";
-  });
-
-  var check = function() {
-    console.log(document.getElementById('confirm_password').value);
-    console.log(document.getElementById('confirm_password2').value);
-  if (document.getElementById('confirm_password').value ===
-    document.getElementById('confirm_password2').value){
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'password matching';
-  } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'password not matching';
-  }
-}
-}
-
-// $('.nav-link').click(function(){
-//   var buttonId = $(this).attr('id');
-//   $('#cocoaModal').removeAttr('class').addClass(buttonId);
-//   $('#cocoaModal').addClass('modal-active');
-// })
-//
-// $('#modal-container').click(function(){
-//   $(this).addClass('out');
-//   $('body').removeClass('modal-active');
-// });
-// $("#cocoaModal").each(function(l){$(this).on("show.bs.modal",function(l){
-//   var o=$(this).attr("data-easein");"shake"==o?$(".modal-dialog").velocity("callout."+o);
-//   "pulse"==o?$(".modal-dialog").velocity("callout."+o);
-//   "tada"==o?$(".modal-dialog").velocity("callout."+o);
-//   "flash"==o?$(".modal-dialog").velocity("callout."+o);
-//   "bounce"==o?$(".modal-dialog").velocity("callout."+o);
-//   "swing"==o?$(".modal-dialog").velocity("callout."+o);
-//   $(".modal-dialog").velocity("transition."+o)})});
-
-</script>

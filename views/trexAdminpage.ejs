@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>admin 페이지 - 트렉스</title>
+  <meta charset="utf-8">
+
+  <% include ./partials/header %>
+  <link rel="stylesheet" href="/static/stylesheets/auth.css">
+
+  <!-- scroll to top button -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     // type();
+     movingBackgroundImage();
+  });
+  </script>
+  <div class="container-fluid">
+  <button href="#" id="scroll" style="display: none;">&uarr;<br>top</button>
+  </div>
+
+  <script>
+
+  $(document).ready(function(){
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > -1) {
+            $('#scroll').fadeIn().css("z-index","4");
+        } else {
+            $('#scroll').fadeOut();
+        }
+
+    });
+    $('#scroll').click(function(e){
+        $("html, body").animate({ scrollTop: 0 }, 600);
+        return false;
+    });
+  });
+  </script>
+  <!-- /scroll to top button -->
+    <link rel="stylesheet" href="../static/stylesheets/adminpage.css">
+
+
+</head>
+<body>
+
+  <script>
+  function dashBoard(){
+      document.getElementById('dashBoard').style.display='inline';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
+      document.getElementById('adminList').style.display='none';
+      document.getElementById('addAdmin').style.display='none';
+  }
+
+  function usersClients(){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='inline';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
+      document.getElementById('adminList').style.display='none';
+      document.getElementById('addAdmin').style.display='none';
+  }
+
+  function usersPartners(){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='inline';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
+      document.getElementById('adminList').style.display='none';
+      document.getElementById('addAdmin').style.display='none';
+  }
+
+  function services1(){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="inline";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
+      document.getElementById('adminList').style.display='none';
+      document.getElementById('addAdmin').style.display='none';
+  }
+
+  function services2(){
+    document.getElementById('dashBoard').style.display='none';
+    document.getElementById('users-clients').style.display='none';
+    document.getElementById('users-partners').style.display='none';
+    document.getElementById('services_1').style.display="none";
+    document.getElementById('services_2').style.display="inline";
+    document.getElementById('services_3').style.display="none";
+    document.getElementById('adminList').style.display='none';
+    document.getElementById('addAdmin').style.display='none';
+
+  }
+  function services3(){
+    document.getElementById('dashBoard').style.display='none';
+    document.getElementById('users-clients').style.display='none';
+    document.getElementById('users-partners').style.display='none';
+    document.getElementById('services_1').style.display="none";
+    document.getElementById('services_2').style.display="none";
+    document.getElementById('services_3').style.display="inline";
+    document.getElementById('adminList').style.display='none';
+    document.getElementById('addAdmin').style.display='none';
+
+  }
+
+  function adminList(){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
+      document.getElementById('adminList').style.display='inline';
+      document.getElementById('addAdmin').style.display='none';
+  }
+
+  function addAdmin(){
+      document.getElementById('dashBoard').style.display='none';
+      document.getElementById('users-clients').style.display='none';
+      document.getElementById('users-partners').style.display='none';
+      document.getElementById('services_1').style.display="none";
+      document.getElementById('services_2').style.display="none";
+      document.getElementById('services_3').style.display="none";
+      document.getElementById('adminList').style.display='none';
+      document.getElementById('addAdmin').style.display='inline';
+
+  }
+  </script>
+
+  <div class="topnav" style="background-color:white;position:fixed;width:100%;z-index:500;"> <!-- z-index:500; -->
+    <a class="logo " href="/"><img class="margin" src="/static/images/0.jpg" height="60" width="100"></img></a>
+    <a class="close1" style="color:black;"></a>
+    <a class="logo" href="/"><img src="/static/images/this.png" id="logo2" style="margin-left:45px;"></img></a>
+
+
+    <a  id="admin_topNav" href="#" style="padding-left:40%;"><i class="fas fa-phone-volume"></i> Contact Us</a>
+    <a  id="admin_topNav"href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    <a id="admin_topNav2"><i class="fas fa-briefcase"></i> Company:Trex   <i class="fas fa-user"></i> Name:MxT</a>
+
+  </div>
+
+
+<div id="myDIV">
+  <div class="sidebar sticky-top sticky-offset">
+  <a class="nav-item active" href="#?dashboard" onclick="dashBoard();"><i class="fas fa-chart-line"></i> Dashboard</a>
+
+  <a class="nav-item dropdown-btn" href="#?users "><i class="fas fa-users"></i> Users
+      <i class="fa fa-caret-down" ></i>
+    </a>
+
+    <div class="dropdown-container">
+      <a class="nav-item" href="#?users-clients" onclick="usersClients();"><i class="fas fa-user"></i> Clients</a>
+      <a class="nav-item" href="#?users-partners" onclick="usersPartners();"><i class="far fa-handshake"></i> Partners</a>
+    </div>
+
+    <a class="nav-item dropdown-btn" href="#?services "><i class="fas fa-cogs"></i> Services
+        <i class="fa fa-caret-down" ></i>
+      </a>
+
+      <div class="dropdown-container">
+        <a class="nav-item" href="#?services_1" onclick="services1();"><i class="far fa-envelope"></i> Steven1</a>
+        <a class="nav-item" href="#?services_2" onclick="services2();"><i class="fas fa-tools"></i> Steven2</a>
+        <a class="nav-item" href="#?services_3" onclick="services3();"><i class="fas fa-hammer"></i> Steven3</a>
+      </div>
+
+
+    <a class="nav-item dropdown-btn" href="#?admin "><i class="fas fa-user-secret"></i> Admin
+        <i class="fa fa-caret-down" ></i><i class="fas fa-caret-up" style="display:none;"></i>
+      </a>
+
+  <div class="dropdown-container">
+    <a class="nav-item" href="#?adminList" onclick="adminList();"><i class="fas fa-list"></i> Admin List</a>
+    <a class="nav-item" href="#?addAdmin" onclick="addAdmin();"><i class="fas fa-plus" style="margin-left:0;padding-left:0;"></i> Add Admin</a>
+  </div>
+  </div>
+</div>
+
+
+<script>
+  var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i;
+
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+    <!-- this.classList.toggle("active"); -->
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+    } else {
+    dropdownContent.style.display = "block";
+    }
+    });
+  }
+
+
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("nav-item");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
+
+<div id="dashBoard" style="display:inline;">
+<div class="content" style="padding-top:80px;">
+<h3>dashboard content for Steven<3</h3>
+</div>
+</div>
+
+<div id="users-clients" style="display:none;">
+  <div class="content" >
+
+  <table class="table table-bordered margin2" >
+  <thead class="thead-dark">
+    <tr>
+      <th id="adminPanelOrder" scope="col">#</th>
+      <th id="adminPanelRegDate" scope="col">Registration Date</th>
+      <th id="adminPanelName" scope="col">Name</th>
+      <th id="adminPanelEmail" scope="col">Email</th>
+      <th id="adminPanelDOB" scope="col">Date Of Birth</th>
+      <th scope="col">Address</th>
+      <th id="edit-delete" scope="col">Edit</th>
+      <th id="edit-delete" scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (var i = 0; i < clientList.length; i++) { %>
+    <tr>
+      <th scope="row"><%= i+1 %></th>
+      <td><%= clientList[i].registeredDate %></td>
+      <td><%= clientList[i].name %></td>
+      <td><%= clientList[i].email %></td>
+      <td><%= clientList[i].dateOfBirth %></td>
+      <td><%= clientList[i].address %></td>
+      <td ><a href="#"><i class="far fa-edit"></i></a></td>
+      <td ><a href="#"><i class="fas fa-trash"></i></a></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div id="users-partners" style="display:none;">
+  <div class="content ">
+
+  <table class="table table-bordered margin2" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Object_id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Region</th>
+      <th id="edit-delete" scope="col">Edit</th>
+      <th id="edit-delete" scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(var i = 0; i < partnerList.length; i++) { %>
+    <tr>
+      <th scope="row"><%= i+1 %></th>
+      <td><%= partnerList[i]._id %></td>
+      <td><%= partnerList[i].name %></td>
+      <td><%= partnerList[i].email %></td>
+      <td><%= partnerList[i].password %></td>
+      <td><%= partnerList[i].dateOfBirth %></td>
+      <td><%= partnerList[i].address.city %></td>
+
+      <td><a href="#"><i class="far fa-edit"></i></a></td>
+      <td><a href="#"><i class="fas fa-trash"></i></a></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<div id="services_1" style="display:none;">
+<div class="content" style="padding-top:80px;">
+<h3>Service 1 content</h3>
+</div>
+</div>
+
+<div id="services_2" style="display:none;">
+<div class="content" style="padding-top:80px;">
+<h3>Service 2 content</h3>
+</div>
+</div>
+
+<div id="services_3" style="display:none;">
+<div class="content" style="padding-top:80px;">
+<h3>Service 3 content</h3>
+</div>
+</div>
+
+<div id="adminList" style="display:none;" >
+  <div class="content">
+    <table class="table table-bordered margin2" >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <!-- <th scope="col">Password</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Region</th> -->
+        <th id="edit-delete" scope="col">Edit</th>
+        <th id="edit-delete" scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i = 0; i < adminList.length; i++) { %>
+      <tr>
+        <th scope="row"> <%= i+1 %> </th>
+        <td><%= adminList[i].companyName %></td>
+        <td><%= adminList[i].name %></td>
+        <td><%= adminList[i].email %></td>
+        <!-- <td>1234</td>
+        <td>08/29</td>
+        <td>Montreal, CA</td> -->
+        <td ><a href="#"><i class="far fa-edit"></i></a></td>
+        <td ><a href="#"><i class="fas fa-trash"></i></a></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+<div id="addAdmin" style="display:none;">
+  <div class="content" style="padding-top:80px;">
+    <% include ./partials/addAdmin %>
+  </div>
+</div>
+
+</body>
+</html>

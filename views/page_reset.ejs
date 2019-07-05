@@ -31,13 +31,14 @@
         </div>
 
 
-    <center><h2>Reset Password</h2>
+    <center id="resetForm"><h2>Reset Password</h2>
 
-    <form action="/auth/reset/password/<%= token %>" onSubmit="gg" method="post" target="hidden_frame">
+    <span style="color: red"><%= error_reset %></span>
+    <form action="/auth/reset/password/<%= token %>" method="post">
         <div class="reset_content">
 
         <input id="confirm_password3" class="form-control" type="password" name="password" value=""
-          placeholder="New Password"
+          placeholder="New Password" onkeyup="check(this)"
           style="margin-bottom: 10px;" required>
 
 
@@ -46,51 +47,35 @@
 
         </div>
         <input id="confirm_password4" class="form-control" type="password" name="password2" value=""
-          placeholder="Confirm New Password" style="
-          margin-bottom: 10px;" required>
+          placeholder="Confirm New Password" onkeyup="check(this)"
+          style="margin-bottom: 10px;" required>
 
         </div>
 
-      <span id='message2'></span>
+      <p id='message2'></p>
 
       <button class="btn btn-primary"
-        style="position: relative; top: 150px;">Submit</button>
-
-
-
+        style="position: relative; top: 10px;">Submit</button>
     </form>
-    <% if(error_reset && error_reset.length < 0) { %>
-        <span style="color: red"><%= error %></span>
-    <% } %>
+
 
 
     <script>
-        function gg(e) {
-            e.preventDefault();
-            console.log(e.target.className);
+        var check = function(e) {
+            var pass = document.getElementById("confirm_password3");
+            var passConf = document.getElementById("confirm_password4");
+            if (pass.value === passConf.value){
+                  document.getElementById('message2').style.color = 'rgb(0, 255, 0)';
+                  document.getElementById('message2').innerHTML = 'password matching';
+              } else {
+                  document.getElementById('message2').style.color = 'red';
+                  document.getElementById('message2').innerHTML = 'password not matching';
+            }
         }
-
-        for (var i = 0; i < btns.length; i++) {
-          btns[i].addEventListener("click", function() {
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
-          });
-
-
-        var check = function() {
-        if (document.getElementById('confirm_password3').value ===
-          document.getElementById('confirm_password4').value){
-          document.getElementById('message2').style.color = 'green';
-          document.getElementById('message2').innerHTML = 'password matching';
-          } else {
-          document.getElementById('message2').style.color = 'red';
-          document.getElementById('message2').innerHTML = 'password not matching';
-          }
-        }
-      }
     </script>
 
   </center>
+
+  <% include ./partials/footer %>
   </body>
 </html>

@@ -1,0 +1,28 @@
+<center>
+    <div class="modal-body">
+      <div class="auth_content">
+          <h3><p>Add Admin:</p></h3>
+          <br>
+
+
+<div class="loginform registerform">
+  <form action="/auth/addAdmin" method="post" id="myform">
+    <p>Company Name: <%= currentUser.companyName %> </p>
+    <input class="form-control currentname" type="hidden" name="companyName" value="<%= currentUser.companyName %>" required>
+    <p>Name</p>
+    <input class="form-control currentname" type="text" name="name" required>
+    <p>Email</p>
+    <input class="form-control currentemail" type="email" name="email" required>
+    <p>Password</p>
+    <input class="form-control currentpassword" type="password" name="password" id="confirm_password" required>
+    <!-- <font size="3" color="red">Default password must be "1234"</font> -->
+    <p>Confirm Password</p>
+    <input class="form-control" type="password" name="password2" id="confirm_password" required>
+    <input class="form-control btn" id="add-admin-button" type="submit" value="Register" >
+  </form>
+</div>
+
+
+</div>
+</div>
+</center>

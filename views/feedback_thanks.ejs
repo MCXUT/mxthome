@@ -1,23 +1,24 @@
-<html>
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <title> Contact Form </title>
+    <meta charset="utf-8">
+    <% include ./partials/header %>
+    <link rel="stylesheet" href="/static/stylesheets/style_feedback.css">
 
-        <% include ./partials/header %>
-        <link rel="stylesheet" type="text/css" href="/static/stylesheets/style_feedback.css">
-
-  </head>
-  <body>
+</head>
+<% include ./partials/navbar %>
+<% include ./partials/modal %>
+<body>
 
       <% include ./partials/navbar %>
 
-      <div class="contact-title">
+      <div class="contact-title" id="thanksPage">
           <h1>Thank You</h1>
           <h2>Your feedback has been submitted.</h2>
       </div>
 
+      <% include ./partials/footer %>
   </body>
-
-
 
 </html>

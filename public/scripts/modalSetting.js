@@ -27,7 +27,8 @@ document.getElementById("signup_email2").addEventListener("click", () => {
     document.querySelector("#cocoaModal").style.display = "block";
 });
 
-document.getElementById("fold").addEventListener("click", () => {
+document.getElementById("fold").addEventListener("click", (e) => {
+    e.preventDefault();
     document.querySelector("#registerModal").style.display = "block";
     document.querySelector("#emailModal").style.display = "none";
 })
@@ -37,23 +38,21 @@ document.querySelector(".close").addEventListener("click", (e) => {
 });
 
 document.querySelector("#close1").addEventListener("click", (e) => {
-    //console.log(e);
     document.querySelector("#registerModal").style.display = "none";
 });
 
 document.querySelector("#close2").addEventListener("click", (e) => {
-    //console.log(e);
     document.querySelector("#emailModal").style.display = "none";
 });
 
 document.querySelector("#close3").addEventListener("click", (e) => {
-    //console.log(e);
     document.querySelector("#findpasswordModal").style.display = "none";
 });
 
 
 //=======EVENT LISTENERS FOR CLOSING THE FORM WHEN CLICKING OUTSIDE THE BOX====//
 document.getElementById("cocoaModal").addEventListener("click", (e) => {
+    console.log(e.target);
     if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
         document.getElementById("cocoaModal").style.display = "none";
     }
@@ -80,30 +79,7 @@ document.getElementById("findpasswordModal").addEventListener("click", (e) => {
 
 
 
-// document.getElementById("outside").addEventListener("click", (e) => {
-//   console.log(e);
-//   if(e.target.idName == "modal.in.modal_site_login.ui-draggable") {
-//     // e.preventDefault();
-//      document.querySelector("#cocoaModal").style.display = "none";
-//   }
-//
 document.getElementById("signup").addEventListener("click", () => {
     document.querySelector("#cocoaModal").style.display = "none";
     document.querySelector("#registerModal").style.display = "block";
-});
-
-
-
-document.getElementById("close4").addEventListener("click", (e) => {
-    document.querySelector("#validateEmailModal").style.display = "none";
-});
-
-document.getElementById("exit").addEventListener("click", (e) => {
-    document.getElementById('validateEmailModal').style.display = "none";
-})
-
-document.getElementById("validateEmailModal").addEventListener("click", (e) => {
-    if(e.target.className == "modal in modal_site_login ui-draggable sticky-top") {
-        document.getElementById("validateEmailModal").style.display = "none";
-    }
 });

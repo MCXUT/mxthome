@@ -1,5 +1,3 @@
-<!-- login popup -->
-
 <% if(error && error.length > 0) { %>
 <div id="cocoaModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-easein="flipBounceXIn" data-backdrop="true"
@@ -24,7 +22,7 @@ data-keyboard="true">
 
 
 
-	<form action="/auth/login" method="post" target="hidden_frame">
+	<form action="/auth/login" method="post">
 		<input type="hidden" name="back_url" value="Lw%3D%3D">
 		<input type="hidden" name="used_login_btn" value="Y">
 
@@ -48,17 +46,12 @@ data-keyboard="true">
 		</p>
 	</form>
 
-
-		<!-- <a href="#"
-            class="float_l" id="signup">SignUp</a> -->
         <a href="#reset"
             id="findpassword"
             class="link">Find My Account</a>
 
 		</article></div>
-    <!-- <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
-								<rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
-							</svg> -->
+
 	</div>
 </div>
 
@@ -86,7 +79,7 @@ data-keyboard="true">
                      <span style="color: red"><%= error_reset %></span>
                    <% } %>
 
-                   <form action="/auth/reset" method="post" target="hidden_frame">
+                   <form action="/auth/reset" method="post">
                        <input type="hidden" name="back_url" value="Lw%3D%3D">
                        <input type="hidden" name="used_login_btn" value="Y">
                        <span style="position: relative; left:22px; opacity: 0.5;"><i class="fas fa-envelope"></i></span>
@@ -103,10 +96,7 @@ data-keyboard="true">
            </div>
        </div>
 </div>
-
-
-
-<!-- register popup -->
+<!-- second button -->
 <div id="registerModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
 data-keyboard="true">
@@ -120,7 +110,7 @@ data-keyboard="true">
 
 
 
-	<form action="/auth/register" method="post" target="hidden_frame">
+	<form action="/auth/register" method="post">
 		<input type="hidden" name="back_url" value="Lw%3D%3D">
 		<input type="hidden" name="used_login_btn" value="Y">
 
@@ -142,35 +132,18 @@ data-keyboard="true">
      Sign in with Google+</a>
 		<!-- </div> -->
     <div class="or">OR</div>
-    <!-- <button class="social email" id="signup_email">Sign in with Email</button> -->
 
-
-
-
-		<!-- <p>
-			<button class="btn btn-primary btn-block" style="font-size: 14px;">LogIn</button>
-		</p> -->
 	</form>
   <button type="button" class="social email btn btn-primary" id="signup_email">Sign in with Email</button>
   <br><a href="#term">Terms of Use Agreement</a>
 
-
-  		<!-- <div class="divider txt_c">
-  			<div class="border"></div>
-  			Or			<div class="border right"></div>
-  		</div>
-  		<p class="txt_c mb20">
-  						<a class="btn blocked non_btn" href="javascript:;"
-              onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
-              Gimochi</a>		</p>
-  		</article> -->
     </div>
 	</div>
 </div>
 
 
 
-<!--register with Email popup-->
+<!--register with Email-->
 <% if(error_signup && error_signup.length > 0) { %>
 <div id="emailModal" role="dialog" aria-hidden="true"
 class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
@@ -190,7 +163,7 @@ data-keyboard="true">
 
 
 
-	<form action="/auth/register" method="post" target="hidden_frame">
+	<form action="/auth/register" method="post">
 		<input type="hidden" name="back_url" value="Lw%3D%3D">
 		<input type="hidden" name="used_login_btn" value="Y">
 
@@ -237,23 +210,9 @@ data-keyboard="true">
     <br><span id='message'></span>
 		<!-- </div><!--input_form에 active클래스명이 붙으면 (인풋에 글자가 입력된 상태) 체크표시 활성화 -->
 
-
-
-
 	   <button class="btn btn-primary">Register</button>
        <br><button class="btn btn-info" id="fold">Fold</button>
-
 	</form>
-
-
-		<!-- <div class="divider txt_c">
-			<div class="border"></div>
-			Or			<div class="border right"></div>
-		</div> -->
-		<!-- <p class="txt_c mb20">
-						<a class="btn blocked non_btn" href="javascript:;"
-            onclick="SITE_MEMBER.openGuestLogin('L2RpYWxvZy9sb2dpbi5jbQ%3D%3D');">
-            Gimochi</a>		</p> -->
 		</article>
     </div>
 	</div>
@@ -270,22 +229,55 @@ data-keyboard="true" style="display: block;">
     <div class="modal-dialog">
         <div class="modal-content" id="findpasswordcontent">
             <div class="modal-header">
-	               <h2>Check your email for validation</h2>
+	               <h2><%= success_validate %></h2>
                </div>
                <article class="modal_article login p_lr_space pb24">
                    <button class="close" id="close4" data-dismiss="modal"
                    aria-label="Close">+</button>
                </article>
+               <button class="btn btn-primary" id="exit">Ok</button>
            </div>
        </div>
 </div>
 <% } %>
 
+
+<% if(error_verify && error_verify.length > 0) { %>
+    <div id="tokenResendModal" role="dialog" aria-hidden="true"
+    class="modal in modal_site_login ui-draggable sticky-top" data-backdrop="true"
+    data-keyboard="true" style="display: block;">
+
+        <div class="modal-dialog">
+            <div class="modal-content" id="findpasswordcontent">
+                <div class="modal-header">
+                      <h2>Resend validation email</h2>
+                   </div>
+                   <span style="color: red"><%= error_verify %></span>
+                   <article class="modal_article login p_lr_space pb24">
+                       <button class="close" id="close5" data-dismiss="modal"
+                       aria-label="Close">+</button>
+
+
+                       <form action="/auth/verification/resend" method="post">
+                           <span style="position: relative; left:22px; opacity: 0.5;"><i class="fas fa-envelope"></i></span>
+                           <input class="form-control" type="email" name="email" value="" placeholder="Your Email"
+                           style="padding-left: 30px;" required>
+                           <br>
+
+                           <button class="btn btn-primary">Resend the Email</button>
+
+                       </form>
+                   </article>
+               </div>
+           </div>
+    </div>
+<% } %>
+
+
 <script src="/static/scripts/modalSetting.js"></script>
+<script src="/static/scripts/emailNotification.js"></script>
+<script src="/static/scripts/emailResendModal.js"></script>
 
-
-
-<!-- password match check -->
 <script>
 
 // Add active class to the current button (highlight it)
@@ -306,12 +298,11 @@ for (var i = 0; i < btns.length; i++) {
     document.getElementById('confirm_password2').value){
     document.getElementById('message').style.color = 'green';
     document.getElementById('message').innerHTML = 'password matching';
-    } else {
+  } else {
     document.getElementById('message').style.color = 'red';
     document.getElementById('message').innerHTML = 'password not matching';
-    }
   }
 }
-
+}
 
 </script>

@@ -5,14 +5,26 @@
 
 
 .reset_content{
-  position: absolute;
+  position: relative;
   justify-content: center;
   max-width: 100%;
   width: 100%;
 }
-
 .reset_content input{
   width: 300px;
+}
+
+button.btn.btn-primary {
+    background-color: #F4573C;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 16px;
+}
+button.btn.btn-primary:hover {
+    background-color: #D00000;
+}
+#resetForm {
+    margin-bottom: 500px;
 }
 
 #message{

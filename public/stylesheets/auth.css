@@ -1,0 +1,301 @@
+.auth_content p {
+    font-weight: bold;
+}
+
+
+.choicetabs {
+    width: 330px;
+    font-size: 0;
+}
+.choicetabs p {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+.choicetabs .loginasclient, .choicetabs .loginaspartner {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(80, 80, 80);
+    padding: 25px 5%;
+    /* background-color: rgba(130, 130, 130, 0.3); */
+    border: 1px solid rgba(30, 30, 30, 0.3);
+    border-bottom: none;
+}
+.choicetabs .loginasclient {
+    /* box-shadow: -13px -13px 15px inset rgba(0, 0, 0, 0.3); */
+    border-right: none;
+    border-radius: 4px 0 0 0;
+}
+.choicetabs .loginaspartner {
+    /* box-shadow: 13px -13px 15px inset rgba(0, 0, 0, 0.3); */
+    border-left: none;
+    border-radius: 0 4px 0 0;
+}
+.choicetabs .loginasclient:hover, .choicetabs .loginaspartner:hover {
+    /* background-color: rgba(130, 130, 130, 0.2); */
+    color: rgb(0, 113, 191);
+    border-bottom: 1px solid rgb(0, 113, 191);
+}
+.choicetabs .loginasclient.active, .choicetabs .loginaspartner.active {
+    border-bottom: 1px solid rgb(0, 113, 191);
+    color: rgb(0, 113, 191);
+    cursor: default;
+    background-color: white;
+    /* width: 80%; */
+}
+.loginform {
+    color: rgba(30, 30, 30, 0.5);
+    font-size: 16px;
+    width: 330px;
+    text-align: left;
+    padding: 20px 20px 0 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(30, 30, 30, 0.3);
+    border-radius: 0 0 4px 4px;
+    margin-bottom: 15px;
+}
+.loginform p {
+    margin-bottom: 0;
+}
+.loginform p.secondchoice {
+    padding-bottom: 15px;
+    text-align: center;
+}
+.loginform form {
+    margin-bottom: 0;
+}
+.auth_content input.form-control {
+    margin: 0px 0 25px 0;
+}
+.login-form-links {
+    margin-bottom: 15px;
+}
+.loginform.registerform, .loginform.resetform {
+    border-radius: 4px 4px 0 0;
+}
+
+
+
+.form-group {
+    padding: 0;
+}
+.form-group div {
+    padding-bottom: 10px;
+}
+.form-group a. {
+    text-align: left;
+}
+.form-group a.btn span#socialText {
+    font-weight: normal;
+    margin-left: 45px;
+    font-size: 15px;
+}
+.form-group a.btn-info {
+    width: 100%;
+}
+.form-group .facebook a.btn-info {
+    background-color: #3b5998;
+    border-width: thin;
+    border-color: #3b5998
+}
+.form-group .facebook a.btn-info:hover {
+    background-color: rgb(29, 59, 122);
+    border-color: rgb(29, 59, 122);
+}
+.form-group .google a.btn-info {
+    background-color: white;
+    border-width: thin;
+    border-color: rgb(39, 73, 255);
+    color: rgba(0, 0, 0, 0.8);
+}
+.form-group .google a.btn-info:hover {
+    background-color: rgb(225, 225, 225);
+}
+.form-group .kakaotalk a.btn-info {
+    background-color: #ffe812;
+    border-width: thin;
+    border-color: #ffe812;
+    color: rgba(0, 0, 0, 0.8);
+}
+.form-group .kakaotalk a.btn-info:hover {
+    background-color: rgb(225, 202, 0);
+    border-color: rgb(225, 202, 18);
+}
+.form-group .naver a.btn-info {
+    background-color: #1EC800;
+    border-width: thin;
+    border-color: #1EC800;
+}
+.form-group .naver a.btn-info:hover {
+    background-color: rgb(0, 170, 0);
+    border-color: rgb(0, 170, 0);
+}
+
+.form-group.registerform {
+    display: block;
+}
+
+#admin_topNav{
+  margin-right: 30px;
+  font-size: 19px;
+  color:black;
+}
+#admin_topNav:hover{
+  color:#999999;
+}
+#admin_topNav2{
+  margin-right: 30px;
+  font-size: 15px;
+}
+
+@media (max-width: 576px) {
+    .choicetabs {
+        width: 270px;
+    }
+    .auth_content p {
+        font-size: 16px;
+    }
+    .loginform {
+        width: 270px;
+        font-size: 14px;
+    }
+    .form-group a.btn span#socialText {
+        font-size: 13px;
+        margin-left: 25px;
+    }
+}
+
+
+/* REGISTER LANDING PAGE */
+.service-item {
+    background-color: rgb(240, 240, 240);
+    width: 350px;
+    padding: 0 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.service-item p {
+    font-size: 18px;
+    padding: 50px 0;
+}
+.service-item .service-content a {
+    margin: 20px 0;
+    height: 40px;
+    line-height: 1.8;
+}
+#clientService {
+    border-right: 2px solid rgba(200, 200, 200, 0.7);
+}
+.row .col-md-6 {
+    margin: 50px 0;
+}
+#clientButton {
+    background-color: rgb(0, 113, 191);
+    border: none;
+}
+#partnerButton {
+    background-color: rgb(87, 87, 87);
+    border: none;
+}
+
+.validate {
+    display: inline-block;
+}
+.form-control.validate {
+    width: 80%;
+}
+button.validate {
+    width: 50px;
+    font-size: 12px;
+    padding: 9px 0 9px 0;
+}
+
+.btn-primary.disabled {
+    cursor: not-allowed;
+}
+#add-admin-button{
+  background-color:#007bff;
+  color:white;
+}
+#add-admin-button:hover{
+  background-color:#0063cc;
+}
+
+/* modal thin exit('x') button */
+.close1 {
+  position: absolute;
+//  right: 8px;
+  top: 24px;
+  width: 32px;
+  height: 32px;
+  opacity: 1.0;
+}
+.close1:hover {
+  opacity: 1;
+  cursor:pointer;
+}
+.close1:before, .close1:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close1:before {
+  transform: rotate(45deg);
+}
+.close1:after {
+  transform: rotate(-45deg);
+}
+/* end of thin exit button */
+
+/* td{
+  max-width: 25px;
+  word-wrap: break-word;
+} */
+.content{
+  overflow-x: scroll;
+}
+#edit-delete{
+  width:5px !important;
+}
+
+@media (max-width: 768px) {
+    #clientService {
+        border-right: none;
+    }
+}
+@media (max-width: 576px) {
+    .service-item {
+        width: 270px;
+    }
+    .service-item p {
+        font-size: 16px;
+        padding: 40px 0;
+    }
+    .service-item .service-content a {
+        margin: 10px 0;
+    }
+    .row .col-md-6 {
+        margin: 30px 0;
+    }
+    button.validate {
+        width: 40px;
+        font-size: 8px;
+    }
+}
+
+.clientform,.partnerform {
+    display: none;
+}
+.clientform.active,.partnerform.active {
+    display:block;
+}
+
+html.disabled {
+    overflow-y: hidden;
+}
